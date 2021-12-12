@@ -1,6 +1,6 @@
 # Gravity-Aware Monocular 3D Human-Object Reconstruction
 
-![a](./_posts/2021-12-12-Gravity-Aware Monocular 3D Human-Object Reconstruction.assets/a.png)
+![a](./_posts/2021-12-12-Gravity-Aware Monocular 3D Human-Object Reconstruction/a.png)
 
 本文主要关注了有物体自由飞行（抛物线运动）的场景，通过**单目 RGB 视频在绝对单位（“米”）上重建人体3D动作**，并且捕捉出**物体3D运动轨迹**。和现有的方法相比，GraviCap可以在“米”单位上恢复出人体骨骼绝对长度和物体运动轨迹，包括地面的方向。
 
