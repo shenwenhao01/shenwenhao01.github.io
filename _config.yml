@@ -3,7 +3,7 @@
 #
 
 # Name of your site (displayed in the header)
-name: "Wenhao's Blog"
+name: "Wenhao"
 # Short bio or description (displayed in the header)
 description: "Personal Blog"
 
@@ -12,21 +12,21 @@ description: "Personal Blog"
 #
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://avatars.githubusercontent.com/u/56423956?s=400&u=d790dd0f1a4b3cff85ba5304542ba789ed84af2b&v=4
+avatar: ./images/pikachu.JPG
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
-favicon: https://avatars.githubusercontent.com/u/56423956?s=400&u=d790dd0f1a4b3cff85ba5304542ba789ed84af2b&v=4
+favicon: ./images/pikachu.JPG
 
 # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
 # it from the list(Delete '- name: ' and 'url: ', too!)
 navigation:
-  - name: 首页
+  - name: Home
     url: /
-  - name: 关于
+  - name: About
     url: /about
-  - name: 归档
+  - name: Archive
     url: /archive
-  - name: 标签
+  - name: Tags
     url: /tags
 
 # Pagination
