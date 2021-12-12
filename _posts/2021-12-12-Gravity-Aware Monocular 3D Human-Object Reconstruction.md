@@ -1,6 +1,6 @@
 # Gravity-Aware Monocular 3D Human-Object Reconstruction
 
-![截屏2021-11-02 下午7.16.08.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d844d24c-3567-462e-aafb-a0e7817e0a5e/%E6%88%AA%E5%B1%8F2021-11-02_%E4%B8%8B%E5%8D%887.16.08.png)
+![a](/Users/shenwenhao/shenwenhao01.github.io/_posts/2021-12-12-Gravity-Aware Monocular 3D Human-Object Reconstruction.assets/a.png)
 
 本文主要关注了有物体自由飞行（抛物线运动）的场景，通过**单目 RGB 视频在绝对单位（“米”）上重建人体3D动作**，并且捕捉出**物体3D运动轨迹**。和现有的方法相比，GraviCap可以在“米”单位上恢复出人体骨骼绝对长度和物体运动轨迹，包括地面的方向。
 
@@ -54,7 +54,7 @@ $$\left\{\begin{array}{l} X_{i}=X_{0}+u_{x} t+\frac{1}{2} g_{x} t^{2} \\ Y_{i}=Y
 
 直接假设重力的大小已知 $9.81m/s$，因为在这里这个数值并不重要。现在还可以分两种情况：1）重力方向已知，和地面垂直；2）重力方向未知，需要 N>4 才能解出方程。实际操作中，为了减少观测误差（物体重心位置不准确等），推荐 N>10。下面这张表格展示了不同情况的输入输出。
 
-![截屏2021-11-02 下午9.57.42.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/630206d9-733d-493b-80c0-62162190c80d/%E6%88%AA%E5%B1%8F2021-11-02_%E4%B8%8B%E5%8D%889.57.42.png)
+<img src="/Users/shenwenhao/shenwenhao01.github.io/_posts/2021-12-12-Gravity-Aware Monocular 3D Human-Object Reconstruction.assets/b.png" alt="b" style="zoom:50%;" />
 
 最后，**最小化目标函数 $E_{b}=E_{b}\left(B_{0}, \vec{u}, f, \vec{g}\right)$**，通过上面的方程解出 $B_{0}, \vec{u}$（以及$f, \vec g$）。
 
@@ -82,7 +82,7 @@ $$\begin{equation}\arg \min *{l, t^{corr}} \sum*{i, k}\left \| \left[\begin{arra
 
 上式有 $2NK$ 个等式，和 $(3N+K)$ 个未知量（3N 个 root translation，K-1 个 bone length，1个 focal length）。但是如果仅考虑 $E_p$，忽略 $E_b$，则会使得尺度有歧义，因为骨骼长度和根关键点偏移量会互相干扰。
 
-![截屏2021-11-03 下午11.15.42.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80fe0ea9-0992-48b0-b38f-1810aa658e6d/%E6%88%AA%E5%B1%8F2021-11-03_%E4%B8%8B%E5%8D%8811.15.42.png)
+<img src="/Users/shenwenhao/shenwenhao01.github.io/_posts/2021-12-12-Gravity-Aware Monocular 3D Human-Object Reconstruction.assets/c.png" alt="c" style="zoom:50%;" />
 
 所以，我们通过以下两个方法解决这些问题：
 
@@ -125,7 +125,7 @@ $$\text{where} \quad \mathbf{d}*{i, j, m}^{2 D}=p*{i, j}+\frac{m\left(b_{i, j}-p
 
 $\mathcal{T}$ 表示关键点的集合。注意，我们在重投影后的像平面优化这些 3D 向量，这样的优化同时也会影响相应关键点 j 的准确度，实际操作中，我们均匀的采样 $M$ 个关键点，并且计算重投影误差。
 
-![截屏2021-11-04 下午12.02.20.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dda45d89-64fb-46aa-afb8-3649ffac4290/%E6%88%AA%E5%B1%8F2021-11-04_%E4%B8%8B%E5%8D%8812.02.20.png)
+<img src="/Users/shenwenhao/shenwenhao01.github.io/_posts/2021-12-12-Gravity-Aware Monocular 3D Human-Object Reconstruction.assets/d.png" alt="d" style="zoom:50%;" />
 
 ### 2.2.3 **Multi-Episodes and Multi-Person Settings**
 
