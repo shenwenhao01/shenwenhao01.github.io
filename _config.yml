@@ -62,14 +62,14 @@ footer-text: Copyright (c) 2021 wenhao
 disqus: # fromendworld
 
 # Gitalk
-#gitalk:
-#  clientID: bd65d5c0df878155b7fa
-#  clientSecret: d0220762c05c2d6b6f6152a0f0e4b6b090de9729
-#  repo: lemonchann.github.io
-#  owner: lemonchann
+gitalk:
+  clientID: b6764af559bd18177c7a
+  clientSecret: 6a2b1c5c6283485d327ef36e01b8f5d6830553c3
+  repo: shenwenhao01.github.io
+  owner: shenwenhao01
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-#google_analytics: 
+google_analytics: G-4DEFXZQ6CM
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
