@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Wenhao Shen"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Wenhao Shen"
 description              : &description "personal description"
