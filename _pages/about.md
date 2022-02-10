@@ -8,4 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-I am currently an undergraduate student in Artificial Intellegence at Chukochen College, Zhejiang University. My primary interests are machine learning, computer vision and 3D deep learning.
+I am currently an undergraduate student in Artificial Intellegence at College of Computer Science and Technology, Zhejiang University. I am also a member of Mixed Class, Chu Kochen Honors College, Zhejiang University.
+My primary interests are Machine Learning, Computer Vision and 3D Deep 
+Learning.
