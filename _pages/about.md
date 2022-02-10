@@ -9,8 +9,3 @@ redirect_from:
 ---
 
 I am currently an undergraduate student in Artificial Intellegence at Chukochen College, Zhejiang University. My primary interests are machine learning, computer vision and 3D deep learning.
-
-
-Work experience
-======
-* None
