@@ -8,8 +8,6 @@ tags:
   - paper notes
 ---
 
-![截屏2021-09-24 下午3.18.42.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/816521d2-f610-441e-aad3-f79c72178e8f/截屏2021-09-24_下午3.18.42.png)
-
 论文链接：[https://zju3dv.github.io/neuralbody/](https://zju3dv.github.io/neuralbody/)
 
 [Code Structure of Neuralbody](https://www.notion.so/Code-Structure-of-Neuralbody-d625b423df6e4c5781a7c7fb12c4e98d)
