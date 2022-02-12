@@ -7,6 +7,7 @@ tags:
   - camera model
 ---
 
+Notes about Camera Model, Epipolar Geometry, Fundamental Matrix and Triangulation.
 
 > Shree K. Nayar
 Columbia University
