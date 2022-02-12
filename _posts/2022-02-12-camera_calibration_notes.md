@@ -1,6 +1,6 @@
 ---
 title: 'Camera Calibration and Uncalibrated Stereo'
-date: 2021-08-20
+date: 2022-02-12
 permalink: /posts/2021/08/camera_calibration_notes/
 tags:
   - 3D
