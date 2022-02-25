@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Home"
+title                    : "Wenhao Shen"
 title_separator          : "-"
 name                     : &name "Wenhao Shen"
 description              : &description "personal description"
@@ -82,9 +82,9 @@ analytics:
 author:
   name             : "Wenhao Shen"
   avatar           : "profile.png"
-  bio              : #""
+  bio              : "Undergraduate student"
   location         : "Hangzhou, China"
-  employer         :
+  employer         : "Zhejiang University"
   pubmed           :
   googlescholar    : #"http://yourfullgooglescholarurl.com"
   email            : "shenwenhao01@gmail.com"
@@ -102,8 +102,8 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
-  orcid            : #"http://orcid.org/yourorcidurl"
+  linkedin         : ""
+  orcid            : "https://orcid.org/0000-0003-4125-6152"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
