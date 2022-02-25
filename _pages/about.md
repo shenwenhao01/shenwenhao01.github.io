@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am currently an undergraduate student in Artificial Intellegence at [College of Computer Science and Technology](http://www.en.cs.zju.edu.cn), [Zhejiang University](https://www.zju.edu.cn/english/). I am also a member of Mixed Class, [Chu Kochen Honors College, Zhejiang University](http://ckc.zju.edu.cn/ckcen/main.htm).
+I am currently an undergraduate student in Artificial Intellegence at [College of Computer Science and Technology](http://www.en.cs.zju.edu.cn), [Zhejiang University](https://www.zju.edu.cn/english/). I am also a member of Mixed Class, [Chu Kochen Honors College](http://ckc.zju.edu.cn/ckcen/main.htm), Zhejiang University.
 
 My primary interests are Machine Learning, Computer Vision and 3D Deep Learning.
 
