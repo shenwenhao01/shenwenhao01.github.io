@@ -14,7 +14,7 @@ tags:
 NeuS leverages zero-level set of a *signed distance function* (SDF) to represent an object's surface. With density distribution induced by SDF，it optimizes volume rendering and proposes a new neural implicit surface representation.
 
 
-![animatablenerf/截屏2022-02-28 下午11.24.08.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.24.08.png)
+![animatablenerf/截屏2022-02-28 下午11.24.08.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
 输入一段**稀疏多视角的视频**，论文希望生成一个**可驱动的人体模型**，即**输入新的人体姿态，可以生成相应姿态下的人体图片**，而且可以生成自由视点下的图片。
 
@@ -34,7 +34,7 @@ NeuS leverages zero-level set of a *signed distance function* (SDF) to represent
 2. 输入当前视频帧下的人体骨架，生成变换矩阵，使用线性蒙皮模型将三维点转回标准坐标系。
 3. 论文在标准坐标系上定义了一个 NeRF 场。对于变换后的点，我们用 NeRF 场预测三维点的 volume density 和 color。
 
-![./animatablenerf/截屏2022-02-28 下午9.27.23.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%889.27.23.png)
+![./animatablenerf/截屏2022-02-28 下午9.27.23.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
 ## 1 将视频表示为 NeRF 场 Representing videos with nerf
 
@@ -84,7 +84,7 @@ $$
 \end {equation}
 $$
 
-![./animatablenerf/截屏2022-02-28 下午11.20.47.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.20.47.png)
+![./animatablenerf/截屏2022-02-28 下午11.20.47.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
 ### 2.2 蒙皮权重的求解 Obtaining blend weight per frame
 
@@ -100,7 +100,7 @@ $$
 
 ${w}^{\mathrm{s}}$ 是基于SMPL模型 $S_i$ 计算出的初始权重，对任意的3D点，首先找到SMPL mesh 表面最近的点，然后在相应的mesh facet上的三个vertex的蒙皮权重使用 barycentric interpolation 计算出对应的 blend weight。$\operatorname{norm}(\mathbf{w})=\mathbf{w} / \sum w_{i}$。
 
-![./animatablenerf/截屏2022-02-28 下午11.11.50.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.11.50.png)
+![./animatablenerf/截屏2022-02-28 下午11.11.50.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
 ### 2.3 正则空间的蒙皮权重场 $\mathbf w ^\text{can}$
 
@@ -168,16 +168,16 @@ NeRF的 密度场F$_\sigma$ 和颜色场 $F_\mathbf c$ 和原论文中一样。�
 
 $F_{\Delta \mathbf{w}}$ 的结构和上面两个几乎一样，区别是最后一层输出 24 维，此外，对结果应用需要应用 $\text{exp}(·)$。
 
-![animatablenerf/截屏2022-02-28 下午11.09.25.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.09.25.png)
+![animatablenerf/截屏2022-02-28 下午11.09.25.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
 ## 网络架构
 
-![animatablenerf/截屏2022-02-28 下午11.21.52.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.21.52.png)
+![animatablenerf/截屏2022-02-28 下午11.21.52.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
 # 实验结果
 
-![animatablenerf/截屏2022-02-28 下午11.15.44.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.15.44.png)
+![animatablenerf/截屏2022-02-28 下午11.15.44.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
-![animatablenerf/截屏2022-02-28 下午11.16.16.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.16.16.png)
+![animatablenerf/截屏2022-02-28 下午11.16.16.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
 
-![animatablenerf/截屏2022-02-28 下午11.23.04.png](Animatable%2001f96/%E6%88%AA%E5%B1%8F2022-02-28_%E4%B8%8B%E5%8D%8811.23.04.png)
+![animatablenerf/截屏2022-02-28 下午11.23.04.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
