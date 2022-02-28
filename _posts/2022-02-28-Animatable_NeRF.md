@@ -11,7 +11,7 @@ tags:
   - zju3dv
 ---
 
-NeuS leverages zero-level set of a *signed distance function* (SDF) to represent an object's surface. With density distribution induced by SDF，it optimizes volume rendering and proposes a new neural implicit surface representation.
+Animatable NeRF is the latest outcome of ZJU 3D Vision Lab. Animatable NeRF reconstructs an animatable human model from a multi-view video. They introduce neural blend weight fields to produce the deformation fields. Based on the skeleton-driven deformation, blend weight fields are used with 3D human skeletons to generate observation-to-canonical and canonical-to-observation correspondences.
 
 
 ![animatablenerf/截屏2022-02-28 下午11.24.08.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
