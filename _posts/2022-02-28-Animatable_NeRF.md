@@ -14,7 +14,7 @@ tags:
 Animatable NeRF is the latest outcome of ZJU 3D Vision Lab. Animatable NeRF reconstructs an animatable human model from a multi-view video. They introduce neural blend weight fields to produce the deformation fields. Based on the skeleton-driven deformation, blend weight fields are used with 3D human skeletons to generate observation-to-canonical and canonical-to-observation correspondences.
 
 
-![animatablenerf/截屏2022-02-28 下午11.24.08.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
+![animatablenerf/截屏2022-02-28 下午11.24.08.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d1790fa6-9894-4766-ad30-a721efed6e20/截屏2022-02-28_下午11.24.08.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220228%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220228T155731Z&X-Amz-Expires=86400&X-Amz-Signature=c3dba185bf703deca04ad4d540770d252be2ae61ed4a53e1b51349fb885c10c1&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25E6%2588%25AA%25E5%25B1%258F2022-02-28%2520%25E4%25B8%258B%25E5%258D%258811.24.08.png%22&x-id=GetObject)
 
 输入一段**稀疏多视角的视频**，论文希望生成一个**可驱动的人体模型**，即**输入新的人体姿态，可以生成相应姿态下的人体图片**，而且可以生成自由视点下的图片。
 
@@ -34,7 +34,7 @@ Animatable NeRF is the latest outcome of ZJU 3D Vision Lab. Animatable NeRF reco
 2. 输入当前视频帧下的人体骨架，生成变换矩阵，使用线性蒙皮模型将三维点转回标准坐标系。
 3. 论文在标准坐标系上定义了一个 NeRF 场。对于变换后的点，我们用 NeRF 场预测三维点的 volume density 和 color。
 
-![./animatablenerf/截屏2022-02-28 下午9.27.23.png](animatablenerf/截屏2022-02-28 下午11.24.08.png)
+![./animatablenerf/截屏2022-02-28 下午9.27.23.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/112cc097-3d27-44f5-bb2f-53d0bc3ecd33/截屏2022-02-28_下午9.27.23.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220228%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220228T155803Z&X-Amz-Expires=86400&X-Amz-Signature=7af05c41358aeb5159e441c0fd0e80ac1a7bbbaf1c90bd4e9778e2bf1c9a6765&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25E6%2588%25AA%25E5%25B1%258F2022-02-28%2520%25E4%25B8%258B%25E5%258D%25889.27.23.png%22&x-id=GetObject)
 
 ## 1 将视频表示为 NeRF 场 Representing videos with nerf
 
