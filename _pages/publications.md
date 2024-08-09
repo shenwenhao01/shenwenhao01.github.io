@@ -11,7 +11,7 @@ author_profile: true
 <li>
   Sync4D: Video Guided Controllable Dynamics for Physics-Based 4D Generation <a href="https://arxiv.org/pdf/2405.16849">[Paper]</a> 
   <br/> 
-  Zhoujie Fu, Jiacheng Wei, <strong><font color="black">Wenhao Shen</font></strong>, Chaoyue Song, Xiaofeng Yang, Fayao Liu, Xulei Yang, Guosheng Lin.
+  Zhoujie Fu*, Jiacheng Wei*, <strong><font color="black">Wenhao Shen</font></strong>, Chaoyue Song, Xiaofeng Yang, Fayao Liu, Xulei Yang, Guosheng Lin. (* denotes equal contributions)
 </li>
 </ul>
 
