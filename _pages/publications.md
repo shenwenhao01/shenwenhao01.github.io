@@ -29,7 +29,7 @@ author_profile: true
   Novel view synthesis of human interactions from sparse multi-view videos <a href="https://dl.acm.org/doi/fullHtml/10.1145/3528233.3530704">[Paper]</a> <a href="https://github.com/zju3dv/EasyMocap">[Code]</a>
   <br/> 
   Qing Shuai, Chen Geng, Qi Fang, Sida Peng, <strong><font color="black">Wenhao Shen</font></strong>, Xiaowei Zhou, Hujun Bao.
-  <br/>
+  <br/><i>Special Interest Group on Computer Graphics and Interactive Techniques</i>
     <strong>(ACM SIGGRAPH 2022)</strong><br>
 </li>
 </ul>
