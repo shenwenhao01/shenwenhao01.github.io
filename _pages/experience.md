@@ -30,4 +30,4 @@ author_profile: true
 
 
 ## Service
-* Reviewer: ACM Multimedia, IEEE VR, SIGGRAPH Asia.
+* Reviewer: ACM Multimedia, IEEE VR, ACM SIGGRAPH Asia.
