@@ -30,6 +30,6 @@ author_profile: true
   <br/> 
   Qing Shuai, Chen Geng, Qi Fang, Sida Peng, <strong><font color="black">Wenhao Shen</font></strong>, Xiaowei Zhou, Hujun Bao.
   <br/><i>Special Interest Group on Computer Graphics and Interactive Techniques</i>
-    <strong>(ACM SIGGRAPH 2022)</strong><br>
+    <strong>(SIGGRAPH 2022)</strong><br>
 </li>
 </ul>
