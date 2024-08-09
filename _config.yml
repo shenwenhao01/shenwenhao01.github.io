@@ -81,13 +81,13 @@ analytics:
 # Site Author
 author:
   name             : "Wenhao Shen"
-  avatar           : "profile.png"
-  bio              : "Undergraduate student"
-  location         : "Hangzhou, China"
-  employer         : "Zhejiang University"
+  avatar           : "profile.jpg"
+  bio              : "Ph.D. student"
+  location         : "Singapore"
+  employer         : "Nanyang Technological University"
   pubmed           :
-  googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            : "shenwenhao01@gmail.com"
+  googlescholar    : "https://scholar.google.com/citations?user=F0UvaMwAAAAJ"
+  email            : "wenhao005@e.ntu.edu.sg"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -102,14 +102,14 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : ""
-  orcid            : "https://orcid.org/0000-0003-4125-6152"
+  linkedin         : #""
+  orcid            : #"https://orcid.org/0000-0003-4125-6152"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "wenhao01"
+  twitter          : #"wenhao01"
   vine             :
   weibo            :
   xing             :

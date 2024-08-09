@@ -8,8 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-I am currently an undergraduate student in Artificial Intellegence at [College of Computer Science and Technology](http://www.en.cs.zju.edu.cn), [Zhejiang University](https://www.zju.edu.cn/english/). I am also a member of Mixed Class, [Chu Kochen Honors College](http://ckc.zju.edu.cn/ckcen/main.htm), Zhejiang University.
+I am currently a PhD student at College of Computing and Data Science, Nanyang Technological University. I am fortunate to be advised by [Prof. Guosheng Lin](https://guosheng.github.io/) and affiliated with the [S-Lab](https://www.ntu.edu.sg/s-lab).
 
-My primary interests are Machine Learning, Computer Vision and 3D Deep Learning.
+Previously, I got my bachelor's degree in Artificial Intellegence from [Zhejiang University](https://www.zju.edu.cn/english/) in 2023, with an honors degree from [Chu Kochen Honors College](http://ckc.zju.edu.cn/ckcen/main.htm). During my undergraduate, I was privileged to work with [Prof. Xiaowei Zhou](http://xzhou.me/) and [Prof. Chunhua Shen](https://cshen.github.io/).
 
-I am currently looking for a PhD position.
+My research lies at Human-centered perceptron and generation. Specifically, I'm currently interested in human mesh recovery.
