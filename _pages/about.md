@@ -12,4 +12,4 @@ I am currently a Ph.D. student at College of Computing and Data Science, Nanyang
 
 Previously, I got my bachelor's degree in Artificial Intellegence from [Zhejiang University](https://www.zju.edu.cn/english/) in 2023, with an honors degree from [Chu Kochen Honors College](http://ckc.zju.edu.cn/ckcen/main.htm). During my undergraduate, I was privileged to work with [Prof. Xiaowei Zhou](http://xzhou.me/) and [Prof. Chunhua Shen](https://cshen.github.io/).
 
-My research lies at human-centered perceptron and generation algorithms. Specifically, I'm currently interested in Human Motion Capture.
+My research lies at human-centered perceptron and generation algorithms. Specifically, I'm currently interested in human motion capture.
