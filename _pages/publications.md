@@ -18,13 +18,23 @@ author_profile: true
 ## Conference/Journal Papers
 
 <ul>
+
 <li>
-  HMR-Adapter: A Lightweight Adapter with Dual-Path Cross Augmentation for Expressive Human Mesh Recovery <a href="https://openreview.net/pdf?id=Y28oc8ctPb">[Paper]</a>
+  Free-Viewpoint Video in the Wild Using a Flying Camera <a href="https://openreview.net/pdf?id=AsPHD00Wer">[Paper]</a>
+  <br/> 
+  Zhengdong Hong, <strong><font color="black">Wenhao Shen</font></strong>
+  <br/><i>European Conference on Computer Vision Workshop</i>
+    <strong>(ECCV Workshop 2024)</strong><br>
+</li>
+
+<li>
+  HMR-Adapter: A Lightweight Adapter with Dual-Path Cross Augmentation for Expressive Human Mesh Recovery <a href="https://dl.acm.org/doi/pdf/10.1145/3664647.3681641">[Paper]</a>
   <br/> 
   <strong><font color="black">Wenhao Shen</font></strong>, Wanqi Yin, Hao Wang, Chen Wei, Zhongang Cai, Lei Yang, Guosheng Lin.
   <br/><i>ACM International Conference on Multimedia</i>
     <strong>(ACM MM 2024)</strong><br>
 </li>
+
 <li>
   Novel view synthesis of human interactions from sparse multi-view videos <a href="https://dl.acm.org/doi/fullHtml/10.1145/3528233.3530704">[Paper]</a> <a href="https://github.com/zju3dv/EasyMocap">[Code]</a>
   <br/> 
@@ -32,4 +42,5 @@ author_profile: true
   <br/><i>Special Interest Group on Computer Graphics and Interactive Techniques</i>
     <strong>(SIGGRAPH 2022)</strong><br>
 </li>
+
 </ul>
