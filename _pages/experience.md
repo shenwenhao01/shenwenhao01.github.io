@@ -30,4 +30,4 @@ author_profile: true
 
 
 ## Service
-* Reviewer: IEEE TCSVT, ACM Multimedia, IEEE VR, ACM SIGGRAPH Asia. IEEE ICME
+* Reviewer: ACM Multimedia, IEEE VR, ACM SIGGRAPH Asia. IEEE ICME, IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)
