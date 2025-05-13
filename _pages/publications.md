@@ -15,14 +15,39 @@ author_profile: true
 </li>
 </ul>
 
+
 ## Conference/Journal Papers
 
 <ul>
 
 <li>
+  ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization <a href="https://icml.cc/virtual/2025/poster/43558">[Paper]</a> <a href="https://github.com/shenwenhao01/ADHMR">[Code]</a>
+  <br/> 
+  <strong><font color="black">Wenhao Shen</font></strong>, Wanqi Yin, Xiaofeng Yang, Cheng Chen, Chaoyue Song, Zhongang Cai, Lei Yang, Hao Wang, Guosheng Lin.
+  <br/><i>International Conference on Machine Learning</i>
+    <strong>(ICML 2025)</strong><br>
+</li>
+
+<li>
+  3D Cartoon Face Generation with Controllable Expressions from a Single GAN Image <a href="https://arxiv.org/abs/2207.14425">[Paper]</a> <a href="https://github.com/hwang1996/3D-Cartoon-Face-Generation">[Code]</a>
+  <br/> 
+  Hao Wang,  <strong><font color="black">Wenhao Shen</font></strong>, Guosheng Lin, Steven Hoi and Chunyan Miao
+  <br/><i>International Joint Conference on Neural Networks</i>
+    <strong>(IJCNN 2025)</strong><br>
+</li>
+
+<li>
+  SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction
+  <br/> 
+  <strong><font color="black">Wenhao Shen*</font></strong>, Gangjian Zhang*, Jianfeng Zhang, Yu Feng, Nanjie Yao, Xuanmeng Zhang, Hao Wang.  (* denotes equal contributions)
+  <br/><i>IEEE International Conference on Multimedia & Expo</i>
+    <strong>(ICME 2025)</strong><br>
+</li>
+
+<li>
   Free-Viewpoint Video in the Wild Using a Flying Camera <a href="https://openreview.net/pdf?id=AsPHD00Wer">[Paper]</a>
   <br/> 
-  Zhengdong Hong, <strong><font color="black">Wenhao Shen</font></strong>
+  Zhengdong Hong, <strong><font color="black">Wenhao Shen</font></strong>.
   <br/><i>European Conference on Computer Vision Workshop</i>
     <strong>(ECCV Workshop 2024)</strong><br>
 </li>
