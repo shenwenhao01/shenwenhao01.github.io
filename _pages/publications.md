@@ -31,7 +31,7 @@ author_profile: true
 <li>
   3D Cartoon Face Generation with Controllable Expressions from a Single GAN Image <a href="https://arxiv.org/abs/2207.14425">[Paper]</a> <a href="https://github.com/hwang1996/3D-Cartoon-Face-Generation">[Code]</a>
   <br/> 
-  Hao Wang,  <strong><font color="black">Wenhao Shen</font></strong>, Guosheng Lin, Steven Hoi and Chunyan Miao
+  Hao Wang,  <strong><font color="black">Wenhao Shen</font></strong>, Guosheng Lin, Steven Hoi and Chunyan Miao.
   <br/><i>International Joint Conference on Neural Networks</i>
     <strong>(IJCNN 2025)</strong><br>
 </li>
