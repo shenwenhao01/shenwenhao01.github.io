@@ -21,7 +21,7 @@ author_profile: true
 <ul>
 
 <li>
-  ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization <a href="https://icml.cc/virtual/2025/poster/43558">[Paper]</a> <a href="https://github.com/shenwenhao01/ADHMR">[Code]</a>
+  ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization <a href="https://arxiv.org/abs/2505.10250">[Paper]</a> <a href="https://github.com/shenwenhao01/ADHMR">[Code]</a>
   <br/> 
   <strong><font color="black">Wenhao Shen</font></strong>, Wanqi Yin, Xiaofeng Yang, Cheng Chen, Chaoyue Song, Zhongang Cai, Lei Yang, Hao Wang, Guosheng Lin.
   <br/><i>International Conference on Machine Learning</i>
@@ -37,11 +37,11 @@ author_profile: true
 </li>
 
 <li>
-  SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction
+  SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction <a href="https://www.arxiv.org/abs/2506.12793">[Paper]</a>
   <br/> 
   <strong><font color="black">Wenhao Shen*</font></strong>, Gangjian Zhang*, Jianfeng Zhang, Yu Feng, Nanjie Yao, Xuanmeng Zhang, Hao Wang.  (* denotes equal contributions)
   <br/><i>IEEE International Conference on Multimedia & Expo</i>
-    <strong>(ICME 2025)</strong><br>
+    <strong>(ICME 2025 Oral)</strong><br>
 </li>
 
 <li>
