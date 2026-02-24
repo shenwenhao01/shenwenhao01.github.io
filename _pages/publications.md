@@ -21,6 +21,15 @@ author_profile: true
 <ul>
 
 <li>
+  VLM-Guided Group Preference Alignment for Diffusion-based Human Mesh Recovery <a href="https://arxiv.org/abs/2602.19180">[Paper]</a>
+  <br/> 
+  <strong><font color="black">Wenhao Shen</font></strong>, Hao Wang, Wanqi Yin, Fayao Liu, Xulei Yang, Chao Liang, Zhongang Cai, Guosheng Lin.
+  <br/><i>The IEEE/CVF Conference on Computer Vision and Pattern Recognition</i>
+    <strong>(CVPR 2026)</strong><br>
+</li>
+
+
+<li>
   ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization <a href="https://arxiv.org/abs/2505.10250">[Paper]</a> <a href="https://github.com/shenwenhao01/ADHMR">[Code]</a>
   <br/> 
   <strong><font color="black">Wenhao Shen</font></strong>, Wanqi Yin, Xiaofeng Yang, Cheng Chen, Chaoyue Song, Zhongang Cai, Lei Yang, Hao Wang, Guosheng Lin.
