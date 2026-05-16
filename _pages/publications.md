@@ -8,6 +8,14 @@ author_profile: true
 ## Preprints
 
 <ul>
+<!-- <li>
+  DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos <a href="/dancehmr/">[Project]</a>
+  <br/>
+  <strong><font color="black">Wenhao Shen*</font></strong>, Ming Zhou*, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Xi Lin. (* denotes equal contributions)
+  <br/><i>arXiv preprint</i>
+    <strong>(2026)</strong><br>
+</li> -->
+
 <li>
   Sync4D: Video Guided Controllable Dynamics for Physics-Based 4D Generation <a href="https://arxiv.org/pdf/2405.16849">[Paper]</a> 
   <br/> 

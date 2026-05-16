@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta content="DanceHMR" name="title" />
+  <meta content="DanceHMR recovers temporally coherent hand-aware whole-body SMPL-X motion from monocular videos."
+    name="description" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="English" name="language" />
+  <meta content="Wenhao Shen, Ming Zhou, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Xi Lin" name="author" />
+  <title>DanceHMR</title>
+  <!-- Bootstrap -->
+  <!-- <script src="js/video_comparison.js"></script> -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap-4.4.1.js"></script>
+
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" rel="stylesheet" />
+  <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💃</text></svg>" rel="icon" />
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    code {
+      white-space: pre-wrap;
+    }
+
+    body {
+      font-family: 'Jost';
+    }
+
+    b {
+      font-weight: black;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    section>h5 {
+      padding-bottom: 30px;
+    }
+
+    .col-12>h3 {
+      padding-top: 5px;
+    }
+
+    .results-section {
+      padding-bottom: 30px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+      left: 25px;
+    }
+
+    .carousel-control-next {
+      right: 25px;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: 0%;
+      left: 90%;
+
+      /* Adjust vertical position */
+      text-align: center;
+      /* Center the content horizontally */
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .carousel-indicators li {
+      background-color: transparent;
+      /* Hide the default Bootstrap indicators */
+      border: none;
+      /* Remove border */
+      margin: 0 25px;
+      display: inline-block;
+    }
+
+    .indicator-dot {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      text-indent: -999px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .row.sm-gutters {
+      margin-right: 5px;
+      margin-left: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .row.sm-gutters>.col-md-4 {
+      padding-right: 5px;
+      padding-left: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .row.sm-gutters>.col-md-6 {
+      padding-right: 5px;
+      padding-left: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .row.sm-gutters>.col-md-12 {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+
+    .renbody-zoom-container {
+      width: 80%;
+      /* Or whatever size you want */
+      aspect-ratio: 0.75;
+      /* Or whatever size you want */
+      overflow: hidden;
+      /* Hide the parts of the video outside the container */
+      object-fit: cover;
+      /* Make sure the video covers the container without stretching */
+      object-position: center;
+      /* Center the video */
+      border-radius: 5px;
+    }
+
+    .mobile-zoom-container {
+      width: 100%;
+      /* Or whatever size you want */
+      aspect-ratio: 0.75;
+      /* Or whatever size you want */
+      overflow: hidden;
+      /* Hide the parts of the video outside the container */
+      object-fit: cover;
+      /* Make sure the video covers the container without stretching */
+      object-position: center;
+      /* Center the video */
+      border-radius: 5px;
+      margin: 5px
+    }
+
+    .video-zoom-container {
+      overflow: hidden;
+      /* Hide the parts of the video outside the container */
+      object-fit: cover;
+      /* Make sure the video covers the container without stretching */
+      object-position: center;
+      border-radius: 5px;
+      margin: 5px;
+    }
+
+    .zoom-element {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .zoom-element:hover {
+      transform: scale(1.);
+    }
+
+    .nhr-zoom {
+      transform: scale(1.45);
+    }
+
+    .renbody-zoom {
+      transform: scale(1.65) translateY(2%);
+      border-radius: 5px;
+    }
+
+    .mobile-zoom {
+      transform: scale(1.65);
+      border-radius: 5px;
+    }
+
+    .zjumocap-zoom {
+      transform: scale(1.3);
+    }
+
+    video {
+      border-radius: 5px;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .comparison-canvas {
+      padding: 0px;
+      margin: 0px;
+      border-radius: 5px;
+    }
+
+    .a16x9 {
+      aspect-ratio: 16/9;
+    }
+
+    .a4x3 {
+      aspect-ratio: 1352/1014;
+    }
+
+    .a1x1 {
+      aspect-ratio: 1;
+    }
+
+    .a16x9demo {
+      aspect-ratio: 3.05;
+    }
+
+    .teaser-demo {
+      aspect-ratio: 2.45;
+    }
+
+    .a4x3demo {
+      aspect-ratio: 2.0;
+    }
+
+    .a1x1demo {
+      aspect-ratio: 1600/1672;
+    }
+
+    .rainbow-text {
+      background: linear-gradient(90deg, #ff4d6d, #ff9f1c, #f9dc5c, #2ec4b6, #3a86ff, #8338ec);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+  <script>
+
+
+
+  </script>
+  </link>
+</head>
+
+<body>
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 style="font-weight: bold">
+              <b>
+                💃 DanceHMR: <span class="rainbow-text">Hand-Aware</span> Whole-Body<br>
+                Human Mesh Recovery from Monocular Videos
+              </b>
+            </h1>
+            <h4 style="color:#5a6268;">arXiv 2026</h4>
+            <hr>
+            <span>Wenhao Shen<sup>1*</sup></span> 
+            <span>Ming Zhou<sup>1*&dagger;</sup></span> 
+            <span>Hengyuan Zhang<sup>1</sup></span> 
+            <span>Siyuan Bian<sup>1</sup></span> 
+            <span>Youjiang Xu<sup>1</sup></span> 
+            <span>Xi Lin<sup>1</sup></span>
+            <p>
+              <sup>1</sup>ByteDance Intelligent Creation<br>
+              <sup>*</sup>Equal contribution   <sup>&dagger;</sup>Corresponding author
+            </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                <p class="mb-5">
+                  <a class="btn btn-large btn-light" href="./" role="button"
+                    target="_blank">
+                    <i class="fa fa-file-pdf-o"></i>
+                    <b>Paper</b>
+                  </a>
+                </p>
+              </div>
+              <div class="column">
+                <p class="mb-5">
+                  <a class="btn btn-large btn-light" href="./" role="button"
+                    target="_blank">
+                    <i class="fa fa-file-video-o"></i>
+                    <b>Video</b>
+                  </a>
+                </p>
+              </div>
+              <!-- <div class="column">
+                <p class="mb-5">
+                  <a class="btn btn-large btn-light" href="https://www.youtube.com/watch?v=s8bzdZ63kx8" role="button" target="_blank">
+                    <i class="fa fa-file-video-o"></i>
+                    <b>Overview Video</b>
+                  </a>
+                </p>
+              </div> -->
+              <!-- <div class="column">
+                <p class="mb-5">
+                  <a class="btn btn-large btn-light" href="https://github.com/zju3dv/EasyVolcap" role="button" target="_blank">
+                    <i class="fa fa-github"></i>
+                    <b>EasyVolcap Framework</b>
+                  </a>
+                </p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3>TL;DR</h3>
+          <hr style="margin-top: 0px" />
+          <p class="text-left">
+            (1) DanceHMR recovers temporally coherent SMPL-X body and hand motion from monocular videos.<br>
+            (2) A hand-aware temporal architecture fuses body context with left- and right-hand observations through
+            residual body-hand fusion, improving wrist consistency and detailed finger articulation.<br>
+            (3) Close-up-aware augmentation makes the model robust to upper-body framing, hand truncation, motion blur,
+            and hands moving in or out of the image.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="BkgdVideos"></section>
+
+  <!-- <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Overview Video</h3>
+          <hr style="margin-top: 0px" />
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="100%" height=640 style="border-radius: 10px;" src="https://www.youtube.com/embed/s8bzdZ63kx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3>Abstract</h3>
+          <hr style="margin-top: 0px" />
+          <img src="img/teaser_v2.png" width="100%" />
+          <p class="text-left">
+            Monocular video human mesh recovery is essential for digital humans, avatar animation, and embodied
+            simulation, where both temporal stability and expressive whole-body motion are required. Existing video HMR
+            methods produce coherent body motion but often overlook detailed hand articulation, while image-based
+            whole-body methods recover SMPL-X meshes independently per frame, often leading to jittery and inaccurate
+            hand motion. We present DanceHMR, a temporally coherent whole-body HMR framework for challenging
+            in-the-wild monocular videos. DanceHMR unifies body context and part-specific hand observations through
+            residual body-hand fusion, enabling stable body motion and detailed hand recovery within a single temporal
+            architecture. We further introduce close-up-aware augmentation to improve robustness under upper-body
+            framing. Experiments on whole-body and body-only benchmarks demonstrate improved hand reconstruction,
+            competitive body accuracy, and temporally stable, 2D-consistent SMPL-X motion in real-world videos.<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3>Method</h3>
+          <hr style="margin-top: 0px" />
+          <div style="display: flex; justify-content: center;">
+            <img src="img/method_v2.png" width="95%" />
+          </div>
+          <p>
+            <strong>Framework overview.</strong>
+            Given an input video, DanceHMR separately encodes body and hand observations, including vision features,
+            2D keypoints, bounding boxes, and camera cues. Left- and right-hand evidence is fused into a body-anchored
+            representation as residual cues before temporal modeling, allowing the model to use local hand details when
+            they are reliable while falling back to body context and temporal priors under occlusion, truncation, or
+            blur. A temporal motion encoder and SMPL-X decoder then reconstruct coherent whole-body motion, including
+            articulated hands. During training, close-up-aware augmentation simulates upper-body crops and hand
+            truncation so the model handles livestream, vlog, speech, and dance-style compositions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3>Training & Evaluation</h3>
+          <hr style="margin-top: 0px" />
+          <p><strong>Training</strong>:
+            DanceHMR is trained with a two-stage curriculum on motion capture, synthetic, and in-the-wild video data,
+            including BEDLAM, MOYO, ARCTIC, EgoBody, AMASS, WHAC-A-Mole, 3DPW, and Human3.6M. The second stage places
+            greater emphasis on high-quality SMPL-X and hand-centric data to refine fine-grained hand articulation.
+          </p>
+          <p><strong>Whole-body results</strong>
+          <div style="display: flex; justify-content: center;">
+            <img src="img/whole_body_metrics.png" width="95%" />
+          </div>
+          </p>
+          <p><strong>Body-only results</strong>
+          <div style="display: flex; justify-content: center;">
+            <img src="img/body_only_metrics.png" width="50%" />
+          </div>
+          </p>
+          <p>
+            On ARCTIC and UBody, DanceHMR improves hand reconstruction while remaining competitive on whole-body
+            accuracy. On 3DPW and EMDB, it also maintains strong body-only video HMR performance, showing that the
+            hand-aware design does not sacrifice body motion quality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3>More Results</h3>
+          <hr style="margin-top: 0px" />
+        </div>
+      </div>
+    </div>
+    <!-- Auto Added in the script -->
+    <div id="video-modules-container"></div>
+  </section>
+
+  <!-- citing -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        </br>
+        </br>
+        <h3>Citation</h3>
+        <hr style="margin-top: 0px" />
+        <pre style="background-color: #e9eeef; padding: 1.5em 1.5em; border-radius: 20px">
+<code>@article{shen2026dancehmr,
+  title={DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos},
+  author={Shen, Wenhao and Zhou, Ming and Zhang, Hengyuan and Bian, Siyuan and Xu, Youjiang and Lin, Xi},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre>
+        <hr />
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center" style="margin-bottom: 10px">
+    Thanks to
+    <a href="https://zju3dv.github.io/gvhmr/" target="_blank">GVHMR project page</a>
+    for the website template.
+  </footer>
+
+  <!-- Default Statcounter code for 4K4D: Real-Time 4D View Synthesi http://zju3dv.github.io/4k4d -->
+  <!-- <script type="text/javascript">
+    var sc_project = 12931644;
+    var sc_invisible = 1;
+    var sc_security = '012c8c76';
+  </script>
+  <script async src="https://www.statcounter.com/counter/counter.js" type="text/javascript"></script>
+  <noscript>
+    <div class="statcounter">
+      <a href="https://statcounter.com/" target="_blank" title="Web Analytics
+  Made Easy - Statcounter"><img alt="Web Analytics Made Easy - Statcounter" class="statcounter"
+          referrerpolicy="no-referrer-when-downgrade" src="https://c.statcounter.com/12931644/0/012c8c76/1/" /></a>
+    </div>
+  </noscript> -->
+  <!-- End of Statcounter Code -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Math
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$", right: "$", display: false },
+          { left: "$$", right: "$$", display: true }
+        ]
+      });
+
+    });
+
+    // Add a carousel to the page
+    function createVideoCarousel(videos, targetId, options = {}) {
+      const section = document.getElementById(targetId);
+      if (!section) {
+        console.error(`Element with id '${targetId}' not found.`);
+        return;
+      }
+
+      const { controls = true, interval = 10000, ratioTemplate = "a16x9demo" } = options;
+
+      const container = document.createElement('div');
+      container.className = 'container';
+
+      const row = document.createElement('div');
+      row.className = 'row justify-content-center';
+
+      const col = document.createElement('div');
+      col.className = 'col-md-12 text-center';
+
+      const carousel = document.createElement('div');
+      carousel.className = 'carousel slide';
+      carousel.id = targetId + 'Carousel';
+      carousel.setAttribute('data-ride', 'carousel');
+      carousel.setAttribute('data-interval', interval);
+
+      const indicators = document.createElement('ol');
+      indicators.className = 'carousel-indicators';
+
+      const carouselInner = document.createElement('div');
+      carouselInner.className = 'carousel-inner';
+
+      videos.forEach((video, index) => {
+        const indicator = document.createElement('li');
+        indicator.setAttribute('data-target', `#${targetId}Carousel`);
+        indicator.setAttribute('data-slide-to', index.toString());
+        if (index === 0) indicator.className = 'active';
+        indicator.innerHTML = `<span class="indicator-dot"></span>`;
+        indicators.appendChild(indicator);
+
+        const carouselItem = document.createElement('div');
+        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+
+        const innerRow = document.createElement('div');
+        innerRow.className = 'row sm-gutters';
+
+        const innerCol = document.createElement('div');
+        innerCol.className = 'col-md-12';
+
+        const videoElement = document.createElement('video');
+        videoElement.className = ratioTemplate;
+        videoElement.setAttribute('width', '100%');
+        videoElement.setAttribute('autoplay', '');
+        // related issue: https://6a00999f-abaa-379e-ae7a-6c126b9833cb.kunlun-6swnhz2o-dotu.xyz/link/rfFXnT7NvfEtXoRp?list=shadowrocket
+        // videoElement.setAttribute('muted', '');
+        videoElement.muted = true;
+        videoElement.setAttribute('playsinline', '');
+        videoElement.setAttribute('loop', '');
+        if (controls) videoElement.setAttribute('controls', '');
+        videoElement.setAttribute('poster', video.poster || 'img/spinner.svg');
+
+        const source = document.createElement('source');
+        source.src = video.src;
+        source.type = 'video/mp4';
+        videoElement.appendChild(source);
+
+        innerCol.appendChild(videoElement);
+        innerRow.appendChild(innerCol);
+        carouselItem.appendChild(innerRow);
+        carouselInner.appendChild(carouselItem);
+      });
+
+      const prevControl = document.createElement('a');
+      prevControl.className = 'carousel-control-prev';
+      prevControl.setAttribute('href', `#${targetId}Carousel`);
+      prevControl.setAttribute('role', 'button');
+      prevControl.setAttribute('data-slide', 'prev');
+      const prevIcon = document.createElement('span');
+      prevIcon.className = 'carousel-control-prev-icon';
+      prevIcon.setAttribute('aria-hidden', 'true');
+      const prevText = document.createElement('span');
+      prevText.className = 'sr-only';
+      prevText.textContent = 'Previous';
+      prevControl.appendChild(prevIcon);
+      prevControl.appendChild(prevText);
+
+      const nextControl = document.createElement('a');
+      nextControl.className = 'carousel-control-next';
+      nextControl.setAttribute('href', `#${targetId}Carousel`);
+      nextControl.setAttribute('role', 'button');
+      nextControl.setAttribute('data-slide', 'next');
+      const nextIcon = document.createElement('span');
+      nextIcon.className = 'carousel-control-next-icon';
+      nextIcon.setAttribute('aria-hidden', 'true');
+      const nextText = document.createElement('span');
+      nextText.className = 'sr-only';
+      nextText.textContent = 'Next';
+      nextControl.appendChild(nextIcon);
+      nextControl.appendChild(nextText);
+
+      carousel.appendChild(indicators);
+      carousel.appendChild(carouselInner);
+      col.appendChild(carousel);
+      col.appendChild(prevControl);
+      col.appendChild(nextControl);
+      row.appendChild(col);
+      container.appendChild(row);
+      section.appendChild(container);
+
+    }
+
+    //
+    const bkgd_videos = [
+      { src: "our_video/teaser/zhangyouwei_1_3_incam_global_horiz200.mp4" },
+      { src: "our_video/teaser/azaoaa_60fps_3_incam_global_horiz.mp4" },
+      { src: "our_video/teaser/zhenren_danren_guaguawu_kuaisu_nv_quansheng_02_3_incam_global_horiz.mp4" },
+      { src: "our_video/teaser/v0d00fg10000cdbm453c77u7s7m42bmg_3_incam_global_horiz.mp4" }
+    ];
+
+    createVideoCarousel(bkgd_videos, 'BkgdVideos', { controls: false, interval: 10000, ratioTemplate: "teaser-demo" });
+
+
+    ///////////////////////// More results /////////////////////
+    function createVideoModule(targetId, text, videos, options = {}) {
+      const container = document.createElement('div');
+      container.className = 'container';
+
+      const header = document.createElement('h5');
+      const button = document.createElement('button');
+      button.id = `${targetId}-button`;
+      button.className = 'btn btn-primary';
+      button.type = 'button';
+      button.textContent = text;
+
+      header.appendChild(button);
+      container.appendChild(header);
+
+      const section = document.createElement('section');
+      section.id = targetId;
+      container.appendChild(section);
+
+      button.addEventListener('click', function () {
+        createVideoCarousel(videos, targetId, options);
+        this.disabled = true;
+      });
+
+      return container;
+    }
+
+    // Fetch the video lists JSON file, add to the page
+    const videoContainer = document.getElementById('video-modules-container');
+    fetch('video_lists.json')
+      .then(response => response.json())
+      .then(video_lists => {
+        // Manually create button (id+text); Assign each folder to a button
+        videoContainer.appendChild(createVideoModule('v_full_body', 'Full-body Internet Videos', video_lists["full_body"]));
+        videoContainer.appendChild(createVideoModule('v_half_body', 'Half-body Internet Videos', video_lists["half_body"]));
+        videoContainer.appendChild(createVideoModule('v_fast_motion', 'Fast Motion', video_lists["fast_motion"]));
+        videoContainer.appendChild(createVideoModule('v_ubody', 'UBody Dataset', video_lists["ubody_test_sub"]));
+        // videoContainer.appendChild(createVideoModule('v_unusual', 'Unusual Poses', video_lists["unusual_poses"]));
+        videoContainer.appendChild(createVideoModule('v_truncated', 'Hands Truncation', video_lists["half_body_hands_out_of_frame"]));
+      })
+      .catch(error => console.error('Error fetching video list:', error));
+
+
+  </script>
+</body>
+
+</html>
