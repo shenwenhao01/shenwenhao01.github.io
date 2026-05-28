@@ -18,16 +18,16 @@
     { "src": "our_video/half_body/speech-trump_3_incam_global_horiz.mp4" },
     { "src": "our_video/half_body/tongzhuo_crop.mp4" },
     { "src": "our_video/half_body/飞书20250228-134056_3_incam_global_horiz200.mp4" },
-    { "src": "our_video/half_body/shoushiwu2_3_incam_global_horiz.mp4" },
+    { "src": "our_video/half_body/shoushiwu2_3_compressed.mp4" },
     { "src": "our_video/half_body/sing.mp4" },
     { "src": "our_video/half_body/zhenren_danren_baobeizaiganma_zhongsu_nv_quanshen_32_3_incam_global_horiz.mp4" }
   ],
   "fast_motion": [
-    { "src": "our_video/fast_motion/kpop.mp4" },
+    { "src": "our_video/fast_motion/kpop_crompressed.mp4" },
     { "src": "our_video/fast_motion/1_incam (5).mp4" },
     { "src": "our_video/fast_motion/1_incam (7).mp4" },
     { "src": "our_video/fast_motion/k_freestyle.mp4" },
-    { "src": "our_video/fast_motion/blackdragon.mp4" },
+    { "src": "our_video/fast_motion/blackdragon_compressed.mp4" },
     { "src": "our_video/fast_motion/1_incam (4).mp4" }
   ],
   "ubody_test_sub": [
