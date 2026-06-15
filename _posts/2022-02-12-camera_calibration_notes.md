@@ -1,7 +1,9 @@
 ---
 title: 'Camera Calibration and Uncalibrated Stereo'
 date: 2022-02-12
-permalink: /posts/2021/08/camera_calibration_notes/
+permalink: /posts/2022/02/camera_calibration_notes/
+redirect_from:
+  - /posts/2021/08/camera_calibration_notes/
 tags:
   - 3D
   - camera model

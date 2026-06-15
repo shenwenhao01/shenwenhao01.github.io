@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Wenhao Shen"
 title_separator          : "-"
 name                     : &name "Wenhao Shen"
-description              : &description "personal description"
+description              : &description "PhD candidate at NTU researching human mesh recovery, motion capture, and digital humans."
 url                      : https://shenwenhao01.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "shenwenhao01/shenwenhao01.github.io"
@@ -73,7 +73,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : false # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
 
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "www.linkedin.com/in/wenhao-shen-252584231"
+  linkedin         : "wenhao-shen-252584231"
   orcid            : #"https://orcid.org/0000-0003-4125-6152"
   pinterest        :
   soundcloud       :
@@ -231,7 +231,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Singapore # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
