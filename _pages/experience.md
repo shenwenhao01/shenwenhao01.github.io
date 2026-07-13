@@ -13,8 +13,14 @@ author_profile: true
 
 
 ## Work Experience
+* Research Intern at Tencent Hunyuan 3D Generation Team., Jun 2025 - Present
+  * 3D generation post-training.
+
+* Research Intern at ByteDance, Mar 2026 - May 2026
+  * Human mesh recovery from monocular videos.
+
 * Research Intern at Google Cloud Singapore, Jan 2025 - Jun 2025
-  * Virtual Try-On System for a Leading Global E-commerce Company
+  * Virtual try-on system for a leading global e-commerce company.
 
 ## Service
 * Reviewer: CVPR, ICML, ACM SIGGRAPH Asia, ACM MM, IEEE VR, IEEE ICME, IEEE Transactions on Circuits and Systems for Video Technology (TCSVT).

@@ -84,7 +84,7 @@ author:
   avatar           : "profile.jpg"
   bio              : "PhD Candidate, Nanyang Technological University"
   location         : "Singapore"
-  employer         : "S-Lab, NTU"
+  employer         : # "NTU"
   pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=F0UvaMwAAAAJ"
   email            : "wenhao005@e.ntu.edu.sg"
