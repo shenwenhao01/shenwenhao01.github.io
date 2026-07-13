@@ -11,10 +11,15 @@ author_profile: true
 <!-- <li>
   DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos <a href="/dancehmr/">[Project]</a>
   <br/>
-  <strong><font color="black">Wenhao Shen*</font></strong>, Ming Zhou*, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Xi Lin. (* denotes equal contributions)
+  <strong><font color="black">Wenhao Shen*</font></strong>, Ming Zhou*, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Yuan Zhang. (* denotes equal contributions)
   <br/><i>arXiv preprint</i>
     <strong>(2026)</strong><br>
 </li> -->
+<li>
+  EvolveNav: Proactive Preflection and Self-Evolving Memory for Zero-Shot Object Goal Navigation <a href="https://arxiv.org/pdf/2606.18235">[Paper]</a> 
+  <br/> 
+  Qi Chai*, <strong><font color="black">Wenhao Shen*</font></strong>, Nanjie Yao, Yue Xia, Kaiyong Zhao, Jie Ma, Guosheng Lin, Hao Wang. (* denotes equal contributions)
+</li>
 
 <li>
   Sync4D: Video Guided Controllable Dynamics for Physics-Based 4D Generation <a href="https://arxiv.org/pdf/2405.16849">[Paper]</a> 
@@ -29,13 +34,29 @@ author_profile: true
 <ul>
 
 <li>
-  VLM-Guided Group Preference Alignment for Diffusion-based Human Mesh Recovery <a href="https://arxiv.org/abs/2602.19180">[Paper]</a>
+  VLM-Guided Group Preference Alignment for Diffusion-based Human Mesh Recovery <a href="https://arxiv.org/abs/2602.19180">[Paper]</a><a href="https://github.com/shenwenhao01/GPA-HMR">[Code]</a>
   <br/> 
   <strong><font color="black">Wenhao Shen</font></strong>, Hao Wang, Wanqi Yin, Fayao Liu, Xulei Yang, Chao Liang, Zhongang Cai, Guosheng Lin.
   <br/><i>The IEEE/CVF Conference on Computer Vision and Pattern Recognition</i>
     <strong>(CVPR 2026)</strong><br>
 </li>
 
+<li>
+  MultiGO++: Monocular 3D Clothed Human Reconstruction via Geometry-Texture Collaboration <a href="https://arxiv.org/pdf/2603.04993">[Paper]</a>
+  <br/> 
+  Nanjie Yao, Gangjian Zhang, <strong><font color="black">Wenhao Shen</font></strong>, Jian Shu, Yu Feng, Hao Wang.
+  <br/><i>IEEE Transactions on Visualization and Computer Graphics</i>
+    <strong>(TVCG 2026)</strong><br>
+</li>
+
+
+<li>
+  MotionGRPO: Overcoming Low Intra-Group Diversity in GRPO-Based Egocentric Motion Recovery <a href="https://arxiv.org/abs/2605.05680">[Paper]</a><a href="https://github.com/3DAgentWorld/MotionGRPO">[Code]</a>
+  <br/> 
+  Nanjie Yao, Junlong Ren, <strong><font color="black">Wenhao Shen</font></strong>, Hao Wang.
+  <br/><i>International Conference on Machine Learning</i>
+    <strong>(ICML 2026)</strong><br>
+</li>
 
 <li>
   ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization <a href="https://arxiv.org/abs/2505.10250">[Paper]</a> <a href="https://github.com/shenwenhao01/ADHMR">[Code]</a>
