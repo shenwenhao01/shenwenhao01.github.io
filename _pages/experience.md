@@ -13,7 +13,7 @@ author_profile: true
 
 
 ## Work Experience
-* Research Intern at Tencent Hunyuan 3D Generation Team., Jun 2025 - Present
+* Research Intern at Tencent Hunyuan 3D Generation Team., Jun 2026 - Present
   * 3D generation post-training.
 
 * Research Intern at ByteDance, Mar 2026 - May 2026
