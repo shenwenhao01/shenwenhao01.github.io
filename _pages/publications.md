@@ -8,13 +8,6 @@ author_profile: true
 ## Preprints
 
 <ul>
-<!-- <li>
-  DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos <a href="/dancehmr/">[Project]</a>
-  <br/>
-  <strong><font color="black">Wenhao Shen*</font></strong>, Ming Zhou*, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Yuan Zhang. (* denotes equal contributions)
-  <br/><i>arXiv preprint</i>
-    <strong>(2026)</strong><br>
-</li> -->
 <li>
   EvolveNav: Proactive Preflection and Self-Evolving Memory for Zero-Shot Object Goal Navigation <a href="https://arxiv.org/pdf/2606.18235">[Paper]</a> 
   <br/> 
@@ -32,6 +25,13 @@ author_profile: true
 ## Conference/Journal Papers
 
 <ul>
+<li>
+  DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos <a href="/dancehmr/">[Project]</a>
+  <br/>
+  <strong><font color="black">Wenhao Shen*</font></strong>, Ming Zhou*, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Yuan Zhang. (* denotes equal contributions)
+  <br/><i></i>
+    <strong>SIGGRAPH Asia 2026</strong><br>
+</li>
 
 <li>
   VLM-Guided Group Preference Alignment for Diffusion-based Human Mesh Recovery <a href="https://arxiv.org/abs/2602.19180">[Paper]</a><a href="https://github.com/shenwenhao01/GPA-HMR">[Code]</a>
