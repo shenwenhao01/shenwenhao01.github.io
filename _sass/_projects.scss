@@ -1,0 +1,112 @@
+// The projects index shares MIRROR's light surfaces and purple-blue accents.
+.academic-site.projects-page {
+  color: #1d1d1f;
+  background: linear-gradient(120deg, #faf9fc, #f8fafc 55%, #fff) fixed;
+  font-family: $academic-sans;
+
+  a:hover { color: #704990; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline-color: #7956a5; }
+  ::selection { background: #e8def5; color: #38254e; }
+
+  .site-header {
+    position: sticky;
+    top: 12px;
+    z-index: 20;
+    width: calc(100% - 48px);
+    max-width: 1120px;
+    margin: 12px auto 0;
+    border: 1px solid rgba(29, 29, 31, .05);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .86);
+    box-shadow: 0 4px 24px rgba(32, 40, 56, .025);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  }
+  .site-navigation { max-width: none; min-height: 58px; padding: 0 24px; }
+  .site-home { font: 600 19px / 1.2 $academic-sans; letter-spacing: -.04em; color: #1d1d1f; }
+  .site-links { gap: 18px; }
+  .site-links a { color: #626269; padding: 7px 12px; }
+  .site-links a[aria-current="page"] { color: #7956a5; background: #f1ecf8; border-radius: 24px; text-decoration: none; }
+
+  #main.academic-main {
+    width: calc(100% - 96px);
+    max-width: 1120px;
+    padding: 52px 0 64px;
+  }
+  .project-gallery { gap: 28px; }
+  .project-item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e8e8ed;
+    border-radius: 26px;
+    background: #fff;
+    box-shadow: 0 8px 28px rgba(32, 40, 56, .035);
+    transition: border-color .2s, box-shadow .2s;
+    &:hover, &:focus-within { border-color: #d9cfe5; box-shadow: 0 14px 36px rgba(44, 36, 60, .07); }
+  }
+  .publication-image { border: 0; border-radius: 0; background: #fff; }
+  .publication-image video { background: #fff; }
+  .preview-toggle {
+    width: 38px;
+    height: 38px;
+    right: 16px;
+    bottom: 16px;
+    border-color: #e3dde9;
+    color: #63636b;
+    &:hover { color: #704990; background: #f1ecf8; }
+  }
+  .project-copy { display: flex; flex: 1; flex-direction: column; padding: 28px 30px 30px; border-top: 1px solid #f0edf5; background: #faf9fc; }
+  #project-dancehmr .project-copy { background: #f8fafc; border-color: #edf1f5; }
+  .project-heading { margin: 0; align-items: center; gap: 10px 16px; }
+  .project-heading h2 { font: 600 32px / 1.2 $academic-sans; letter-spacing: -.045em; }
+  .project-heading h2 a { display: inline-flex; align-items: center; gap: 9px; color: #1d1d1f; }
+  .project-emoji { font: 26px / 1 "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
+  #project-mirror .project-name { color: #7956a5; background: linear-gradient(110deg, #7956a5, #527fa8); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .project-meta { color: #777780; font-size: 12px; }
+  .project-description { margin: 16px 0 24px; font: 400 16px / 1.7 $academic-sans; color: #6e6e73; text-wrap: pretty; }
+  .project-links { margin-top: auto; gap: 12px 22px; }
+  .project-links a { color: #7956a5; min-height: 40px; font-weight: 500; }
+  .project-links a:first-child { padding: 8px 16px; background: #f1ecf8; border-radius: 24px; gap: 12px; }
+  .project-links a:first-child:hover { color: #59377a; background: #e6ddf0; }
+  #project-dancehmr .project-links a { color: #527fa8; }
+  #project-dancehmr .project-links a:first-child { background: #eaf1f8; }
+  #project-dancehmr .project-links a:first-child:hover { color: #355c80; background: #e0eaf5; }
+
+  .page__footer { background: transparent; }
+  .page__footer footer { max-width: 1168px; padding: 20px 24px 30px; color: #80808a; }
+}
+
+@media (max-width: 1100px) {
+  .academic-site.projects-page {
+    #main.academic-main { width: calc(100% - 56px); }
+    .project-gallery { gap: 22px; }
+    .project-copy { padding: 24px; }
+    .project-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  }
+}
+@media (max-width: 740px) {
+  .academic-site.projects-page {
+    .site-header { top: 8px; width: calc(100% - 24px); margin-top: 8px; border-radius: 16px; }
+    .site-navigation { min-height: 52px; padding: 0 14px; }
+    .site-home { font-size: 16px; margin-right: 8px; }
+    .site-links { gap: 4px; font-size: 12px; }
+    .site-links a { padding: 7px 10px; }
+    #main.academic-main { width: calc(100% - 40px); padding: 30px 0 40px; }
+    .project-gallery { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .project-item { border-radius: 22px; }
+    .project-heading { flex-direction: row; align-items: center; }
+    .project-heading h2 { font-size: 29px; }
+    .project-description { font-size: 15px; margin: 14px 0 22px; }
+    .page__footer footer { padding-inline: 20px; }
+  }
+}
+@media (max-width: 360px) {
+  .academic-site.projects-page {
+    .site-home { font-size: 15px; }
+    .site-links { font-size: 11px; }
+    .site-links a { padding-inline: 7px; }
+    .project-copy { padding: 22px 20px; }
+    .project-heading { align-items: flex-start; flex-direction: column; }
+  }
+}

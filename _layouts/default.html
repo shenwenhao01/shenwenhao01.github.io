@@ -16,7 +16,7 @@ layout: compress
     <link rel="shortcut icon" href="{{ '/assets/icons/favicon.ico' | relative_url }}">
   </head>
 
-  <body{% if page.academic %} class="academic-site"{% endif %}>
+  <body{% if page.academic %} class="academic-site{% if page.body_class %} {{ page.body_class | escape }}{% endif %}"{% endif %}>
 
     <a class="skip-link" href="#main">Skip to content</a>
 

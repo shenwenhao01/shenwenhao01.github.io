@@ -356,7 +356,8 @@
         <figure class="method-figure"><a class="figure-link" href="./assets/figures/method.webp" data-figure aria-label="Enlarge MIRROR architecture: semantic and kinematic latent reasoning with training-only auxiliary decoders, and reciprocal on-policy text-motion cycles."><img src="./assets/figures/method.webp" alt="MIRROR architecture: semantic and kinematic latent reasoning with training-only auxiliary decoders, and reciprocal on-policy text-motion cycles." width="2653" height="1469" loading="lazy"></a></figure>
         <div class="inference-section">
           <h3>Faster inference than explicit CoT</h3>
-          <p><strong class="text-emphasis emphasis-purple">Latent prefill</strong> replaces <strong class="text-emphasis">autoregressive Chain-of-Thought decoding</strong>. Average end-to-end latency per sample on HumanML3D:</p>
+          <p><strong class="text-emphasis emphasis-purple">Latent prefill</strong> replaces <strong class="text-emphasis">autoregressive Chain-of-Thought decoding</strong>.</p>
+          <p class="inference-context">Average end-to-end latency per sample on HumanML3D:</p>
           <div class="speed-results"><div class="speed-result"><h4>Text-to-motion</h4><strong class="speed-number">4.3&times;</strong><p>faster than explicit CoT</p>
       <div class="latency-row"><span>Explicit CoT</span><span class="latency-bar baseline-bar" style="--bar-width:100%"></span><span>2.274 s</span></div>
       <div class="latency-row"><span>MIRROR</span><span class="latency-bar mirror-bar" style="--bar-width:23.18%"></span><span>0.527 s</span></div></div><div class="speed-result"><h4>Motion-to-text</h4><strong class="speed-number">7.3&times;</strong><p>faster than explicit CoT</p>

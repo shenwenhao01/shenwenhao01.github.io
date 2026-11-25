@@ -1,4 +1,13 @@
 # Add projects in the order they should appear in the gallery.
+- id: mirror
+  title: MIRROR
+  emoji: "🪞"
+  description: "Unified human motion generation and understanding through latent reasoning and reciprocal training."
+  year: 2026
+  url: /mirror/
+  image: /mirror/assets/posters/t2m/ours/11.jpg
+  image_alt: "MIRROR generates a person walking away while glancing back, from a text description."
+  video: /mirror/assets/videos/t2m/ours/11.mp4
 - id: dancehmr
   title: DanceHMR
   description: "Hand-aware whole-body human mesh recovery from monocular videos."

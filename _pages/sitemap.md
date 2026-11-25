@@ -13,5 +13,7 @@ permalink: /sitemap/
   {% for link in site.data.navigation.main %}
   <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
   {% endfor %}
-  <li><a href="{{ '/dancehmr/' | relative_url }}">DanceHMR</a></li>
+  {% for project in site.data.projects %}
+  <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a></li>
+  {% endfor %}
 </ul>
