@@ -11,7 +11,7 @@ An academic homepage built with Jekyll for GitHub Pages.
 - `_includes/research-preview.html`: shared image/video previews for publications and projects.
 - `images/publications/`: locally hosted research figures. `image_source` records where each figure came from. Entries without an image use a document placeholder.
 - `_sass/_academic.scss`: responsive layout and styling.
-- `assets/fonts/academic/`: self-hosted Newsreader (headings and prose) and Inter (metadata), with their OFL licenses.
+- `assets/fonts/academic/`: self-hosted Newsreader (headings and prose), Inter (metadata), and a three-character Zhuque Fangsong subset for the Chinese name, with their OFL licenses. The Chinese name does not depend on installed system fonts; see `assets/fonts/academic/SOURCES.md` for its source and subset command.
 - `images/organizations/`: locally stored company logos and university crests. ByteDance uses its symbol without the wordmark. Source URLs are recorded in `SOURCES.md`.
 
 All 12 current publications have images. The Flying Camera, HMR-Adapter, and Human Interactions thumbnails are cropped directly from Figure 1 of their original manuscripts; source URLs and crop notes are stored alongside each publication.
@@ -21,6 +21,14 @@ Publication entries use `id`, `title`, `authors`, `venue`, `year`, and `type` (`
 For animated previews, add a local MP4 path in `video` and record its original URL in `video_source`. Keep `image` as the static fallback. DanceHMR uses a 12-second fast-start excerpt of its original project video (the full video is unchanged); Human Interactions uses the video provided by Qing Shuai. Videos load and play muted only when visible, pause offscreen or in a hidden tab, and have a play/pause control. Reduced-motion and data-saving preferences disable automatic playback. With JavaScript disabled or a video load failure, the figure remains visible.
 
 Old blog sources in `_posts`, `_drafts`, and `_pages/year-archive.html` are preserved but excluded from the site build in `_config.yml`. They do not appear in navigation, published pages, the sitemap, or feed entries.
+
+## Search Metadata
+
+The homepage uses `ProfilePage` / `Person` structured data in `_includes/seo.html`. Keep the linked profiles and Chinese name in `_config.yml` under `social` current. The browser title remains `Wenhao Shen`.
+
+`jekyll-sitemap` generates `/sitemap.xml` and `/robots.txt`. Supporting documentation, template demos, the sample PDF, and the Google verification file remain in the repository but are omitted from the sitemap. This omission is not a `noindex` directive.
+
+The existing `googledabea7e8b4a910bb.html` file supports HTML-file verification in Google Search Console; do not remove it or treat its filename as a meta-tag verification token. Use the verified HTTPS URL-prefix property to inspect the homepage, request indexing after deployment, and submit `sitemap.xml`. Search Console access and search rankings cannot be configured by site metadata alone.
 
 ## Local Preview
 

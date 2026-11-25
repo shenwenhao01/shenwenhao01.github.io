@@ -90,6 +90,9 @@
   <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
 {% elsif page.header.overlay_image %}
   <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+{% elsif page.url == '/' and site.author.avatar %}
+  <meta property="og:image" content="{{ site.author.avatar | prepend: '/images/' | absolute_url }}">
+  <meta property="og:image:alt" content="{{ site.author.name | escape }}">
 {% endif %}
 
 {% if page.date %}
@@ -115,7 +118,37 @@
   </script>
 {% endif %}
 
-{% if site.social %}
+{% if page.url == '/' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": {{ '/' | absolute_url | append: '#profile' | jsonify }},
+      "url": {{ '/' | absolute_url | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "mainEntity": {
+        "@type": "Person",
+        "@id": {{ '/' | absolute_url | append: '#person' | jsonify }},
+        "name": {{ site.author.name | jsonify }},
+        "alternateName": {{ site.social.alternate_name | jsonify }},
+        "url": {{ '/' | absolute_url | jsonify }},
+        "image": {{ site.author.avatar | prepend: '/images/' | absolute_url | jsonify }},
+        "description": {{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | jsonify }},
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Nanyang Technological University",
+          "url": "https://www.ntu.edu.sg/"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Zhejiang University",
+          "url": "https://www.zju.edu.cn/english/"
+        },
+        "sameAs": {{ site.social.links | jsonify }}
+      }
+    }
+  </script>
+{% elsif site.social %}
   <script type="application/ld+json">
     {
       "@context" : "http://schema.org",

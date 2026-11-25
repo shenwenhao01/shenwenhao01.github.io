@@ -7,6 +7,9 @@
 {% if page.academic %}
 <link rel="preload" href="{{ '/assets/fonts/academic/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/academic/newsreader-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% if page.url == '/' %}
+<link rel="preload" href="{{ '/assets/fonts/academic/zhuque-fangsong-name.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% endif %}
 {% endif %}
 
 {% if page.math or page.collection == 'posts' %}

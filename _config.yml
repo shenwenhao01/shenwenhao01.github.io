@@ -66,9 +66,13 @@ og_image                 :  # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : *name
+  alternate_name         : "\u6c88\u6587\u8c6a"
+  links:
+    - "https://scholar.google.com/citations?user=F0UvaMwAAAAJ"
+    - "https://github.com/shenwenhao01"
+    - "https://www.linkedin.com/in/wenhao-shen-252584231/"
 
 
 # Analytics
@@ -194,6 +198,31 @@ collections:
 
 # Defaults
 defaults:
+  # Keep supporting files accessible without advertising them in the sitemap.
+  - scope:
+      path: "images/organizations/SOURCES.md"
+    values:
+      sitemap: false
+  - scope:
+      path: "assets/fonts/academic"
+    values:
+      sitemap: false
+  - scope:
+      path: "markdown_generator"
+    values:
+      sitemap: false
+  - scope:
+      path: "talkmap"
+    values:
+      sitemap: false
+  - scope:
+      path: "files/paper1.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "googledabea7e8b4a910bb.html"
+    values:
+      sitemap: false
   # _posts
   - scope:
       path: ""
