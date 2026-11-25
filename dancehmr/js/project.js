@@ -259,8 +259,10 @@ document.querySelectorAll('[data-benchmark-group]').forEach(function (group) {
   selectTab(tabs[0]);
   tablist.hidden = false;
 });
-document.querySelector('a[href="#body-results"]').addEventListener('click', function () {
-  document.getElementById('tab-emdb').click();
+[['whole-body-results', 'tab-arctic'], ['body-results', 'tab-emdb']].forEach(function (target) {
+  document.querySelector('a[href="#' + target[0] + '"]').addEventListener('click', function () {
+    document.getElementById(target[1]).click();
+  });
 });
 // Reveal content as it enters view; content stays visible without JavaScript.
 var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
