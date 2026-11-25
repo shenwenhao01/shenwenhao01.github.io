@@ -2,10 +2,5 @@
 main:
   - title: "Publications"
     url: /publications/
-
-  - title: "Experience"
-    url: /experience/
-
-  - title: "Blog Posts"
-    url: /posts/
-
+  - title: "Projects"
+    url: /projects/

@@ -1,4 +1,8 @@
+{% if page.academic %}
+<script src="{{ '/assets/js/academic.js' | relative_url }}" defer></script>
+{% else %}
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
+{% endif %}
 
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}

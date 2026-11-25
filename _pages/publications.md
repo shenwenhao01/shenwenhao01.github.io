@@ -1,109 +1,50 @@
 ---
-layout: archive
+layout: academic
+academic: true
 title: "Publications"
-permalink: publications/
-author_profile: true
+permalink: /publications/
+excerpt: "Publications by Wenhao Shen on human mesh recovery, motion capture, reconstruction, and generation."
 ---
 
-## Preprints
+<header class="academic-page-heading">
+  <h1>Publications</h1>
+  <p>Human perception, reconstruction, and generation.</p>
+</header>
 
-<ul>
-<li>
-  EvolveNav: Proactive Preflection and Self-Evolving Memory for Zero-Shot Object Goal Navigation <a href="https://arxiv.org/pdf/2606.18235">[Paper]</a> 
-  <br/> 
-  Qi Chai*, <strong><font color="black">Wenhao Shen*</font></strong>, Nanjie Yao, Yue Xia, Kaiyong Zhao, Jie Ma, Guosheng Lin, Hao Wang. (* denotes equal contributions)
-</li>
-
-<li>
-  Sync4D: Video Guided Controllable Dynamics for Physics-Based 4D Generation <a href="https://arxiv.org/pdf/2405.16849">[Paper]</a> 
-  <br/> 
-  Zhoujie Fu*, Jiacheng Wei*, <strong><font color="black">Wenhao Shen</font></strong>, Chaoyue Song, Xiaofeng Yang, Fayao Liu, Xulei Yang, Guosheng Lin. (* denotes equal contributions)
-</li>
-</ul>
-
-
-## Conference/Journal Papers
-
-<ul>
-<li>
-  DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos <a href="/dancehmr/">[Project]</a>
-  <br/>
-  <strong><font color="black">Wenhao Shen*</font></strong>, Ming Zhou*, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Yuan Zhang. (* denotes equal contributions)
-  <br/><i></i>
-    <strong>SIGGRAPH Asia 2026</strong><br>
-</li>
-
-<li>
-  VLM-Guided Group Preference Alignment for Diffusion-based Human Mesh Recovery <a href="https://arxiv.org/abs/2602.19180">[Paper]</a><a href="https://github.com/shenwenhao01/GPA-HMR">[Code]</a>
-  <br/> 
-  <strong><font color="black">Wenhao Shen</font></strong>, Hao Wang, Wanqi Yin, Fayao Liu, Xulei Yang, Chao Liang, Zhongang Cai, Guosheng Lin.
-  <br/><i>The IEEE/CVF Conference on Computer Vision and Pattern Recognition</i>
-    <strong>(CVPR 2026)</strong><br>
-</li>
-
-<li>
-  MultiGO++: Monocular 3D Clothed Human Reconstruction via Geometry-Texture Collaboration <a href="https://arxiv.org/pdf/2603.04993">[Paper]</a>
-  <br/> 
-  Nanjie Yao, Gangjian Zhang, <strong><font color="black">Wenhao Shen</font></strong>, Jian Shu, Yu Feng, Hao Wang.
-  <br/><i>IEEE Transactions on Visualization and Computer Graphics</i>
-    <strong>(TVCG 2026)</strong><br>
-</li>
-
-
-<li>
-  MotionGRPO: Overcoming Low Intra-Group Diversity in GRPO-Based Egocentric Motion Recovery <a href="https://arxiv.org/abs/2605.05680">[Paper]</a><a href="https://github.com/3DAgentWorld/MotionGRPO">[Code]</a>
-  <br/> 
-  Nanjie Yao, Junlong Ren, <strong><font color="black">Wenhao Shen</font></strong>, Hao Wang.
-  <br/><i>International Conference on Machine Learning</i>
-    <strong>(ICML 2026)</strong><br>
-</li>
-
-<li>
-  ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization <a href="https://arxiv.org/abs/2505.10250">[Paper]</a> <a href="https://github.com/shenwenhao01/ADHMR">[Code]</a>
-  <br/> 
-  <strong><font color="black">Wenhao Shen</font></strong>, Wanqi Yin, Xiaofeng Yang, Cheng Chen, Chaoyue Song, Zhongang Cai, Lei Yang, Hao Wang, Guosheng Lin.
-  <br/><i>International Conference on Machine Learning</i>
-    <strong>(ICML 2025)</strong><br>
-</li>
-
-<li>
-  3D Cartoon Face Generation with Controllable Expressions from a Single GAN Image <a href="https://arxiv.org/abs/2207.14425">[Paper]</a> <a href="https://github.com/hwang1996/3D-Cartoon-Face-Generation">[Code]</a>
-  <br/> 
-  Hao Wang,  <strong><font color="black">Wenhao Shen</font></strong>, Guosheng Lin, Steven Hoi and Chunyan Miao.
-  <br/><i>International Joint Conference on Neural Networks</i>
-    <strong>(IJCNN 2025)</strong><br>
-</li>
-
-<li>
-  SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction <a href="https://www.arxiv.org/abs/2506.12793">[Paper]</a>
-  <br/> 
-  <strong><font color="black">Wenhao Shen*</font></strong>, Gangjian Zhang*, Jianfeng Zhang, Yu Feng, Nanjie Yao, Xuanmeng Zhang, Hao Wang.  (* denotes equal contributions)
-  <br/><i>IEEE International Conference on Multimedia & Expo</i>
-    <strong>(ICME 2025 Oral)</strong><br>
-</li>
-
-<li>
-  Free-Viewpoint Video in the Wild Using a Flying Camera <a href="https://openreview.net/pdf?id=AsPHD00Wer">[Paper]</a>
-  <br/> 
-  Zhengdong Hong, <strong><font color="black">Wenhao Shen</font></strong>.
-  <br/><i>European Conference on Computer Vision Workshop</i>
-    <strong>(ECCV Workshop 2024)</strong><br>
-</li>
-
-<li>
-  HMR-Adapter: A Lightweight Adapter with Dual-Path Cross Augmentation for Expressive Human Mesh Recovery <a href="https://dl.acm.org/doi/pdf/10.1145/3664647.3681641">[Paper]</a>
-  <br/> 
-  <strong><font color="black">Wenhao Shen</font></strong>, Wanqi Yin, Hao Wang, Chen Wei, Zhongang Cai, Lei Yang, Guosheng Lin.
-  <br/><i>ACM International Conference on Multimedia</i>
-    <strong>(ACM MM 2024)</strong><br>
-</li>
-
-<li>
-  Novel view synthesis of human interactions from sparse multi-view videos <a href="https://dl.acm.org/doi/fullHtml/10.1145/3528233.3530704">[Paper]</a> <a href="https://github.com/zju3dv/EasyMocap">[Code]</a>
-  <br/> 
-  Qing Shuai, Chen Geng, Qi Fang, Sida Peng, <strong><font color="black">Wenhao Shen</font></strong>, Xiaowei Zhou, Hujun Bao.
-  <br/><i>Special Interest Group on Computer Graphics and Interactive Techniques</i>
-    <strong>(SIGGRAPH 2022)</strong><br>
-</li>
-
-</ul>
+<section data-publications aria-label="Publications">
+  <form class="publication-filters" role="search" hidden>
+    <div class="publication-search">
+      <label class="visually-hidden" for="publication-query">Search publications</label>
+      <i class="fas fa-search" aria-hidden="true"></i>
+      <input id="publication-query" type="search" placeholder="Search publications" autocomplete="off">
+    </div>
+    <div class="publication-year">
+      <label for="publication-year">Year</label>
+      <select id="publication-year">
+        <option value="all">All years</option>
+        {% assign years = site.data.publications | map: 'year' | uniq | sort | reverse %}
+        {% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
+      </select>
+    </div>
+    <p class="publication-count" role="status" aria-live="polite" aria-atomic="true">{{ site.data.publications.size }} publications</p>
+  </form>
+  <p class="contribution-note">* Equal contribution</p>
+  <section class="publication-group" aria-labelledby="peer-reviewed">
+    <h2 id="peer-reviewed" class="publication-group-title">Conference &amp; Journal Papers</h2>
+    <div class="publication-list">
+      {% assign published = site.data.publications | where: 'type', 'published' %}
+      {% for paper in published %}{% include publication.html paper=paper %}{% endfor %}
+    </div>
+  </section>
+  <section class="publication-group" aria-labelledby="preprints">
+    <h2 id="preprints" class="publication-group-title">Preprints</h2>
+    <div class="publication-list">
+      {% assign preprints = site.data.publications | where: 'type', 'preprint' %}
+      {% for paper in preprints %}{% include publication.html paper=paper %}{% endfor %}
+    </div>
+  </section>
+  <div class="publication-empty" hidden>
+    <p>No publications found.</p>
+    <button class="text-link" type="button" data-reset-filters><i class="fas fa-undo" aria-hidden="true"></i> Clear filters</button>
+  </div>
+</section>

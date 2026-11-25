@@ -1,0 +1,18 @@
+{% assign paper = include.paper %}
+{% assign paper_url = paper.project | default: paper.paper | default: paper.code %}
+{% assign first_character = paper_url | slice: 0 %}
+{% if first_character == '/' %}{% assign paper_url = paper_url | relative_url %}{% endif %}
+<article class="publication" id="{{ paper.id }}" data-year="{{ paper.year }}" aria-labelledby="{{ paper.id }}-title">
+  {% assign title_id = paper.id | append: '-title' %}
+  {% include research-preview.html url=paper_url image=paper.image image_alt=paper.image_alt video=paper.video venue=paper.venue title_id=title_id %}
+  <div class="publication-info">
+    <h3 id="{{ paper.id }}-title"><a href="{{ paper_url }}">{{ paper.title | escape }}</a></h3>
+    <p class="publication-authors">{{ paper.authors | escape | replace: 'Wenhao Shen', '<strong>Wenhao Shen</strong>' }}</p>
+    <div class="publication-meta"><span class="venue{% if paper.type == 'preprint' %} venue-preprint{% endif %}">{{ paper.venue }}, {{ paper.year }}</span>{% if paper.note %}<span class="publication-distinction">{{ paper.note }}</span>{% endif %}</div>
+    <div class="publication-links">
+      {% if paper.paper %}<a href="{{ paper.paper }}"><i class="fas fa-file-alt" aria-hidden="true"></i> Paper</a>{% endif %}
+      {% if paper.code %}<a href="{{ paper.code }}"><i class="fab fa-github" aria-hidden="true"></i> Code</a>{% endif %}
+      {% if paper.project %}<a href="{{ paper_url }}"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Project</a>{% endif %}
+    </div>
+  </div>
+</article>

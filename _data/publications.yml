@@ -1,0 +1,152 @@
+# Keep newest publications first. Selected entries also appear on the homepage.
+- id: dancehmr
+  title: "DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos"
+  authors: "Wenhao Shen*, Ming Zhou*, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Yuan Zhang."
+  venue: SIGGRAPH Asia
+  year: 2026
+  type: published
+  selected: true
+  project: /dancehmr/
+  paper: https://arxiv.org/abs/2605.18102
+  image: /images/publications/dancehmr.jpg
+  image_alt: "Whole-body and hand reconstruction comparisons from DanceHMR."
+  image_source: /dancehmr/img/teaser_v2.jpg
+  video: /images/publications/dancehmr-preview.mp4
+  video_note: "First 12 seconds of the original video, stream-copied with fast-start metadata."
+  video_source: https://shenwenhao01.github.io/dancehmr/our_video/teaser/zhangyouwei_1_3_crompressed.mp4
+
+- id: gpa-hmr
+  title: "VLM-Guided Group Preference Alignment for Diffusion-based Human Mesh Recovery"
+  authors: "Wenhao Shen, Hao Wang, Wanqi Yin, Fayao Liu, Xulei Yang, Chao Liang, Zhongang Cai, Guosheng Lin."
+  venue: CVPR
+  year: 2026
+  type: published
+  selected: true
+  paper: https://arxiv.org/abs/2602.19180
+  code: https://github.com/shenwenhao01/GPA-HMR
+  image: /images/publications/gpa-hmr.png
+  image_alt: "Overview of VLM-guided group preference alignment for human mesh recovery."
+  image_source: https://raw.githubusercontent.com/shenwenhao01/GPA-HMR/main/assets/method.png
+
+- id: multigo-plus
+  title: "MultiGO++: Monocular 3D Clothed Human Reconstruction via Geometry-Texture Collaboration"
+  authors: "Nanjie Yao, Gangjian Zhang, Wenhao Shen, Jian Shu, Yu Feng, Hao Wang."
+  venue: TVCG
+  year: 2026
+  type: published
+  paper: https://arxiv.org/pdf/2603.04993
+  image: /images/publications/multigo-plus.png
+  image_alt: "Geometry and texture collaboration in the MultiGO++ reconstruction pipeline."
+  image_source: https://arxiv.org/html/2603.04993v1/Overview-TVCG_final.png
+
+- id: motiongrpo
+  title: "MotionGRPO: Overcoming Low Intra-Group Diversity in GRPO-Based Egocentric Motion Recovery"
+  authors: "Nanjie Yao, Junlong Ren, Wenhao Shen, Hao Wang."
+  venue: ICML
+  year: 2026
+  type: published
+  paper: https://arxiv.org/abs/2605.05680
+  code: https://github.com/3DAgentWorld/MotionGRPO
+  image: /images/publications/motiongrpo.png
+  image_alt: "MotionGRPO framework for recovering full-body motion from egocentric signals."
+  image_source: https://raw.githubusercontent.com/3DAgentWorld/MotionGRPO/main/assets/overview.png
+
+- id: adhmr
+  title: "ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization"
+  authors: "Wenhao Shen, Wanqi Yin, Xiaofeng Yang, Cheng Chen, Chaoyue Song, Zhongang Cai, Lei Yang, Hao Wang, Guosheng Lin."
+  venue: ICML
+  year: 2025
+  type: published
+  selected: true
+  paper: https://arxiv.org/abs/2505.10250
+  code: https://github.com/shenwenhao01/ADHMR
+  image: /images/publications/adhmr.png
+  image_alt: "ADHMR pipeline for aligning diffusion-based human mesh recovery."
+  image_source: https://raw.githubusercontent.com/shenwenhao01/ADHMR/main/assets/method.png
+
+- id: cartoon-face
+  title: "3D Cartoon Face Generation with Controllable Expressions from a Single GAN Image"
+  authors: "Hao Wang, Wenhao Shen, Guosheng Lin, Steven Hoi and Chunyan Miao."
+  venue: IJCNN
+  year: 2025
+  type: published
+  paper: https://arxiv.org/abs/2207.14425
+  code: https://github.com/hwang1996/3D-Cartoon-Face-Generation
+  image: /images/publications/cartoon-face.png
+  image_alt: "Controllable 3D cartoon faces generated from a single image."
+  image_source: https://raw.githubusercontent.com/hwang1996/3D-Cartoon-Face-Generation/main/imgs/teaser.gif
+
+- id: sehr
+  title: "SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction"
+  authors: "Wenhao Shen*, Gangjian Zhang*, Jianfeng Zhang, Yu Feng, Nanjie Yao, Xuanmeng Zhang, Hao Wang."
+  venue: ICME
+  year: 2025
+  note: Oral
+  type: published
+  selected: true
+  paper: https://arxiv.org/abs/2506.12793
+  image: /images/publications/sehr.png
+  image_alt: "SMPL normal map guidance for single-view textured human reconstruction."
+  image_source: https://arxiv.org/html/2506.12793v1/pdf/ours_pipeline_v1.png
+
+- id: flying-camera
+  title: "Free-Viewpoint Video in the Wild Using a Flying Camera"
+  authors: "Zhengdong Hong, Wenhao Shen."
+  venue: ECCV Workshop
+  year: 2024
+  type: published
+  paper: https://openreview.net/pdf?id=AsPHD00Wer
+  image: /images/publications/flying-camera.png
+  image_alt: "Flying-camera teaser showing a drone orbiting an outdoor athlete for free-viewpoint reconstruction."
+  image_source: https://openreview.net/notes/edits/attachment?id=RGxLKtVnDx&name=pdf
+  image_note: "Figure 1, cropped from the first page of the original manuscript."
+
+- id: hmr-adapter
+  title: "HMR-Adapter: A Lightweight Adapter with Dual-Path Cross Augmentation for Expressive Human Mesh Recovery"
+  authors: "Wenhao Shen, Wanqi Yin, Hao Wang, Chen Wei, Zhongang Cai, Lei Yang, Guosheng Lin."
+  venue: ACM MM
+  year: 2024
+  type: published
+  selected: true
+  paper: https://dl.acm.org/doi/pdf/10.1145/3664647.3681641
+  image: /images/publications/hmr-adapter.png
+  image_alt: "HMR-Adapter teaser comparing hand predictions with and without body pose guidance."
+  image_source: https://dr.ntu.edu.sg/bitstreams/301c7939-027d-48ff-aab4-7cf12f08f0b8/download
+  image_note: "Figure 1, cropped from the first page of the original paper."
+
+- id: human-interactions
+  title: "Novel view synthesis of human interactions from sparse multi-view videos"
+  authors: "Qing Shuai, Chen Geng, Qi Fang, Sida Peng, Wenhao Shen, Xiaowei Zhou, Hujun Bao."
+  venue: SIGGRAPH
+  year: 2022
+  type: published
+  paper: https://dl.acm.org/doi/fullHtml/10.1145/3528233.3530704
+  image: /images/publications/human-interactions.png
+  image_alt: "Teaser showing sparse multiview inputs, synthesized views, and human instance segmentation."
+  image_source: https://chen-geng.com/files/mnb.pdf
+  video: /images/publications/human-interactions.mp4
+  video_source: https://chingswy.github.io/publications/multinb.mp4
+  image_note: "Figure 1, cropped from the first page of the original paper."
+  code: https://github.com/zju3dv/EasyMocap
+
+- id: evolvenav
+  title: "EvolveNav: Proactive Preflection and Self-Evolving Memory for Zero-Shot Object Goal Navigation"
+  authors: "Qi Chai*, Wenhao Shen*, Nanjie Yao, Yue Xia, Kaiyong Zhao, Jie Ma, Guosheng Lin, Hao Wang."
+  venue: Preprint
+  year: 2026
+  type: preprint
+  paper: https://arxiv.org/pdf/2606.18235
+  image: /images/publications/evolvenav.png
+  image_alt: "EvolveNav navigation agent with proactive preflection and evolving memory."
+  image_source: https://arxiv.org/html/2606.18235v1/fig/teaser-new.png
+
+- id: sync4d
+  title: "Sync4D: Video Guided Controllable Dynamics for Physics-Based 4D Generation"
+  authors: "Zhoujie Fu*, Jiacheng Wei*, Wenhao Shen, Chaoyue Song, Xiaofeng Yang, Fayao Liu, Xulei Yang, Guosheng Lin."
+  venue: Preprint
+  year: 2024
+  type: preprint
+  paper: https://arxiv.org/pdf/2405.16849
+  image: /images/publications/sync4d.png
+  image_alt: "Video-guided dynamics for generated 3D objects in Sync4D."
+  image_source: https://arxiv.org/html/2405.16849v1/teaser_monkey.png

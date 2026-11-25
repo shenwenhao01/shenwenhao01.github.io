@@ -1,0 +1,11 @@
+# Add projects in the order they should appear in the gallery.
+- id: dancehmr
+  title: DanceHMR
+  description: "Hand-aware whole-body human mesh recovery from monocular videos."
+  venue: SIGGRAPH Asia
+  year: 2026
+  url: /dancehmr/
+  paper: https://arxiv.org/abs/2605.18102
+  image: /images/publications/dancehmr.jpg
+  image_alt: "DanceHMR reconstructs the body and hands of a dancer from a monocular video."
+  video: /images/publications/dancehmr-preview.mp4

@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta content="DanceHMR" name="title" />
   <meta content="DanceHMR recovers temporally coherent hand-aware whole-body SMPL-X motion from monocular videos."
     name="description" />
@@ -82,8 +83,11 @@
       align-items: center;
       justify-content: center;
       position: absolute;
-      bottom: 0%;
-      left: 90%;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      flex-wrap: wrap;
+      gap: 8px;
 
       /* Adjust vertical position */
       text-align: center;
@@ -98,7 +102,11 @@
       /* Hide the default Bootstrap indicators */
       border: none;
       /* Remove border */
-      margin: 0 25px;
+      margin: 0;
+      width: 15px;
+      height: 15px;
+      text-indent: 0;
+      flex: 0 0 15px;
       display: inline-block;
     }
 
@@ -305,8 +313,7 @@
               </div>
               <div class="column">
                 <p class="mb-5">
-                  <a class="btn btn-large btn-light" href="./" role="button"
-                    target="_blank">
+                  <a class="btn btn-large btn-light" href="#BkgdVideos" role="button">
                     <i class="fa fa-file-video-o"></i>
                     <b>Video</b>
                   </a>

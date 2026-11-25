@@ -1,0 +1,18 @@
+{% assign project = include.project %}
+{% assign project_url = project.url %}
+{% assign first_character = project_url | slice: 0 %}
+{% if first_character == '/' %}{% assign project_url = project_url | relative_url %}{% endif %}
+{% assign title_id = project.id | prepend: 'project-' | append: '-title' %}
+<article class="project-item" id="project-{{ project.id }}" aria-labelledby="{{ title_id }}">
+  {% include research-preview.html url=project_url image=project.image image_alt=project.image_alt video=project.video venue=project.venue title_id=title_id %}
+  <div class="project-heading">
+    <h2 id="{{ title_id }}"><a href="{{ project_url }}">{{ project.title | escape }}</a></h2>
+    {% if project.year %}<span class="project-meta">{% if project.venue %}{{ project.venue }} &middot; {% endif %}{{ project.year }}</span>{% endif %}
+  </div>
+  <p class="project-description">{{ project.description | escape }}</p>
+  <div class="project-links">
+    <a href="{{ project_url }}">Project page <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    {% if project.paper %}<a href="{{ project.paper }}"><i class="fas fa-file-alt" aria-hidden="true"></i> Paper</a>{% endif %}
+    {% if project.code %}<a href="{{ project.code }}"><i class="fab fa-github" aria-hidden="true"></i> Code</a>{% endif %}
+  </div>
+</article>
