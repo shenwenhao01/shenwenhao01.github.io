@@ -1,0 +1,1362 @@
+{
+  "anonymous": false,
+  "paper": {
+    "title": "MIRROR: Motion-Internalized Reasoning with Reciprocal On-Policy Reinforcement for Unified Motion Generation and Understanding",
+    "abstract": "Unified motion generation and understanding models jointly address text-to-motion generation and motion-to-text understanding. However, existing methods rely on explicit textual Chain-of-Thought (CoT) reasoning and task-specific reinforcement learning. Explicit CoT overlooks fine-grained kinematics and adds autoregressive overhead, while independent rewards limit cross-task feedback. We propose MIRROR, combining Motion-Internalized Reasoning (MIR) and Reciprocal On-Policy Reinforcement (ROR). MIR learns semantic and kinematic latent reasoning states that implicitly encode textual reasoning and phase-wise motion signatures, enabling reasoning entirely during prompt prefill. ROR couples both tasks through reciprocal on-policy cycles, allowing generation and understanding to improve each other during training. Extensive experiments show that MIRROR achieves state-of-the-art performance among unified models in both motion generation and understanding.",
+    "authors": [
+      {
+        "name": "Wenhao Shen",
+        "affiliations": [
+          1
+        ]
+      },
+      {
+        "name": "Hao Wang",
+        "affiliations": [
+          2
+        ]
+      },
+      {
+        "name": "Nanjie Yao",
+        "affiliations": [
+          2
+        ]
+      },
+      {
+        "name": "Shanshan Zhao",
+        "affiliations": [
+          3
+        ]
+      },
+      {
+        "name": "Qing-Guo Chen",
+        "affiliations": [
+          3
+        ]
+      },
+      {
+        "name": "Weihua Luo",
+        "affiliations": [
+          3
+        ]
+      },
+      {
+        "name": "Guosheng Lin",
+        "affiliations": [
+          1
+        ]
+      }
+    ],
+    "affiliations": [
+      "Nanyang Technological University",
+      "HKUST (Guangzhou)",
+      "Alibaba Group"
+    ],
+    "paperUrl": null,
+    "codeUrl": null,
+    "bibtex": null
+  },
+  "inference": {
+    "baseline": "UniMo",
+    "source": "mirror_paper/sec/4_experiments.tex, tab:inference_efficiency",
+    "t2m": {
+      "baselineSeconds": 2.274,
+      "mirrorSeconds": 0.527
+    },
+    "m2t": {
+      "baselineSeconds": 1.728,
+      "mirrorSeconds": 0.237
+    }
+  },
+  "hero": [
+    "99",
+    "16",
+    "51"
+  ],
+  "t2m": [
+    {
+      "id": "11",
+      "prompt": "A person walks away reluctantly, glancing back without fully turning around.",
+      "methods": {
+        "motiongpt3": {
+          "source": "mirror_video/t2m/motiongpt3/11_out_mesh.mp4",
+          "video": "assets/videos/t2m/motiongpt3/11.mp4",
+          "poster": "assets/posters/t2m/motiongpt3/11.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.7,
+          "fps": 30.0,
+          "bytes": 110164,
+          "sha256": "be65484677bfa9cb63c1ea1b1c561ec36de953200a0d323df4d7ed2336e2200b"
+        },
+        "unimo": {
+          "source": "mirror_video/t2m/unimo/11_out_mesh.mp4",
+          "video": "assets/videos/t2m/unimo/11.mp4",
+          "poster": "assets/posters/t2m/unimo/11.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 6.4,
+          "fps": 30.0,
+          "bytes": 289955,
+          "sha256": "22456e223b0c2a6b54677c2cb8158e9baf6e9d74116a72ce433773865c307034"
+        },
+        "ours": {
+          "source": "mirror_video/t2m/ours/11_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/11.mp4",
+          "poster": "assets/posters/t2m/ours/11.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.3,
+          "fps": 30.0,
+          "bytes": 109492,
+          "sha256": "df9d9df859664ec118dd9649c54ca0233c1fb2df1d51f697da8435dbe5efbaea"
+        }
+      }
+    },
+    {
+      "id": "100_3",
+      "prompt": "A person bends deeply at the waist, reaches both hands toward the ground, then rises quickly and stretches both arms high above the head",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/100_3_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/100_3.mp4",
+          "poster": "assets/posters/t2m/ours/100_3.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.38,
+          "fps": 29.88,
+          "bytes": 109611,
+          "sha256": "fd2f1a93043b16bc1666d8f1c6816dd5c735e7efbd77debaaace2f455619bfb4"
+        },
+        "unimo": {
+          "source": "mirror_video/t2m/unimo/100_3_out_mesh.mp4",
+          "video": "assets/videos/t2m/unimo/100_3.mp4",
+          "poster": "assets/posters/t2m/unimo/100_3.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 6.4,
+          "fps": 30.0,
+          "bytes": 220630,
+          "sha256": "196eb26da3ed5a0935da5b85fdf5ce5f1bcf08ab444331ef6909b67e9e61f2b6"
+        },
+        "motiongpt3": {
+          "source": "mirror_video/t2m/motiongpt3/100_3_out_mesh.mp4",
+          "video": "assets/videos/t2m/motiongpt3/100_3.mp4",
+          "poster": "assets/posters/t2m/motiongpt3/100_3.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.93,
+          "fps": 30.0,
+          "bytes": 122115,
+          "sha256": "36edd4a25e18ba7fc725867a4eaa584cafaab6b04b0c46ed2ed5ec8a07a6ca94"
+        }
+      }
+    },
+    {
+      "id": "15",
+      "prompt": "A person walks as if trying not to wake someone, placing each foot carefully and maintaining a cautious, slightly crouched posture.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/15_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/15.mp4",
+          "poster": "assets/posters/t2m/ours/15.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.2,
+          "fps": 30.0,
+          "bytes": 130267,
+          "sha256": "a790bc93f7b8624c3af0e5208aa2674a2f27f35a45a982a7a954c9a95fc4c460"
+        },
+        "motiongpt3": {
+          "source": "mirror_video/t2m/motiongpt3/15_out_mesh.mp4",
+          "video": "assets/videos/t2m/motiongpt3/15.mp4",
+          "poster": "assets/posters/t2m/motiongpt3/15.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.2,
+          "fps": 30.0,
+          "bytes": 127667,
+          "sha256": "b6d2b55e0343ad98ff730393c6ba7e43ad4a8cd2c8d66ef6207cfd1500043292"
+        },
+        "unimo": {
+          "source": "mirror_video/t2m/unimo/15_out_mesh.mp4",
+          "video": "assets/videos/t2m/unimo/15.mp4",
+          "poster": "assets/posters/t2m/unimo/15.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.88,
+          "fps": 29.58,
+          "bytes": 111614,
+          "sha256": "358bcf42f8407166c5f29a1c9db85b825d3784306f99c1bf05984ddf670cc64b"
+        }
+      }
+    },
+    {
+      "id": "99",
+      "prompt": "A person dances with alternating side steps,",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/99_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/99.mp4",
+          "poster": "assets/posters/t2m/ours/99.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.3,
+          "fps": 30.0,
+          "bytes": 152320,
+          "sha256": "4c774f43567aa3898ecda0f0b81b4094c38b1d1e73c6a0160e9b2791c6c0677d"
+        },
+        "unimo": {
+          "source": "mirror_video/t2m/unimo/99_out_mesh.mp4",
+          "video": "assets/videos/t2m/unimo/99.mp4",
+          "poster": "assets/posters/t2m/unimo/99.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 6.4,
+          "fps": 30.0,
+          "bytes": 271797,
+          "sha256": "1645a07681a828c87717f688c64c04d9149955ecf46aef876f548ab8cb4db542"
+        },
+        "motiongpt3": {
+          "source": "mirror_video/t2m/motiongpt3/99_out_mesh.mp4",
+          "video": "assets/videos/t2m/motiongpt3/99.mp4",
+          "poster": "assets/posters/t2m/motiongpt3/99.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.93,
+          "fps": 30.0,
+          "bytes": 150738,
+          "sha256": "5bf13988687196044ad61c1f7e507767101d3c950bb4adf8f9d0bd5b0649623f"
+        }
+      }
+    },
+    {
+      "id": "16",
+      "prompt": "A person holds both hands in a fighting stance, steps back to the left, then kicks with the left leg.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/16_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/16.mp4",
+          "poster": "assets/posters/t2m/ours/16.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 4.0,
+          "fps": 30.0,
+          "bytes": 182806,
+          "sha256": "8b5deccb359f41dee0eba6eabc75e0cda3d7e33408707ec0ed135f266ad5a17d"
+        },
+        "unimo": {
+          "source": "mirror_video/t2m/unimo/16_out_mesh.mp4",
+          "video": "assets/videos/t2m/unimo/16.mp4",
+          "poster": "assets/posters/t2m/unimo/16.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.93,
+          "fps": 30.0,
+          "bytes": 123846,
+          "sha256": "b27c0eb3f7fbb32ff54c2558712dfc48713f1035fbec581ff66e65bb16b8b928"
+        },
+        "motiongpt3": {
+          "source": "mirror_video/t2m/motiongpt3/16_out_mesh.mp4",
+          "video": "assets/videos/t2m/motiongpt3/16.mp4",
+          "poster": "assets/posters/t2m/motiongpt3/16.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.93,
+          "fps": 30.0,
+          "bytes": 125289,
+          "sha256": "7566f336c98a3548b5ec0a39b8d75ea487b80c508b4f707038a679efb219a824"
+        }
+      }
+    },
+    {
+      "id": "74",
+      "prompt": "A person swims forward, sweeping their arms through the water.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/74_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/74.mp4",
+          "poster": "assets/posters/t2m/ours/74.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.2,
+          "fps": 30.0,
+          "bytes": 169298,
+          "sha256": "6f4a1bb71424d3b13655fab83771a1a1e4eeffc989c112b0f25d11d83f3a30bd"
+        }
+      }
+    },
+    {
+      "id": "3",
+      "prompt": "A person steps sideways for three times",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/3_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/3.mp4",
+          "poster": "assets/posters/t2m/ours/3.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.07,
+          "fps": 30.0,
+          "bytes": 149969,
+          "sha256": "f828c0abbe9177ea3629b86708652afc4ae043726ff5891d27b8152b9fde0b5d"
+        }
+      }
+    },
+    {
+      "id": "19",
+      "prompt": "A person takes several steps backward while keeping their torso oriented toward the same direction.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/19_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/19.mp4",
+          "poster": "assets/posters/t2m/ours/19.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 5.6,
+          "fps": 30.0,
+          "bytes": 241582,
+          "sha256": "31ebbddafa19d870f7478c33cacd19f6b08718b41ad3f73db1af8838d3b54a59"
+        }
+      }
+    },
+    {
+      "id": "21",
+      "prompt": "A person balances on one leg, and carefully returns to a neutral stance.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/21_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/21.mp4",
+          "poster": "assets/posters/t2m/ours/21.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 5.73,
+          "fps": 30.0,
+          "bytes": 176264,
+          "sha256": "d0c66230ff990005a70f271b9c525b181a4e74e1ecfabd61ac9e50223314e38c"
+        }
+      }
+    },
+    {
+      "id": "38",
+      "prompt": "A person appears trapped between moving forward and turning back, alternating between both intentions",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/38_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/38.mp4",
+          "poster": "assets/posters/t2m/ours/38.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.43,
+          "fps": 30.0,
+          "bytes": 109764,
+          "sha256": "79d7ba961ca948530d0241bb3c65ea1e1eae789ee9d4119d886bec51c11c3e08"
+        }
+      }
+    },
+    {
+      "id": "2",
+      "prompt": "A person runs forward, suddenly stops, turn to the side",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/2_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/2.mp4",
+          "poster": "assets/posters/t2m/ours/2.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.3,
+          "fps": 30.0,
+          "bytes": 123674,
+          "sha256": "091529df6b95894757685bf470799a5284582474dbdd8f8b066d3703637dd38e"
+        }
+      }
+    },
+    {
+      "id": "5",
+      "prompt": "A person jumps sideways with both feet, lands with bent knees",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/5_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/5.mp4",
+          "poster": "assets/posters/t2m/ours/5.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.57,
+          "fps": 30.0,
+          "bytes": 82171,
+          "sha256": "edc223f03ace75f052f6927c012aa5a31d9cd72885b033c48d79bd2944635028"
+        }
+      }
+    },
+    {
+      "id": "10",
+      "prompt": "A person walks forward and extends the arms to his sides",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/10_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/10.mp4",
+          "poster": "assets/posters/t2m/ours/10.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.43,
+          "fps": 30.0,
+          "bytes": 122585,
+          "sha256": "bd0974d663f42d5c5354591473aa6053eb5f1a2a8355f5df23a0239c7c451a26"
+        }
+      }
+    },
+    {
+      "id": "14",
+      "prompt": "A person crouches low, strides forward, and springs upward",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/14_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/14.mp4",
+          "poster": "assets/posters/t2m/ours/14.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.17,
+          "fps": 30.0,
+          "bytes": 119242,
+          "sha256": "fab3437ec6f4f6928982b10221eaef85402b235b159c2e2a8b4968eaab881cd4"
+        }
+      }
+    },
+    {
+      "id": "100_15",
+      "prompt": "A person swings both arms behind the body, bends the knees, and launches into a long forward jump",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/100_15_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/100_15.mp4",
+          "poster": "assets/posters/t2m/ours/100_15.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.7,
+          "fps": 30.0,
+          "bytes": 115452,
+          "sha256": "9819b947d5f9637fdee8f578c5037184904b21d90191986b8ce7f763b9e3eb5d"
+        }
+      }
+    },
+    {
+      "id": "18",
+      "prompt": "A person performs jumping jacks rapidly.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/18_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/18.mp4",
+          "poster": "assets/posters/t2m/ours/18.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.2,
+          "fps": 30.0,
+          "bytes": 172170,
+          "sha256": "c5efe0dc43986de1cbfcc738627a341937171d4a2a63fefc676f37d16f31202a"
+        }
+      }
+    },
+    {
+      "id": "23",
+      "prompt": "A person swings the right arm in large circles, then reverses direction and continues.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/23_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/23.mp4",
+          "poster": "assets/posters/t2m/ours/23.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.2,
+          "fps": 30.0,
+          "bytes": 164574,
+          "sha256": "6b5e7a260bd7c8cbc37ade53f9f6b230d02b346ced9764d2d17ab2a579609456"
+        }
+      }
+    },
+    {
+      "id": "44",
+      "prompt": "A person plants both feet wide apart, throws strong punches forward in a guarded stance.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/44_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/44.mp4",
+          "poster": "assets/posters/t2m/ours/44.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 4.0,
+          "fps": 30.0,
+          "bytes": 177829,
+          "sha256": "05258874bcab542913f64e5e407c079ccd0668861050a2991382e32542b2d81b"
+        }
+      }
+    },
+    {
+      "id": "47",
+      "prompt": "A person leans sideways to avoid an imagined strike",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/47_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/47.mp4",
+          "poster": "assets/posters/t2m/ours/47.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.57,
+          "fps": 30.0,
+          "bytes": 95841,
+          "sha256": "678da8ff9643375b999c355cf8b0779201103ccc33d2b42e0d981f07e37594b2"
+        }
+      }
+    },
+    {
+      "id": "48",
+      "prompt": "A person runs, raises both arms while jumping, then walks forward.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/48_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/48.mp4",
+          "poster": "assets/posters/t2m/ours/48.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.17,
+          "fps": 30.0,
+          "bytes": 151897,
+          "sha256": "8ca43cec375024dd4c7daa70a59314d18aa440c15bc29060e0be769d6a2f8d73"
+        }
+      }
+    },
+    {
+      "id": "49",
+      "prompt": "A person skips forward with large alternating steps, swings both arms freely.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/49_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/49.mp4",
+          "poster": "assets/posters/t2m/ours/49.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.3,
+          "fps": 30.0,
+          "bytes": 148246,
+          "sha256": "09df93c9e0b0e64d32a1e70235341b6b84b9d36a5e2580a30b561be3d6984136"
+        }
+      }
+    },
+    {
+      "id": "51",
+      "prompt": "A person balances on one leg, holding the other leg and extending one arm forward.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/51_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/51.mp4",
+          "poster": "assets/posters/t2m/ours/51.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 2.3,
+          "fps": 30.0,
+          "bytes": 72451,
+          "sha256": "e6497e5e36a7588a1be863e3c6b48aeb7468965eb25d3282856c8b38a6083c2a"
+        }
+      }
+    },
+    {
+      "id": "53",
+      "prompt": "A person performs wide cartwheel-like sideways motions with the torso.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/53_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/53.mp4",
+          "poster": "assets/posters/t2m/ours/53.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.07,
+          "fps": 30.0,
+          "bytes": 244871,
+          "sha256": "a95577369d040ecb93e042a6b3d9044f91753f3fe42686c39d357ecfdf8ca34e"
+        }
+      }
+    },
+    {
+      "id": "67",
+      "prompt": "A person winds up the right arm, throws an imagined ball far forward, and watches its path while leaning ahead",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/67_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/67.mp4",
+          "poster": "assets/posters/t2m/ours/67.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.2,
+          "fps": 30.0,
+          "bytes": 147128,
+          "sha256": "2e54540abd5f0ecca12c8eb61a8784d969cf4847ada6391c748abfee6829829d"
+        }
+      }
+    },
+    {
+      "id": "71",
+      "prompt": "A person kicks an imaginary ball forcefully, then steps backward.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/71_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/71.mp4",
+          "poster": "assets/posters/t2m/ours/71.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.2,
+          "fps": 30.0,
+          "bytes": 188963,
+          "sha256": "c4bb25aca4916eb45f64f736db2e2b66bd78c82afe8a61b462ed5f88185bcc9e"
+        }
+      }
+    },
+    {
+      "id": "77",
+      "prompt": "A person walks down the stairs carefully.",
+      "methods": {
+        "ours": {
+          "source": "mirror_video/t2m/ours/77_out_mesh.mp4",
+          "video": "assets/videos/t2m/ours/77.mp4",
+          "poster": "assets/posters/t2m/ours/77.jpg",
+          "sourceSize": [
+            1280,
+            1024
+          ],
+          "duration": 3.6,
+          "fps": 30.0,
+          "bytes": 122402,
+          "sha256": "f676c311c581d2b61eee02e13898e6b51a6fe0645ccacad4424c2de5bc22d8d3"
+        }
+      }
+    }
+  ],
+  "m2t": [
+    {
+      "id": "0_out_mesh",
+      "prediction": "a person walks up quickly, then bends their knees and jumps into the air.",
+      "baselines": {
+        "UniMo": "a person runs forward and then jumps up and down.",
+        "MotionGPT3": "the avatar is walking straight."
+      },
+      "textSource": "mirror_video/m2t/0_out_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/0_out_mesh.mp4",
+        "video": "assets/videos/m2t/0_out_mesh.mp4",
+        "poster": "assets/posters/m2t/0_out_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 2.03,
+        "fps": 30.0,
+        "bytes": 100202,
+        "sha256": "17d4962312e7f783b090c8814b4cd3b239fe99736d4296898485c12d457e2c91"
+      }
+    },
+    {
+      "id": "27_out_mesh",
+      "prediction": "a person moves the left foot slightly backward, and then sidesteps to the left.",
+      "baselines": {
+        "UniMo": "a person takes a few steps to their left and then back.",
+        "MotionGPT3": "the person is walking sideways to the left and sidesteps occasionally back toward the right."
+      },
+      "textSource": "mirror_video/m2t/27_out_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/27_out_mesh.mp4",
+        "video": "assets/videos/m2t/27_out_mesh.mp4",
+        "poster": "assets/posters/m2t/27_out_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 3.2,
+        "fps": 30.0,
+        "bytes": 162350,
+        "sha256": "7fa89bb529e1bb6286e48d80abbc426b3f5ecd234c9bb2ca4be8c39a7138311f"
+      }
+    },
+    {
+      "id": "6_out_mesh",
+      "prediction": "a person raises both arms above their head, then twist his upper body to the right, then returns and lowers both arms.",
+      "baselines": {
+        "UniMo": "a person raises both his arms and then sets them back down.",
+        "MotionGPT3": "a person lifts both arms above his head and stretches hands together."
+      },
+      "textSource": "mirror_video/m2t/6_out_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/6_out_mesh.mp4",
+        "video": "assets/videos/m2t/6_out_mesh.mp4",
+        "poster": "assets/posters/m2t/6_out_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 2.03,
+        "fps": 30.0,
+        "bytes": 94917,
+        "sha256": "ecd64805a46d6fbf39d9b92389ca3f950d1fbe061173744968d36c691d69e3b9"
+      }
+    },
+    {
+      "id": "70_out_mesh",
+      "prediction": "a person is playing basketball, fakes ball and dribbles forward.",
+      "baselines": {
+        "UniMo": "a person raises his right arm and then throws something and runs forward.",
+        "MotionGPT3": "a person is making basketball."
+      },
+      "textSource": "mirror_video/m2t/70_out_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/70_out_mesh.mp4",
+        "video": "assets/videos/m2t/70_out_mesh.mp4",
+        "poster": "assets/posters/m2t/70_out_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 2.43,
+        "fps": 30.0,
+        "bytes": 136475,
+        "sha256": "cf277c8af7b37ff22eb2152975c668ca1370eda3becd3edd4a7d7485e81087e7"
+      }
+    },
+    {
+      "id": "002217_mesh",
+      "prediction": "a person is swimming in water.",
+      "baselines": {
+        "UniMo": "a person is laying down and then stands up.",
+        "MotionGPT3": "a man lies down on his stomach, sees something floating in the sea."
+      },
+      "textSource": "mirror_video/m2t/002217_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/002217_mesh.mp4",
+        "video": "assets/videos/m2t/002217_mesh.mp4",
+        "poster": "assets/posters/m2t/002217_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 6.63,
+        "fps": 30.0,
+        "bytes": 385678,
+        "sha256": "d187459cd4d86d113a794a37ba753de7fbbdf15d06430404246437ca0bcd8bba"
+      }
+    },
+    {
+      "id": "005695_mesh",
+      "prediction": "a person walks up stairs, turns around, and walks back down stairs.",
+      "baselines": {
+        "UniMo": "a person walks up stairs and then turns around and walks back down.",
+        "MotionGPT3": "person walks forward up stairs to stairs and turns around clockwise."
+      },
+      "textSource": "mirror_video/m2t/005695_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/005695_mesh.mp4",
+        "video": "assets/videos/m2t/005695_mesh.mp4",
+        "poster": "assets/posters/m2t/005695_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 6.63,
+        "fps": 30.0,
+        "bytes": 284471,
+        "sha256": "1cd5db6bea1408489eea2812239ad83254e35721e66206f9466ed6547b61c771"
+      }
+    },
+    {
+      "id": "000030_mesh",
+      "prediction": "A person punches with right hand for a couple of times.",
+      "baselines": {},
+      "textSource": "mirror_video/m2t/000030_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/000030_mesh.mp4",
+        "video": "assets/videos/m2t/000030_mesh.mp4",
+        "poster": "assets/posters/m2t/000030_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 2.27,
+        "fps": 30.0,
+        "bytes": 90085,
+        "sha256": "850ba2b80b905e13f1536dca50b9d0d4f5b7b738aa5fbf3ab3396f44efcae783"
+      }
+    },
+    {
+      "id": "000884_mesh",
+      "prediction": "a person walks forward a few steps and then turns around and walks back.",
+      "baselines": {},
+      "textSource": "mirror_video/m2t/000884_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/000884_mesh.mp4",
+        "video": "assets/videos/m2t/000884_mesh.mp4",
+        "poster": "assets/posters/m2t/000884_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 6.63,
+        "fps": 30.0,
+        "bytes": 372818,
+        "sha256": "2b0241522b1d53a31d7719fe91c3f97e8721d4ee652e004945fc0a2298e9da2c"
+      }
+    },
+    {
+      "id": "005572_mesh",
+      "prediction": "a person crouches down on the ground and then lays flat on their stomach",
+      "baselines": {},
+      "textSource": "mirror_video/m2t/005572_mesh.txt",
+      "media": {
+        "source": "mirror_video/m2t/005572_mesh.mp4",
+        "video": "assets/videos/m2t/005572_mesh.mp4",
+        "poster": "assets/posters/m2t/005572_mesh.jpg",
+        "sourceSize": [
+          1280,
+          1024
+        ],
+        "duration": 4.37,
+        "fps": 30.0,
+        "bytes": 124804,
+        "sha256": "1dcfa8bffc8449c595f295fc5a4900df5fa45902e8b4fd9ef5a00aa30d3cefe0"
+      }
+    }
+  ],
+  "comparisonIds": [
+    "11",
+    "15",
+    "100_3",
+    "16",
+    "99"
+  ],
+  "figures": {
+    "method": {
+      "src": "assets/figures/method.webp",
+      "width": 2653,
+      "height": 1469,
+      "source": "mirror_paper/figs/method_v4.pdf"
+    },
+    "t2m": {
+      "src": "assets/figures/t2m.webp",
+      "width": 3538,
+      "height": 1701,
+      "source": "mirror_paper/figs/t2m_res_v3.pdf"
+    },
+    "m2t": {
+      "src": "assets/figures/m2t.webp",
+      "width": 2041,
+      "height": 1735,
+      "source": "mirror_paper/figs/m2t_res.pdf"
+    }
+  },
+  "benchmarks": [
+    {
+      "id": "t2m",
+      "columns": [
+        [
+          "R-Precision Top 1",
+          "up"
+        ],
+        [
+          "R-Precision Top 2",
+          "up"
+        ],
+        [
+          "R-Precision Top 3",
+          "up"
+        ],
+        [
+          "FID",
+          "down"
+        ],
+        [
+          "MM-Dist",
+          "down"
+        ],
+        [
+          "Diversity",
+          "target"
+        ],
+        [
+          "Multimodality",
+          "up"
+        ]
+      ],
+      "rows": [
+        {
+          "method": "Real",
+          "group": "Reference",
+          "values": [
+            "0.511 +/- 0.003",
+            "0.703 +/- 0.003",
+            "0.797 +/- 0.002",
+            "0.002 +/- 0.000",
+            "2.974 +/- 0.008",
+            "9.503 +/- 0.065",
+            "--"
+          ]
+        },
+        {
+          "method": "MDM~",
+          "group": "Generation only",
+          "values": [
+            "0.320 +/- 0.005",
+            "0.498 +/- 0.004",
+            "0.611 +/- 0.007",
+            "0.544 +/- 0.044",
+            "5.566 +/- 0.027",
+            "9.559 +/- 0.086",
+            "2.799 +/- 0.072"
+          ]
+        },
+        {
+          "method": "T2M-GPT~",
+          "group": "Generation only",
+          "values": [
+            "0.491 +/- 0.003",
+            "0.680 +/- 0.003",
+            "0.775 +/- 0.002",
+            "0.116 +/- 0.004",
+            "3.118 +/- 0.011",
+            "9.761 +/- 0.081",
+            "1.856 +/- 0.011"
+          ]
+        },
+        {
+          "method": "MoMask~",
+          "group": "Generation only",
+          "values": [
+            "0.521 +/- 0.002",
+            "0.713 +/- 0.002",
+            "0.807 +/- 0.002",
+            "0.045 +/- 0.002",
+            "2.958 +/- 0.008",
+            "9.620 +/- 0.064",
+            "1.241 +/- 0.040"
+          ]
+        },
+        {
+          "method": "MoMask++~",
+          "group": "Generation only",
+          "values": [
+            "0.528 +/- 0.003",
+            "0.718 +/- 0.003",
+            "0.811 +/- 0.002",
+            "0.072 +/- 0.003",
+            "2.912 +/- 0.008",
+            "--",
+            "1.227 +/- 0.046"
+          ]
+        },
+        {
+          "method": "Motion-R1~",
+          "group": "Generation only",
+          "values": [
+            "0.515 +/- 0.003",
+            "0.719 +/- 0.002",
+            "0.818 +/- 0.002",
+            "0.201 +/- 0.004",
+            "2.854 +/- 0.010",
+            "10.026 +/- 0.075",
+            "2.317 +/- 0.105"
+          ]
+        },
+        {
+          "method": "MotionHiFlow~",
+          "group": "Generation only",
+          "values": [
+            "0.563 +/- 0.003",
+            "0.754 +/- 0.003",
+            "0.843 +/- 0.003",
+            "0.032 +/- 0.002",
+            "2.691 +/- 0.009",
+            "9.504 +/- 0.071",
+            "--"
+          ]
+        },
+        {
+          "method": "TM2T~",
+          "group": "Unified",
+          "values": [
+            "0.424 +/- 0.003",
+            "0.618 +/- 0.003",
+            "0.729 +/- 0.002",
+            "1.501 +/- 0.017",
+            "3.467 +/- 0.011",
+            "8.589 +/- 0.076",
+            "2.424 +/- 0.093"
+          ]
+        },
+        {
+          "method": "MotionGPT~",
+          "group": "Unified",
+          "values": [
+            "0.492 +/- 0.003",
+            "0.681 +/- 0.003",
+            "0.778 +/- 0.002",
+            "0.232 +/- 0.008",
+            "3.096 +/- 0.008",
+            "9.528 +/- 0.071",
+            "2.008 +/- 0.084"
+          ]
+        },
+        {
+          "method": "MotionChain~",
+          "group": "Unified",
+          "values": [
+            "0.504 +/- 0.003",
+            "0.695 +/- 0.003",
+            "0.790 +/- 0.003",
+            "0.248 +/- 0.009",
+            "3.033 +/- 0.010",
+            "9.470 +/- 0.075",
+            "1.715 +/- 0.066"
+          ]
+        },
+        {
+          "method": "MotionLLM~",
+          "group": "Unified",
+          "values": [
+            "0.515 +/- 0.004",
+            "0.691 +/- 0.003",
+            "0.801 +/- 0.004",
+            "0.230 +/- 0.009",
+            "2.967 +/- 0.020",
+            "9.908 +/- 0.102",
+            "2.142 +/- 0.014"
+          ]
+        },
+        {
+          "method": "MotionGPT-2~",
+          "group": "Unified",
+          "values": [
+            "0.496 +/- 0.002",
+            "0.691 +/- 0.003",
+            "0.782 +/- 0.004",
+            "0.191 +/- 0.004",
+            "3.080 +/- 0.013",
+            "9.860 +/- 0.026",
+            "2.137 +/- 0.022"
+          ]
+        },
+        {
+          "method": "MotionGPT3~",
+          "group": "Unified",
+          "values": [
+            "0.553 +/- 0.003",
+            "0.747 +/- 0.002",
+            "0.837 +/- 0.003",
+            "0.208 +/- 0.006",
+            "2.725 +/- 0.008",
+            "9.700 +/- 0.096",
+            "1.018 +/- 0.038"
+          ]
+        },
+        {
+          "method": "UniMo~",
+          "group": "Unified",
+          "values": [
+            "0.539 +/- 0.003",
+            "0.738 +/- 0.002",
+            "0.831 +/- 0.002",
+            "0.177 +/- 0.004",
+            "2.768 +/- 0.010",
+            "10.042 +/- 0.076",
+            "1.924 +/- 0.080"
+          ]
+        },
+        {
+          "method": "IRG-MotionLLM~",
+          "group": "Unified",
+          "values": [
+            "0.535 +/- 0.002",
+            "0.725 +/- 0.002",
+            "0.820 +/- 0.002",
+            "0.242 +/- 0.006",
+            "2.785 +/- 0.006",
+            "9.900 +/- 0.094",
+            "--"
+          ]
+        },
+        {
+          "method": "MIRROR (SFT only)",
+          "group": "Unified",
+          "values": [
+            "0.495 +/- 0.003",
+            "0.674 +/- 0.003",
+            "0.775 +/- 0.002",
+            "0.163 +/- 0.005",
+            "3.085 +/- 0.007",
+            "9.719 +/- 0.066",
+            "2.117 +/- 0.072"
+          ]
+        },
+        {
+          "method": "MIRROR",
+          "group": "Unified",
+          "values": [
+            "0.577 +/- 0.004",
+            "0.762 +/- 0.003",
+            "0.852 +/- 0.002",
+            "0.188 +/- 0.003",
+            "2.672 +/- 0.006",
+            "9.777 +/- 0.072",
+            "2.350 +/- 0.083"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2t",
+      "columns": [
+        [
+          "BLEU@1",
+          "up"
+        ],
+        [
+          "BLEU@4",
+          "up"
+        ],
+        [
+          "ROUGE-L",
+          "up"
+        ],
+        [
+          "CIDEr",
+          "up"
+        ],
+        [
+          "BERTScore",
+          "up"
+        ]
+      ],
+      "rows": [
+        {
+          "method": "LaMP-M2T~",
+          "group": "Understanding only",
+          "values": [
+            "47.8",
+            "13.04",
+            "37.1",
+            "28.9",
+            "32.7"
+          ]
+        },
+        {
+          "method": "ToHL~",
+          "group": "Understanding only",
+          "values": [
+            "49.7",
+            "13.62",
+            "39.2",
+            "53.1",
+            "33.1"
+          ]
+        },
+        {
+          "method": "HiCAM2T~",
+          "group": "Understanding only",
+          "values": [
+            "61.8",
+            "22.4",
+            "47.0",
+            "44.8",
+            "--"
+          ]
+        },
+        {
+          "method": "SMD~",
+          "group": "Understanding only",
+          "values": [
+            "63.45",
+            "22.67",
+            "47.80",
+            "--",
+            "45.58"
+          ]
+        },
+        {
+          "method": "TM2T~",
+          "group": "Unified",
+          "values": [
+            "48.9",
+            "7.00",
+            "38.1",
+            "16.8",
+            "32.2"
+          ]
+        },
+        {
+          "method": "MotionGPT~",
+          "group": "Unified",
+          "values": [
+            "48.2",
+            "12.47",
+            "37.4",
+            "29.2",
+            "32.4"
+          ]
+        },
+        {
+          "method": "MotionChain~",
+          "group": "Unified",
+          "values": [
+            "48.1",
+            "12.56",
+            "39.9",
+            "33.7",
+            "36.9"
+          ]
+        },
+        {
+          "method": "MotionLLM~",
+          "group": "Unified",
+          "values": [
+            "54.53",
+            "17.65",
+            "48.7",
+            "33.74",
+            "42.63"
+          ]
+        },
+        {
+          "method": "MotionGPT-2~",
+          "group": "Unified",
+          "values": [
+            "48.7",
+            "13.8",
+            "37.6",
+            "29.8",
+            "32.6"
+          ]
+        },
+        {
+          "method": "MotionGPT3~",
+          "group": "Unified",
+          "values": [
+            "59.08",
+            "19.41",
+            "46.17",
+            "28.72",
+            "35.23"
+          ]
+        },
+        {
+          "method": "UniMo~",
+          "group": "Unified",
+          "values": [
+            "63.10",
+            "19.74",
+            "48.8",
+            "46.69",
+            "54.26"
+          ]
+        },
+        {
+          "method": "IRG-MotionLLM~",
+          "group": "Unified",
+          "values": [
+            "62.05",
+            "22.53",
+            "47.51",
+            "52.4",
+            "42.68"
+          ]
+        },
+        {
+          "method": "MIRROR (SFT only)",
+          "group": "Unified",
+          "values": [
+            "60.34",
+            "18.85",
+            "47.96",
+            "44.62",
+            "53.71"
+          ]
+        },
+        {
+          "method": "MIRROR",
+          "group": "Unified",
+          "values": [
+            "68.77",
+            "26.20",
+            "54.23",
+            "58.82",
+            "59.71"
+          ]
+        }
+      ]
+    }
+  ],
+  "missing": [
+    "T2M 0: MIRROR output video is missing; excluded."
+  ]
+}

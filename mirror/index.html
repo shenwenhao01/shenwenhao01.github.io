@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="MIRROR unifies human motion generation and understanding through Motion-Internalized Reasoning and Reciprocal On-Policy Reinforcement.">
+  <title>MIRROR | Unified Motion Generation and Understanding</title>
+  <link rel="icon" href="./assets/favicon.svg?v=mirror-emoji" type="image/svg+xml">
+  <link rel="preload" href="./assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="container navigation" aria-label="Main navigation">
+      <a class="wordmark" href="#overview" aria-label="MIRROR overview">MIRROR</a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#results">Results</a>
+        <a href="#method">Method</a>
+        <a href="#evaluation">Evaluation</a>
+        <a class="home-link" href="https://shenwenhao01.github.io/" aria-label="Homepage — Wenhao Shen">Homepage <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <div class="showcase">
+      <section class="hero" id="overview" aria-labelledby="hero-title">
+        <div class="hero-copy container">
+          <h1 id="hero-title"><span class="mirror-emoji" aria-hidden="true">🪞</span><span class="mirror-logotype">MIRROR</span></h1>
+          <p class="paper-title">Motion-Internalized Reasoning with Reciprocal On-Policy Reinforcement for Unified Motion Generation and Understanding</p>
+          <p class="paper-authors"><span class="paper-author">Wenhao Shen<sup>1</sup></span> <span class="paper-author">Hao Wang<sup>2</sup></span> <span class="paper-author">Nanjie Yao<sup>2</sup></span> <span class="paper-author">Shanshan Zhao<sup>3</sup></span> <span class="paper-author">Qing-Guo Chen<sup>3</sup></span> <span class="paper-author">Weihua Luo<sup>3</sup></span> <span class="paper-author">Guosheng Lin<sup>1</sup></span></p>
+          <p class="paper-affiliations"><span><sup>1</sup>Nanyang Technological University</span><span><sup>2</sup>HKUST (Guangzhou)</span><span><sup>3</sup>Alibaba Group</span></p>
+          <div data-paper-links></div>
+        </div>
+      </section>
+
+      <section class="section generation" id="results" aria-labelledby="generation-title">
+        <div class="section-heading container">
+          <h2 id="generation-title">Text-to-motion generation</h2>
+          <p>MIRROR generates human motion from a text description.</p>
+        </div>
+        <div class="motion-carousel" data-carousel="t2m" aria-roledescription="carousel" aria-label="Text-to-motion examples">
+          <div class="carousel-track" tabindex="0" aria-label="Browse text-to-motion examples"><figure class="motion-card carousel-slide is-active" data-sample-index="0" aria-roledescription="slide" aria-label="1 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/11.jpg" data-src="./assets/videos/t2m/ours/11.mp4" aria-label="A person walks away reluctantly, glancing back without fully turning around."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/11.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/11.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person walks away reluctantly, glancing back without fully turning around.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="1" aria-roledescription="slide" aria-label="2 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/100_3.jpg" data-src="./assets/videos/t2m/ours/100_3.mp4" aria-label="A person bends deeply at the waist, reaches both hands toward the ground, then rises quickly and stretches both arms high above the head"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/100_3.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/100_3.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person bends deeply at the waist, reaches both hands toward the ground, then rises quickly and stretches both arms high above the head&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="2" aria-roledescription="slide" aria-label="3 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/15.jpg" data-src="./assets/videos/t2m/ours/15.mp4" aria-label="A person walks as if trying not to wake someone, placing each foot carefully and maintaining a cautious, slightly crouched posture."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/15.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/15.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person walks as if trying not to wake someone, placing each foot carefully and maintaining a cautious, slightly crouched posture.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="3" aria-roledescription="slide" aria-label="4 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/99.jpg" data-src="./assets/videos/t2m/ours/99.mp4" aria-label="A person dances with alternating side steps,"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/99.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/99.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person dances with alternating side steps,&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="4" aria-roledescription="slide" aria-label="5 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/16.jpg" data-src="./assets/videos/t2m/ours/16.mp4" aria-label="A person holds both hands in a fighting stance, steps back to the left, then kicks with the left leg."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/16.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/16.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person holds both hands in a fighting stance, steps back to the left, then kicks with the left leg.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="5" aria-roledescription="slide" aria-label="6 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/74.jpg" data-src="./assets/videos/t2m/ours/74.mp4" aria-label="A person swims forward, sweeping their arms through the water."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/74.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/74.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person swims forward, sweeping their arms through the water.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="6" aria-roledescription="slide" aria-label="7 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/3.jpg" data-src="./assets/videos/t2m/ours/3.mp4" aria-label="A person steps sideways for three times"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/3.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/3.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person steps sideways for three times&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="7" aria-roledescription="slide" aria-label="8 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/19.jpg" data-src="./assets/videos/t2m/ours/19.mp4" aria-label="A person takes several steps backward while keeping their torso oriented toward the same direction."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/19.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/19.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person takes several steps backward while keeping their torso oriented toward the same direction.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="8" aria-roledescription="slide" aria-label="9 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/21.jpg" data-src="./assets/videos/t2m/ours/21.mp4" aria-label="A person balances on one leg, and carefully returns to a neutral stance."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/21.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/21.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person balances on one leg, and carefully returns to a neutral stance.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="9" aria-roledescription="slide" aria-label="10 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/38.jpg" data-src="./assets/videos/t2m/ours/38.mp4" aria-label="A person appears trapped between moving forward and turning back, alternating between both intentions"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/38.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/38.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person appears trapped between moving forward and turning back, alternating between both intentions&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="10" aria-roledescription="slide" aria-label="11 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/2.jpg" data-src="./assets/videos/t2m/ours/2.mp4" aria-label="A person runs forward, suddenly stops, turn to the side"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/2.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/2.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person runs forward, suddenly stops, turn to the side&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="11" aria-roledescription="slide" aria-label="12 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/5.jpg" data-src="./assets/videos/t2m/ours/5.mp4" aria-label="A person jumps sideways with both feet, lands with bent knees"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/5.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/5.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person jumps sideways with both feet, lands with bent knees&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="12" aria-roledescription="slide" aria-label="13 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/10.jpg" data-src="./assets/videos/t2m/ours/10.mp4" aria-label="A person walks forward and extends the arms to his sides"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/10.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/10.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person walks forward and extends the arms to his sides&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="13" aria-roledescription="slide" aria-label="14 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/14.jpg" data-src="./assets/videos/t2m/ours/14.mp4" aria-label="A person crouches low, strides forward, and springs upward"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/14.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/14.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person crouches low, strides forward, and springs upward&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="14" aria-roledescription="slide" aria-label="15 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/100_15.jpg" data-src="./assets/videos/t2m/ours/100_15.mp4" aria-label="A person swings both arms behind the body, bends the knees, and launches into a long forward jump"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/100_15.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/100_15.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person swings both arms behind the body, bends the knees, and launches into a long forward jump&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="15" aria-roledescription="slide" aria-label="16 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/18.jpg" data-src="./assets/videos/t2m/ours/18.mp4" aria-label="A person performs jumping jacks rapidly."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/18.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/18.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person performs jumping jacks rapidly.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="16" aria-roledescription="slide" aria-label="17 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/23.jpg" data-src="./assets/videos/t2m/ours/23.mp4" aria-label="A person swings the right arm in large circles, then reverses direction and continues."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/23.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/23.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person swings the right arm in large circles, then reverses direction and continues.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="17" aria-roledescription="slide" aria-label="18 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/44.jpg" data-src="./assets/videos/t2m/ours/44.mp4" aria-label="A person plants both feet wide apart, throws strong punches forward in a guarded stance."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/44.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/44.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person plants both feet wide apart, throws strong punches forward in a guarded stance.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="18" aria-roledescription="slide" aria-label="19 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/47.jpg" data-src="./assets/videos/t2m/ours/47.mp4" aria-label="A person leans sideways to avoid an imagined strike"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/47.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/47.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person leans sideways to avoid an imagined strike&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="19" aria-roledescription="slide" aria-label="20 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/48.jpg" data-src="./assets/videos/t2m/ours/48.mp4" aria-label="A person runs, raises both arms while jumping, then walks forward."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/48.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/48.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person runs, raises both arms while jumping, then walks forward.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="20" aria-roledescription="slide" aria-label="21 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/49.jpg" data-src="./assets/videos/t2m/ours/49.mp4" aria-label="A person skips forward with large alternating steps, swings both arms freely."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/49.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/49.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person skips forward with large alternating steps, swings both arms freely.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="21" aria-roledescription="slide" aria-label="22 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/51.jpg" data-src="./assets/videos/t2m/ours/51.mp4" aria-label="A person balances on one leg, holding the other leg and extending one arm forward."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/51.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/51.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person balances on one leg, holding the other leg and extending one arm forward.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="22" aria-roledescription="slide" aria-label="23 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/53.jpg" data-src="./assets/videos/t2m/ours/53.mp4" aria-label="A person performs wide cartwheel-like sideways motions with the torso."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/53.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/53.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person performs wide cartwheel-like sideways motions with the torso.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="23" aria-roledescription="slide" aria-label="24 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/67.jpg" data-src="./assets/videos/t2m/ours/67.mp4" aria-label="A person winds up the right arm, throws an imagined ball far forward, and watches its path while leaning ahead"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/67.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/67.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person winds up the right arm, throws an imagined ball far forward, and watches its path while leaning ahead&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="24" aria-roledescription="slide" aria-label="25 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/71.jpg" data-src="./assets/videos/t2m/ours/71.mp4" aria-label="A person kicks an imaginary ball forcefully, then steps backward."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/71.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/71.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person kicks an imaginary ball forcefully, then steps backward.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="25" aria-roledescription="slide" aria-label="26 of 26"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/77.jpg" data-src="./assets/videos/t2m/ours/77.mp4" aria-label="A person walks down the stairs carefully."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/77.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/77.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Text prompt</span></div><p>&ldquo;A person walks down the stairs carefully.&rdquo;</p></figcaption></figure></div>
+          <div class="carousel-footer">
+            <button class="icon-button carousel-prev" type="button" aria-label="Previous generation example" title="Previous example" hidden><i class="icon arrow-left" aria-hidden="true"></i></button>
+            <div class="carousel-dots" role="group" aria-label="Choose a generation example" hidden></div>
+            <button class="icon-button carousel-next" type="button" aria-label="Next generation example" title="Next example" hidden><i class="icon arrow-right" aria-hidden="true"></i></button>
+            <span class="carousel-count" role="status" aria-live="polite">01 / 26</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section understanding" id="understanding" aria-labelledby="understanding-title">
+        <div class="section-heading container">
+          <h2 id="understanding-title">Motion-to-text understanding</h2>
+          <p>MIRROR describes an input motion in natural language.</p>
+        </div>
+        <div class="motion-carousel" data-carousel="m2t" aria-roledescription="carousel" aria-label="Motion-to-text examples">
+          <div class="carousel-track" tabindex="0" aria-label="Browse motion-to-text examples"><figure class="motion-card carousel-slide is-active" data-sample-index="0" aria-roledescription="slide" aria-label="1 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/0_out_mesh.jpg" data-src="./assets/videos/m2t/0_out_mesh.mp4" aria-label="a person walks up quickly, then bends their knees and jumps into the air."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/0_out_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/0_out_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person walks up quickly, then bends their knees and jumps into the air.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="1" aria-roledescription="slide" aria-label="2 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/27_out_mesh.jpg" data-src="./assets/videos/m2t/27_out_mesh.mp4" aria-label="a person moves the left foot slightly backward, and then sidesteps to the left."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/27_out_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/27_out_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person moves the left foot slightly backward, and then sidesteps to the left.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="2" aria-roledescription="slide" aria-label="3 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/6_out_mesh.jpg" data-src="./assets/videos/m2t/6_out_mesh.mp4" aria-label="a person raises both arms above their head, then twist his upper body to the right, then returns and lowers both arms."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/6_out_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/6_out_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person raises both arms above their head, then twist his upper body to the right, then returns and lowers both arms.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="3" aria-roledescription="slide" aria-label="4 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/70_out_mesh.jpg" data-src="./assets/videos/m2t/70_out_mesh.mp4" aria-label="a person is playing basketball, fakes ball and dribbles forward."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/70_out_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/70_out_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person is playing basketball, fakes ball and dribbles forward.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="4" aria-roledescription="slide" aria-label="5 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/002217_mesh.jpg" data-src="./assets/videos/m2t/002217_mesh.mp4" aria-label="a person is swimming in water."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/002217_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/002217_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person is swimming in water.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="5" aria-roledescription="slide" aria-label="6 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/005695_mesh.jpg" data-src="./assets/videos/m2t/005695_mesh.mp4" aria-label="a person walks up stairs, turns around, and walks back down stairs."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/005695_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/005695_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person walks up stairs, turns around, and walks back down stairs.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="6" aria-roledescription="slide" aria-label="7 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/000030_mesh.jpg" data-src="./assets/videos/m2t/000030_mesh.mp4" aria-label="A person punches with right hand for a couple of times."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/000030_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/000030_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;A person punches with right hand for a couple of times.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="7" aria-roledescription="slide" aria-label="8 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/000884_mesh.jpg" data-src="./assets/videos/m2t/000884_mesh.mp4" aria-label="a person walks forward a few steps and then turns around and walks back."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/000884_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/000884_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person walks forward a few steps and then turns around and walks back.&rdquo;</p></figcaption></figure><figure class="motion-card carousel-slide " data-sample-index="8" aria-roledescription="slide" aria-label="9 of 9"><div class="video-stage " data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/m2t/005572_mesh.jpg" data-src="./assets/videos/m2t/005572_mesh.mp4" aria-label="a person crouches down on the ground and then lays flat on their stomach"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/m2t/005572_mesh.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/m2t/005572_mesh.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div><figcaption><div class="card-meta"><span class="eyebrow">Generated description</span><span class="model-label">MIRROR</span></div><p>&ldquo;a person crouches down on the ground and then lays flat on their stomach&rdquo;</p></figcaption></figure></div>
+          <div class="carousel-footer">
+            <button class="icon-button carousel-prev" type="button" aria-label="Previous understanding example" title="Previous example" hidden><i class="icon arrow-left" aria-hidden="true"></i></button>
+            <div class="carousel-dots" role="group" aria-label="Choose an understanding example" hidden></div>
+            <button class="icon-button carousel-next" type="button" aria-label="Next understanding example" title="Next example" hidden><i class="icon arrow-right" aria-hidden="true"></i></button>
+            <span class="carousel-count" role="status" aria-live="polite">01 / 09</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section comparison" id="comparison" aria-labelledby="comparison-title">
+        <div class="section-heading container">
+          <h2 id="comparison-title">Qualitative comparison</h2>
+          <p>Motion generated by three models from the <strong class="text-emphasis">same text description</strong>.</p>
+        </div>
+        <div class="motion-carousel comparison-carousel" data-carousel="comparison" aria-roledescription="carousel" aria-label="Qualitative comparisons">
+          <div class="carousel-track" tabindex="0" aria-label="Browse comparison groups"><article class="comparison-group carousel-slide is-active" data-sample-index="0" aria-roledescription="slide" aria-label="Comparison 1 of 5"><p class="comparison-prompt">&ldquo;A person walks away reluctantly, glancing back without fully turning around.&rdquo;</p><div class="comparison-grid"><figure class="comparison-film "><figcaption>MotionGPT3</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/motiongpt3/11.jpg" data-src="./assets/videos/t2m/motiongpt3/11.mp4" aria-label="MotionGPT3: A person walks away reluctantly, glancing back without fully turning around."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/motiongpt3/11.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/motiongpt3/11.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film "><figcaption>UniMo</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/unimo/11.jpg" data-src="./assets/videos/t2m/unimo/11.mp4" aria-label="UniMo: A person walks away reluctantly, glancing back without fully turning around."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/unimo/11.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/unimo/11.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film ours"><figcaption>MIRROR</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/11.jpg" data-src="./assets/videos/t2m/ours/11.mp4" aria-label="MIRROR: A person walks away reluctantly, glancing back without fully turning around."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/11.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/11.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure></div><div class="comparison-toolbar"><button class="quiet-button" type="button" data-group-play><i class="icon play" aria-hidden="true"></i><span>Play all</span></button><button class="icon-button" type="button" data-group-replay aria-label="Replay this comparison" title="Replay"><i class="icon replay" aria-hidden="true"></i></button></div></article><article class="comparison-group carousel-slide " data-sample-index="1" aria-roledescription="slide" aria-label="Comparison 2 of 5"><p class="comparison-prompt">&ldquo;A person walks as if trying not to wake someone, placing each foot carefully and maintaining a cautious, slightly crouched posture.&rdquo;</p><div class="comparison-grid"><figure class="comparison-film "><figcaption>MotionGPT3</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/motiongpt3/15.jpg" data-src="./assets/videos/t2m/motiongpt3/15.mp4" aria-label="MotionGPT3: A person walks as if trying not to wake someone, placing each foot carefully and maintaining a cautious, slightly crouched posture."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/motiongpt3/15.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/motiongpt3/15.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film "><figcaption>UniMo</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/unimo/15.jpg" data-src="./assets/videos/t2m/unimo/15.mp4" aria-label="UniMo: A person walks as if trying not to wake someone, placing each foot carefully and maintaining a cautious, slightly crouched posture."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/unimo/15.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/unimo/15.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film ours"><figcaption>MIRROR</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/15.jpg" data-src="./assets/videos/t2m/ours/15.mp4" aria-label="MIRROR: A person walks as if trying not to wake someone, placing each foot carefully and maintaining a cautious, slightly crouched posture."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/15.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/15.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure></div><div class="comparison-toolbar"><button class="quiet-button" type="button" data-group-play><i class="icon play" aria-hidden="true"></i><span>Play all</span></button><button class="icon-button" type="button" data-group-replay aria-label="Replay this comparison" title="Replay"><i class="icon replay" aria-hidden="true"></i></button></div></article><article class="comparison-group carousel-slide " data-sample-index="2" aria-roledescription="slide" aria-label="Comparison 3 of 5"><p class="comparison-prompt">&ldquo;A person bends deeply at the waist, reaches both hands toward the ground, then rises quickly and stretches both arms high above the head&rdquo;</p><div class="comparison-grid"><figure class="comparison-film "><figcaption>MotionGPT3</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/motiongpt3/100_3.jpg" data-src="./assets/videos/t2m/motiongpt3/100_3.mp4" aria-label="MotionGPT3: A person bends deeply at the waist, reaches both hands toward the ground, then rises quickly and stretches both arms high above the head"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/motiongpt3/100_3.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/motiongpt3/100_3.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film "><figcaption>UniMo</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/unimo/100_3.jpg" data-src="./assets/videos/t2m/unimo/100_3.mp4" aria-label="UniMo: A person bends deeply at the waist, reaches both hands toward the ground, then rises quickly and stretches both arms high above the head"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/unimo/100_3.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/unimo/100_3.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film ours"><figcaption>MIRROR</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/100_3.jpg" data-src="./assets/videos/t2m/ours/100_3.mp4" aria-label="MIRROR: A person bends deeply at the waist, reaches both hands toward the ground, then rises quickly and stretches both arms high above the head"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/100_3.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/100_3.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure></div><div class="comparison-toolbar"><button class="quiet-button" type="button" data-group-play><i class="icon play" aria-hidden="true"></i><span>Play all</span></button><button class="icon-button" type="button" data-group-replay aria-label="Replay this comparison" title="Replay"><i class="icon replay" aria-hidden="true"></i></button></div></article><article class="comparison-group carousel-slide " data-sample-index="3" aria-roledescription="slide" aria-label="Comparison 4 of 5"><p class="comparison-prompt">&ldquo;A person holds both hands in a fighting stance, steps back to the left, then kicks with the left leg.&rdquo;</p><div class="comparison-grid"><figure class="comparison-film "><figcaption>MotionGPT3</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/motiongpt3/16.jpg" data-src="./assets/videos/t2m/motiongpt3/16.mp4" aria-label="MotionGPT3: A person holds both hands in a fighting stance, steps back to the left, then kicks with the left leg."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/motiongpt3/16.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/motiongpt3/16.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film "><figcaption>UniMo</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/unimo/16.jpg" data-src="./assets/videos/t2m/unimo/16.mp4" aria-label="UniMo: A person holds both hands in a fighting stance, steps back to the left, then kicks with the left leg."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/unimo/16.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/unimo/16.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film ours"><figcaption>MIRROR</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/16.jpg" data-src="./assets/videos/t2m/ours/16.mp4" aria-label="MIRROR: A person holds both hands in a fighting stance, steps back to the left, then kicks with the left leg."></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/16.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/16.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure></div><div class="comparison-toolbar"><button class="quiet-button" type="button" data-group-play><i class="icon play" aria-hidden="true"></i><span>Play all</span></button><button class="icon-button" type="button" data-group-replay aria-label="Replay this comparison" title="Replay"><i class="icon replay" aria-hidden="true"></i></button></div></article><article class="comparison-group carousel-slide " data-sample-index="4" aria-roledescription="slide" aria-label="Comparison 5 of 5"><p class="comparison-prompt">&ldquo;A person dances with alternating side steps,&rdquo;</p><div class="comparison-grid"><figure class="comparison-film "><figcaption>MotionGPT3</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/motiongpt3/99.jpg" data-src="./assets/videos/t2m/motiongpt3/99.mp4" aria-label="MotionGPT3: A person dances with alternating side steps,"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/motiongpt3/99.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/motiongpt3/99.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film "><figcaption>UniMo</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/unimo/99.jpg" data-src="./assets/videos/t2m/unimo/99.mp4" aria-label="UniMo: A person dances with alternating side steps,"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/unimo/99.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/unimo/99.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure><figure class="comparison-film ours"><figcaption>MIRROR</figcaption><div class="video-stage comparison-video" data-media-stage>
+    <video muted loop playsinline preload="none" poster="./assets/posters/t2m/ours/99.jpg" data-src="./assets/videos/t2m/ours/99.mp4" aria-label="MIRROR: A person dances with alternating side steps,"></video>
+    <button class="video-toggle icon-button" type="button" aria-label="Play motion" title="Play / pause motion"><i class="icon play" aria-hidden="true"></i></button>
+    <span class="media-error" role="status" hidden>Video unavailable. <a href="./assets/videos/t2m/ours/99.mp4">Open video</a></span>
+    <noscript><a class="nojs-video" href="./assets/videos/t2m/ours/99.mp4">Play video <i class="icon play" aria-hidden="true"></i></a></noscript>
+  </div></figure></div><div class="comparison-toolbar"><button class="quiet-button" type="button" data-group-play><i class="icon play" aria-hidden="true"></i><span>Play all</span></button><button class="icon-button" type="button" data-group-replay aria-label="Replay this comparison" title="Replay"><i class="icon replay" aria-hidden="true"></i></button></div></article></div>
+          <div class="carousel-footer">
+            <button class="icon-button carousel-prev" type="button" aria-label="Previous comparison group" title="Previous comparison" hidden><i class="icon arrow-left" aria-hidden="true"></i></button>
+            <div class="carousel-dots" role="group" aria-label="Choose a comparison group" hidden></div>
+            <button class="icon-button carousel-next" type="button" aria-label="Next comparison group" title="Next comparison" hidden><i class="icon arrow-right" aria-hidden="true"></i></button>
+            <span class="carousel-count" role="status" aria-live="polite">01 / 05</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="research">
+      <section class="section container abstract-section" id="abstract" aria-labelledby="abstract-title">
+        <details class="abstract-disclosure research-disclosure">
+          <summary><h2 class="disclosure-title" id="abstract-title">Abstract</h2><i class="icon plus" aria-hidden="true"></i></summary>
+          <div class="prose"><p>Unified motion generation and understanding models jointly address text-to-motion generation and motion-to-text understanding. However, existing methods rely on explicit textual Chain-of-Thought (CoT) reasoning and task-specific reinforcement learning. Explicit CoT overlooks fine-grained kinematics and adds autoregressive overhead, while independent rewards limit cross-task feedback. We propose MIRROR, combining <strong class="text-emphasis emphasis-purple">Motion-Internalized Reasoning (MIR)</strong> and <strong class="text-emphasis emphasis-blue">Reciprocal On-Policy Reinforcement (ROR)</strong>. MIR learns semantic and kinematic latent reasoning states that implicitly encode textual reasoning and phase-wise motion signatures, enabling <strong class="text-emphasis">reasoning entirely during prompt prefill</strong>. ROR couples both tasks through <strong class="text-emphasis">reciprocal on-policy cycles</strong>, allowing generation and understanding to improve each other during training. Extensive experiments show that MIRROR achieves state-of-the-art performance among unified models in both motion generation and understanding.</p></div>
+        </details>
+      </section>
+
+      <section class="section container method" id="method" aria-labelledby="method-title">
+        <div class="section-heading">
+          <h2 id="method-title">Method</h2>
+          <p>A shared model learns to generate and understand motion through <strong class="text-emphasis emphasis-purple">latent reasoning</strong> and <strong class="text-emphasis emphasis-blue">reciprocal training</strong>.</p>
+        </div>
+        <div class="method-modules">
+          <div class="mir-module"><strong class="method-acronym">MIR</strong><h3>Motion-Internalized Reasoning</h3><p><strong class="text-emphasis">Semantic and kinematic latents</strong> capture action intent and phase-wise body dynamics. Reasoning happens during <strong class="text-emphasis emphasis-purple">prompt prefill</strong>, avoiding intermediate text decoding at inference.</p></div>
+          <div class="ror-module"><strong class="method-acronym">ROR</strong><h3>Reciprocal On-Policy Reinforcement</h3><p>Generation and understanding improve each other through <strong class="text-emphasis emphasis-blue">text&ndash;motion&ndash;text and motion&ndash;text&ndash;motion</strong> training cycles. The reverse task evaluates whether an output <strong class="text-emphasis">preserves the original information</strong>.</p></div>
+        </div>
+        <figure class="method-figure"><a class="figure-link" href="./assets/figures/method.webp" data-figure aria-label="Enlarge MIRROR architecture: semantic and kinematic latent reasoning with training-only auxiliary decoders, and reciprocal on-policy text-motion cycles."><img src="./assets/figures/method.webp" alt="MIRROR architecture: semantic and kinematic latent reasoning with training-only auxiliary decoders, and reciprocal on-policy text-motion cycles." width="2653" height="1469" loading="lazy"></a></figure>
+        <div class="inference-section">
+          <h3>Faster inference than explicit CoT</h3>
+          <p><strong class="text-emphasis emphasis-purple">Latent prefill</strong> replaces <strong class="text-emphasis">autoregressive Chain-of-Thought decoding</strong>. Average end-to-end latency per sample on HumanML3D:</p>
+          <div class="speed-results"><div class="speed-result"><h4>Text-to-motion</h4><strong class="speed-number">4.3&times;</strong><p>faster than explicit CoT</p>
+      <div class="latency-row"><span>Explicit CoT</span><span class="latency-bar baseline-bar" style="--bar-width:100%"></span><span>2.274 s</span></div>
+      <div class="latency-row"><span>MIRROR</span><span class="latency-bar mirror-bar" style="--bar-width:23.18%"></span><span>0.527 s</span></div></div><div class="speed-result"><h4>Motion-to-text</h4><strong class="speed-number">7.3&times;</strong><p>faster than explicit CoT</p>
+      <div class="latency-row"><span>Explicit CoT</span><span class="latency-bar baseline-bar" style="--bar-width:100%"></span><span>1.728 s</span></div>
+      <div class="latency-row"><span>MIRROR</span><span class="latency-bar mirror-bar" style="--bar-width:13.72%"></span><span>0.237 s</span></div></div></div>
+          <p class="inference-baseline-note">Explicit CoT baseline: UniMo &mdash; Unified Motion Generation and Understanding with Chain of Thought.</p>
+        </div>
+      </section>
+
+      <section class="section container evaluation" id="evaluation" aria-labelledby="evaluation-title">
+        <div class="section-heading">
+          <h2 id="evaluation-title">Quantitative results</h2>
+          <p>Generation and understanding results on HumanML3D.</p>
+        </div>
+        <div class="metric-highlights"><div><span class="eyebrow">T2M / R-Precision Top 1</span><strong>+4.3%</strong><p>relative improvement over MotionGPT3</p></div><div><span class="eyebrow">M2T / BLEU@4</span><strong>+32.7%</strong><p>relative improvement over UniMo</p></div><div><span class="eyebrow">M2T / CIDEr</span><strong>+26.0%</strong><p>relative improvement over UniMo</p></div></div>
+        <div class="benchmark-tabs" role="tablist" aria-label="Evaluation task" hidden>
+          <button type="button" role="tab" id="tab-t2m" aria-selected="true" aria-controls="benchmark-t2m" tabindex="0" data-benchmark="t2m">Text &rarr; Motion</button>
+          <button type="button" role="tab" id="tab-m2t" aria-selected="false" aria-controls="benchmark-m2t" tabindex="-1" data-benchmark="m2t">Motion &rarr; Text</button>
+        </div>
+        <div class="benchmark-panel" id="benchmark-t2m">
+    <h3>Text-to-motion generation</h3>
+    <div class="table-scroll" tabindex="0" aria-label="T2M results table">
+      <table><caption>HumanML3D T2M benchmark</caption><thead><tr><th scope="col">Method</th><th scope="col">R-Precision Top 1 <span aria-label="higher is better">&uarr;</span></th><th scope="col">R-Precision Top 2 <span aria-label="higher is better">&uarr;</span></th><th scope="col">R-Precision Top 3 <span aria-label="higher is better">&uarr;</span></th><th scope="col">FID <span aria-label="lower is better">&darr;</span></th><th scope="col">MM-Dist <span aria-label="lower is better">&darr;</span></th><th scope="col">Diversity <span aria-label="closer to real motions is better">&rarr;</span></th><th scope="col">Multimodality <span aria-label="higher is better">&uarr;</span></th></tr></thead><tbody><tr class="table-group"><th colspan="8" scope="colgroup">Reference</th></tr><tr class=""><th scope="row">Real</th><td>0.511<span class="confidence">&plusmn;0.003</span></td><td>0.703<span class="confidence">&plusmn;0.003</span></td><td>0.797<span class="confidence">&plusmn;0.002</span></td><td>0.002<span class="confidence">&plusmn;0.000</span></td><td>2.974<span class="confidence">&plusmn;0.008</span></td><td>9.503<span class="confidence">&plusmn;0.065</span></td><td>--</td></tr><tr class="table-group"><th colspan="8" scope="colgroup">Generation only</th></tr><tr class=""><th scope="row">MDM</th><td>0.320<span class="confidence">&plusmn;0.005</span></td><td>0.498<span class="confidence">&plusmn;0.004</span></td><td>0.611<span class="confidence">&plusmn;0.007</span></td><td>0.544<span class="confidence">&plusmn;0.044</span></td><td>5.566<span class="confidence">&plusmn;0.027</span></td><td>9.559<span class="confidence">&plusmn;0.086</span></td><td><strong>2.799<span class="confidence">&plusmn;0.072</span></strong></td></tr><tr class=""><th scope="row">T2M-GPT</th><td>0.491<span class="confidence">&plusmn;0.003</span></td><td>0.680<span class="confidence">&plusmn;0.003</span></td><td>0.775<span class="confidence">&plusmn;0.002</span></td><td>0.116<span class="confidence">&plusmn;0.004</span></td><td>3.118<span class="confidence">&plusmn;0.011</span></td><td>9.761<span class="confidence">&plusmn;0.081</span></td><td>1.856<span class="confidence">&plusmn;0.011</span></td></tr><tr class=""><th scope="row">MoMask</th><td>0.521<span class="confidence">&plusmn;0.002</span></td><td>0.713<span class="confidence">&plusmn;0.002</span></td><td>0.807<span class="confidence">&plusmn;0.002</span></td><td>0.045<span class="confidence">&plusmn;0.002</span></td><td>2.958<span class="confidence">&plusmn;0.008</span></td><td>9.620<span class="confidence">&plusmn;0.064</span></td><td>1.241<span class="confidence">&plusmn;0.040</span></td></tr><tr class=""><th scope="row">MoMask++</th><td>0.528<span class="confidence">&plusmn;0.003</span></td><td>0.718<span class="confidence">&plusmn;0.003</span></td><td>0.811<span class="confidence">&plusmn;0.002</span></td><td>0.072<span class="confidence">&plusmn;0.003</span></td><td>2.912<span class="confidence">&plusmn;0.008</span></td><td>--</td><td>1.227<span class="confidence">&plusmn;0.046</span></td></tr><tr class=""><th scope="row">Motion-R1</th><td>0.515<span class="confidence">&plusmn;0.003</span></td><td>0.719<span class="confidence">&plusmn;0.002</span></td><td>0.818<span class="confidence">&plusmn;0.002</span></td><td>0.201<span class="confidence">&plusmn;0.004</span></td><td>2.854<span class="confidence">&plusmn;0.010</span></td><td>10.026<span class="confidence">&plusmn;0.075</span></td><td>2.317<span class="confidence">&plusmn;0.105</span></td></tr><tr class=""><th scope="row">MotionHiFlow</th><td><strong>0.563<span class="confidence">&plusmn;0.003</span></strong></td><td><strong>0.754<span class="confidence">&plusmn;0.003</span></strong></td><td><strong>0.843<span class="confidence">&plusmn;0.003</span></strong></td><td><strong>0.032<span class="confidence">&plusmn;0.002</span></strong></td><td><strong>2.691<span class="confidence">&plusmn;0.009</span></strong></td><td><strong>9.504<span class="confidence">&plusmn;0.071</span></strong></td><td>--</td></tr><tr class="table-group"><th colspan="8" scope="colgroup">Unified</th></tr><tr class=""><th scope="row">TM2T</th><td>0.424<span class="confidence">&plusmn;0.003</span></td><td>0.618<span class="confidence">&plusmn;0.003</span></td><td>0.729<span class="confidence">&plusmn;0.002</span></td><td>1.501<span class="confidence">&plusmn;0.017</span></td><td>3.467<span class="confidence">&plusmn;0.011</span></td><td>8.589<span class="confidence">&plusmn;0.076</span></td><td><strong>2.424<span class="confidence">&plusmn;0.093</span></strong></td></tr><tr class=""><th scope="row">MotionGPT</th><td>0.492<span class="confidence">&plusmn;0.003</span></td><td>0.681<span class="confidence">&plusmn;0.003</span></td><td>0.778<span class="confidence">&plusmn;0.002</span></td><td>0.232<span class="confidence">&plusmn;0.008</span></td><td>3.096<span class="confidence">&plusmn;0.008</span></td><td><strong>9.528<span class="confidence">&plusmn;0.071</span></strong></td><td>2.008<span class="confidence">&plusmn;0.084</span></td></tr><tr class=""><th scope="row">MotionChain</th><td>0.504<span class="confidence">&plusmn;0.003</span></td><td>0.695<span class="confidence">&plusmn;0.003</span></td><td>0.790<span class="confidence">&plusmn;0.003</span></td><td>0.248<span class="confidence">&plusmn;0.009</span></td><td>3.033<span class="confidence">&plusmn;0.010</span></td><td>9.470<span class="confidence">&plusmn;0.075</span></td><td>1.715<span class="confidence">&plusmn;0.066</span></td></tr><tr class=""><th scope="row">MotionLLM</th><td>0.515<span class="confidence">&plusmn;0.004</span></td><td>0.691<span class="confidence">&plusmn;0.003</span></td><td>0.801<span class="confidence">&plusmn;0.004</span></td><td>0.230<span class="confidence">&plusmn;0.009</span></td><td>2.967<span class="confidence">&plusmn;0.020</span></td><td>9.908<span class="confidence">&plusmn;0.102</span></td><td>2.142<span class="confidence">&plusmn;0.014</span></td></tr><tr class=""><th scope="row">MotionGPT-2</th><td>0.496<span class="confidence">&plusmn;0.002</span></td><td>0.691<span class="confidence">&plusmn;0.003</span></td><td>0.782<span class="confidence">&plusmn;0.004</span></td><td>0.191<span class="confidence">&plusmn;0.004</span></td><td>3.080<span class="confidence">&plusmn;0.013</span></td><td>9.860<span class="confidence">&plusmn;0.026</span></td><td>2.137<span class="confidence">&plusmn;0.022</span></td></tr><tr class=""><th scope="row">MotionGPT3</th><td>0.553<span class="confidence">&plusmn;0.003</span></td><td>0.747<span class="confidence">&plusmn;0.002</span></td><td>0.837<span class="confidence">&plusmn;0.003</span></td><td>0.208<span class="confidence">&plusmn;0.006</span></td><td>2.725<span class="confidence">&plusmn;0.008</span></td><td>9.700<span class="confidence">&plusmn;0.096</span></td><td>1.018<span class="confidence">&plusmn;0.038</span></td></tr><tr class=""><th scope="row">UniMo</th><td>0.539<span class="confidence">&plusmn;0.003</span></td><td>0.738<span class="confidence">&plusmn;0.002</span></td><td>0.831<span class="confidence">&plusmn;0.002</span></td><td>0.177<span class="confidence">&plusmn;0.004</span></td><td>2.768<span class="confidence">&plusmn;0.010</span></td><td>10.042<span class="confidence">&plusmn;0.076</span></td><td>1.924<span class="confidence">&plusmn;0.080</span></td></tr><tr class=""><th scope="row">IRG-MotionLLM</th><td>0.535<span class="confidence">&plusmn;0.002</span></td><td>0.725<span class="confidence">&plusmn;0.002</span></td><td>0.820<span class="confidence">&plusmn;0.002</span></td><td>0.242<span class="confidence">&plusmn;0.006</span></td><td>2.785<span class="confidence">&plusmn;0.006</span></td><td>9.900<span class="confidence">&plusmn;0.094</span></td><td>--</td></tr><tr class=""><th scope="row">MIRROR (SFT only)</th><td>0.495<span class="confidence">&plusmn;0.003</span></td><td>0.674<span class="confidence">&plusmn;0.003</span></td><td>0.775<span class="confidence">&plusmn;0.002</span></td><td><strong>0.163<span class="confidence">&plusmn;0.005</span></strong></td><td>3.085<span class="confidence">&plusmn;0.007</span></td><td>9.719<span class="confidence">&plusmn;0.066</span></td><td>2.117<span class="confidence">&plusmn;0.072</span></td></tr><tr class="mirror-row"><th scope="row">MIRROR</th><td><strong>0.577<span class="confidence">&plusmn;0.004</span></strong></td><td><strong>0.762<span class="confidence">&plusmn;0.003</span></strong></td><td><strong>0.852<span class="confidence">&plusmn;0.002</span></strong></td><td>0.188<span class="confidence">&plusmn;0.003</span></td><td><strong>2.672<span class="confidence">&plusmn;0.006</span></strong></td><td>9.777<span class="confidence">&plusmn;0.072</span></td><td>2.350<span class="confidence">&plusmn;0.083</span></td></tr></tbody></table>
+    </div></div><div class="benchmark-panel" id="benchmark-m2t">
+    <h3>Motion-to-text understanding</h3>
+    <div class="table-scroll" tabindex="0" aria-label="M2T results table">
+      <table><caption>HumanML3D M2T benchmark</caption><thead><tr><th scope="col">Method</th><th scope="col">BLEU@1 <span aria-label="higher is better">&uarr;</span></th><th scope="col">BLEU@4 <span aria-label="higher is better">&uarr;</span></th><th scope="col">ROUGE-L <span aria-label="higher is better">&uarr;</span></th><th scope="col">CIDEr <span aria-label="higher is better">&uarr;</span></th><th scope="col">BERTScore <span aria-label="higher is better">&uarr;</span></th></tr></thead><tbody><tr class="table-group"><th colspan="6" scope="colgroup">Understanding only</th></tr><tr class=""><th scope="row">LaMP-M2T</th><td>47.8</td><td>13.04</td><td>37.1</td><td>28.9</td><td>32.7</td></tr><tr class=""><th scope="row">ToHL</th><td>49.7</td><td>13.62</td><td>39.2</td><td><strong>53.1</strong></td><td>33.1</td></tr><tr class=""><th scope="row">HiCAM2T</th><td>61.8</td><td>22.4</td><td>47.0</td><td>44.8</td><td>--</td></tr><tr class=""><th scope="row">SMD</th><td><strong>63.45</strong></td><td><strong>22.67</strong></td><td><strong>47.80</strong></td><td>--</td><td><strong>45.58</strong></td></tr><tr class="table-group"><th colspan="6" scope="colgroup">Unified</th></tr><tr class=""><th scope="row">TM2T</th><td>48.9</td><td>7.00</td><td>38.1</td><td>16.8</td><td>32.2</td></tr><tr class=""><th scope="row">MotionGPT</th><td>48.2</td><td>12.47</td><td>37.4</td><td>29.2</td><td>32.4</td></tr><tr class=""><th scope="row">MotionChain</th><td>48.1</td><td>12.56</td><td>39.9</td><td>33.7</td><td>36.9</td></tr><tr class=""><th scope="row">MotionLLM</th><td>54.53</td><td>17.65</td><td>48.7</td><td>33.74</td><td>42.63</td></tr><tr class=""><th scope="row">MotionGPT-2</th><td>48.7</td><td>13.8</td><td>37.6</td><td>29.8</td><td>32.6</td></tr><tr class=""><th scope="row">MotionGPT3</th><td>59.08</td><td>19.41</td><td>46.17</td><td>28.72</td><td>35.23</td></tr><tr class=""><th scope="row">UniMo</th><td>63.10</td><td>19.74</td><td>48.8</td><td>46.69</td><td>54.26</td></tr><tr class=""><th scope="row">IRG-MotionLLM</th><td>62.05</td><td>22.53</td><td>47.51</td><td>52.4</td><td>42.68</td></tr><tr class=""><th scope="row">MIRROR (SFT only)</th><td>60.34</td><td>18.85</td><td>47.96</td><td>44.62</td><td>53.71</td></tr><tr class="mirror-row"><th scope="row">MIRROR</th><td><strong>68.77</strong></td><td><strong>26.20</strong></td><td><strong>54.23</strong></td><td><strong>58.82</strong></td><td><strong>59.71</strong></td></tr></tbody></table>
+    </div></div>
+        <p class="evaluation-source">Standard HumanML3D split. T2M: 20 runs with 95% confidence intervals. M2T: original ground-truth captions without lemmatization or additional text normalization. Bold denotes the best result within each method category; diversity is compared with the real-motion reference.</p>
+        <details class="paper-comparisons research-disclosure"><summary><h3 class="disclosure-title">Qualitative figures from the paper</h3><i class="icon plus" aria-hidden="true"></i></summary><div class="paper-figure-grid"><figure><a class="figure-link" href="./assets/figures/t2m.webp" data-figure aria-label="Enlarge Text-to-motion qualitative comparison of MIRROR, UniMo and MotionGPT3, with semantic latent reasoning traces and mesh colors progressing over time."><img src="./assets/figures/t2m.webp" alt="Text-to-motion qualitative comparison of MIRROR, UniMo and MotionGPT3, with semantic latent reasoning traces and mesh colors progressing over time." width="3538" height="1701" loading="lazy"></a><figcaption>Text-to-motion comparison. Mesh colors progress from light to dark over time; textual reasoning is decoded from semantic latents for analysis.</figcaption></figure><figure><a class="figure-link" href="./assets/figures/m2t.webp" data-figure aria-label="Enlarge Motion-to-text qualitative comparisons showing reference motions and predicted descriptions from unified models."><img src="./assets/figures/m2t.webp" alt="Motion-to-text qualitative comparisons showing reference motions and predicted descriptions from unified models." width="2041" height="1735" loading="lazy"></a><figcaption>Motion-to-text comparison from the research source.</figcaption></figure></div></details>
+      </section>
+      <section class="section container citation" data-citation-section hidden aria-labelledby="citation-title">
+        <div class="section-heading"><h2 id="citation-title">Citation</h2><button type="button" class="button secondary" data-copy-citation><i class="icon copy" aria-hidden="true"></i><span>Copy BibTeX</span></button></div>
+        <pre tabindex="0"><code data-bibtex></code></pre>
+        <p data-copy-status role="status" aria-live="polite"></p>
+      </section>
+      <footer class="container site-footer">
+        <a href="#overview" class="wordmark">MIRROR</a>
+        <a class="footer-top" href="#overview" aria-label="Back to top">Back to top <i class="icon arrow-up" aria-hidden="true"></i></a>
+      </footer>
+    </div>
+  </main>
+  <dialog class="figure-dialog" aria-label="Full-size research figure">
+    <button type="button" class="icon-button" data-close-figure aria-label="Close full-size figure" title="Close"><i class="icon close" aria-hidden="true"></i></button>
+    <img alt="">
+  </dialog>
+</body>
+</html>

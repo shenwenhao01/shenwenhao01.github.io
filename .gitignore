@@ -6,6 +6,17 @@
 vendor/
 _site/
 
-# Local research sources and the separate MIRROR preview.
+# Local research sources.
 /dancehmr/dancehmr_paper/
-/mirror/
+
+# Track MIRROR's page, web assets and maintenance files; keep research sources local.
+/mirror/*
+!/mirror/.gitignore
+!/mirror/index.html
+!/mirror/styles.css
+!/mirror/main.js
+!/mirror/data/
+!/mirror/assets/
+!/mirror/scripts/
+!/mirror/README.md
+!/mirror/ASSET_MANIFEST.md
