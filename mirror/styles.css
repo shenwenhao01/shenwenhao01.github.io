@@ -280,6 +280,8 @@ body{background:var(--dark-bg);color:var(--dark-text);font-family:Inter,-apple-s
 .paper-title{max-width:1000px;font-size:25px;line-height:1.45;font-weight:450;color:#36363b;letter-spacing:-.035em;margin-top:23px}
 .paper-authors{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 19px;color:#5b5b62;font-size:15px;line-height:1.8;margin-top:24px;max-width:1080px}
 .paper-author{white-space:nowrap}
+.paper-author a{color:var(--accent);text-decoration:none;text-underline-offset:4px}
+.paper-author a:hover,.paper-author a:focus-visible{color:#59377a;text-decoration:underline}
 .paper-authors sup,.paper-affiliations sup{font-size:.7em;line-height:0;vertical-align:super;color:#81818a;margin-left:2px}
 .paper-affiliations{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 24px;font-size:14px;line-height:1.7;color:var(--dark-muted);margin:8px auto 0}
 .paper-affiliations>span{white-space:nowrap}

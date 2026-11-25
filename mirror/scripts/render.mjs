@@ -69,7 +69,7 @@ const relativeResults = [
 const values = {
   TITLE: escape(content.paper.title.replace(/^MIRROR:\s*/, '')),
   AUTHORS: content.paper.authors.length
-    ? `<p class="paper-authors">${content.paper.authors.map(author => `<span class="paper-author">${escape(author.name)}<sup>${author.affiliations.map(escape).join(',')}</sup></span>`).join(' ')}</p>`
+    ? `<p class="paper-authors">${content.paper.authors.map(author => `<span class="paper-author">${author.url ? `<a href="${escape(author.url)}" target="_blank" rel="noopener noreferrer">${escape(author.name)}</a>` : escape(author.name)}<sup>${author.affiliations.map(escape).join(',')}</sup></span>`).join(' ')}</p>`
     : '',
   AFFILIATIONS: content.paper.authors.length && content.paper.affiliations.length
     ? `<p class="paper-affiliations">${content.paper.affiliations.map((name, i) => `<span><sup>${i + 1}</sup>${escape(name)}</span>`).join('')}</p>`
