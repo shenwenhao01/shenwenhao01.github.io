@@ -1,693 +1,528 @@
-<!DOCTYPE html>
+---
+layout: dancehmr
+title: "DanceHMR"
+excerpt: "DanceHMR recovers temporally coherent, hand-aware whole-body SMPL-X motion from monocular videos."
+header:
+  image: publications/dancehmr.jpg
+---
 
-<html lang="en">
+<article class="dancehmr-page">
+  <header class="research-header">
+    <p class="research-venue">SIGGRAPH Asia 2026</p>
+    <h1>Dance<span>HMR</span></h1>
+    <p class="research-title">Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos</p>
+    <div class="research-team">
+      <ul class="research-authors" aria-label="Authors">
+      <li><a href="{{ '/' | relative_url }}">Wenhao Shen</a><sup>*</sup></li>
+      <li><a href="https://scholar.google.com/citations?user=0TFEQ48AAAAJ" target="_blank" rel="noopener noreferrer">Ming Zhou</a><sup>*†</sup></li>
+      <li>Hengyuan Zhang</li>
+      <li><a href="https://biansy000.github.io/" target="_blank" rel="noopener noreferrer">Siyuan Bian</a></li>
+      <li>Youjiang Xu</li>
+      <li>Yuan Zhang</li>
+      </ul>
+    </div>
+    <p class="research-affiliation">ByteDance Intelligent Creation</p>
+    <p class="research-contribution">* Equal contribution <span>† Corresponding author</span></p>
+    <div class="research-links">
+      <a class="paper-link" href="https://dl.acm.org/doi/10.1145/3829340.3842190" target="_blank" rel="noopener noreferrer"><svg class="research-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 3H5v18h14V8z M14 3v5h5 M8 12h8 M8 16h8"/></svg> Paper</a>
+      <a class="arxiv-link" href="https://arxiv.org/abs/2605.18102" target="_blank" rel="noopener noreferrer"><svg class="research-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m7 4 10 16 M17 4 7 16 M7 16l3 4"/></svg> arXiv</a>
+      <a class="video-link" href="#BkgdVideos"><svg class="research-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></svg> Video</a>
+    </div>
+  </header>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta content="DanceHMR" name="title" />
-  <meta content="DanceHMR recovers temporally coherent hand-aware whole-body SMPL-X motion from monocular videos."
-    name="description" />
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-  <meta content="English" name="language" />
-  <meta content="Wenhao Shen, Ming Zhou, Hengyuan Zhang, Siyuan Bian, Youjiang Xu, Yuan Zhang" name="author" />
-  <title>DanceHMR</title>
-  <!-- Bootstrap -->
-  <!-- <script src="js/video_comparison.js"></script> -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap-4.4.1.js"></script>
-
-  <link href="css/bootstrap-4.4.1.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;800;900&amp;display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" rel="stylesheet" />
-  <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💃</text></svg>" rel="icon" />
-
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"></script>
-
-  <style>
-    code {
-      white-space: pre-wrap;
-    }
-
-    body {
-      font-family: 'Jost';
-    }
-
-    b {
-      font-weight: black;
-    }
-
-    strong {
-      font-weight: bold;
-    }
-
-    section>h5 {
-      padding-bottom: 30px;
-    }
-
-    .col-12>h3 {
-      padding-top: 5px;
-    }
-
-    .results-section {
-      padding-bottom: 30px;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .carousel-control-prev {
-      left: 25px;
-    }
-
-    .carousel-control-next {
-      right: 25px;
-    }
-
-    .carousel-indicators {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      bottom: 8px;
-      left: 0;
-      right: 0;
-      flex-wrap: wrap;
-      gap: 8px;
-
-      /* Adjust vertical position */
-      text-align: center;
-      /* Center the content horizontally */
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .carousel-indicators li {
-      background-color: transparent;
-      /* Hide the default Bootstrap indicators */
-      border: none;
-      /* Remove border */
-      margin: 0;
-      width: 15px;
-      height: 15px;
-      text-indent: 0;
-      flex: 0 0 15px;
-      display: inline-block;
-    }
-
-    .indicator-dot {
-      display: inline-block;
-      width: 15px;
-      height: 15px;
-      text-indent: -999px;
-      border: none;
-      border-radius: 10px;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .row.sm-gutters {
-      margin-right: 5px;
-      margin-left: 5px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-
-    .row.sm-gutters>.col-md-4 {
-      padding-right: 5px;
-      padding-left: 5px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-
-    .row.sm-gutters>.col-md-6 {
-      padding-right: 5px;
-      padding-left: 5px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-
-    .row.sm-gutters>.col-md-12 {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-right: 5px;
-      padding-left: 5px;
-    }
-
-    .renbody-zoom-container {
-      width: 80%;
-      /* Or whatever size you want */
-      aspect-ratio: 0.75;
-      /* Or whatever size you want */
-      overflow: hidden;
-      /* Hide the parts of the video outside the container */
-      object-fit: cover;
-      /* Make sure the video covers the container without stretching */
-      object-position: center;
-      /* Center the video */
-      border-radius: 5px;
-    }
-
-    .mobile-zoom-container {
-      width: 100%;
-      /* Or whatever size you want */
-      aspect-ratio: 0.75;
-      /* Or whatever size you want */
-      overflow: hidden;
-      /* Hide the parts of the video outside the container */
-      object-fit: cover;
-      /* Make sure the video covers the container without stretching */
-      object-position: center;
-      /* Center the video */
-      border-radius: 5px;
-      margin: 5px
-    }
-
-    .video-zoom-container {
-      overflow: hidden;
-      /* Hide the parts of the video outside the container */
-      object-fit: cover;
-      /* Make sure the video covers the container without stretching */
-      object-position: center;
-      border-radius: 5px;
-      margin: 5px;
-    }
-
-    .zoom-element {
-      transition: transform 0.2s ease-in-out;
-    }
-
-    .zoom-element:hover {
-      transform: scale(1.);
-    }
-
-    .nhr-zoom {
-      transform: scale(1.45);
-    }
-
-    .renbody-zoom {
-      transform: scale(1.65) translateY(2%);
-      border-radius: 5px;
-    }
-
-    .mobile-zoom {
-      transform: scale(1.65);
-      border-radius: 5px;
-    }
-
-    .zjumocap-zoom {
-      transform: scale(1.3);
-    }
-
-    video {
-      border-radius: 5px;
-      padding: 0px;
-      margin: 0px;
-    }
-
-    .comparison-canvas {
-      padding: 0px;
-      margin: 0px;
-      border-radius: 5px;
-    }
-
-    .a16x9 {
-      aspect-ratio: 16/9;
-    }
-
-    .a4x3 {
-      aspect-ratio: 1352/1014;
-    }
-
-    .a1x1 {
-      aspect-ratio: 1;
-    }
-
-    .a16x9demo {
-      aspect-ratio: 3.05;
-    }
-
-    .teaser-demo {
-      aspect-ratio: 2.45;
-    }
-
-    .a4x3demo {
-      aspect-ratio: 2.0;
-    }
-
-    .a1x1demo {
-      aspect-ratio: 1600/1672;
-    }
-
-    .rainbow-text {
-      background: linear-gradient(90deg, #ff4d6d, #ff9f1c, #f9dc5c, #2ec4b6, #3a86ff, #8338ec);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-  </style>
-  <script>
-
-
-
-  </script>
-  </link>
-</head>
-
-<body>
-  <!-- cover -->
-  <section>
-    <!-- <div class="jumbotron text-center mt-0"> -->
-    <div class="jumbotron text-center mt-0"
-     style="
-     background: linear-gradient(135deg,
-       #eefcff 0%,
-       #dff7ff 35%,
-       #d8f4f0 70%,
-       #eefdf8 100%);
-     ">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 style="font-weight: bold">
-              <b>
-                💃 DanceHMR: <span class="rainbow-text">Hand-Aware</span> Whole-Body<br>
-                Human Mesh Recovery from Monocular Videos
-              </b>
-            </h1>
-            <h4 style="color:#5a6268;">SIGGRAPH Asia 2026</h4>
-            <hr>
-            <span>Wenhao Shen<sup>1*</sup></span> 
-            <span>Ming Zhou<sup>1*&dagger;</sup></span> 
-            <span>Hengyuan Zhang<sup>1</sup></span> 
-            <span>Siyuan Bian<sup>1</sup></span> 
-            <span>Youjiang Xu<sup>1</sup></span> 
-            <span>Yuan Zhang<sup>1</sup></span>
-            <p>
-              <sup>1</sup>ByteDance Intelligent Creation<br>
-              <sup>*</sup>Equal contribution   <sup>&dagger;</sup>Corresponding author
-            </p>
-            <div class="row justify-content-center">
-              <div class="column">
-                <p class="mb-5">
-                  <a class="btn btn-large btn-light" href="https://arxiv.org/abs/2605.18102" role="button"
-                    target="_blank">
-                    <i class="fa fa-file-pdf-o"></i>
-                    <b>Paper</b>
-                  </a>
-                </p>
-              </div>
-              <div class="column">
-                <p class="mb-5">
-                  <a class="btn btn-large btn-light" href="#BkgdVideos" role="button">
-                    <i class="fa fa-file-video-o"></i>
-                    <b>Video</b>
-                  </a>
-                </p>
-              </div>
-              <!-- <div class="column">
-                <p class="mb-5">
-                  <a class="btn btn-large btn-light" href="https://www.youtube.com/watch?v=s8bzdZ63kx8" role="button" target="_blank">
-                    <i class="fa fa-file-video-o"></i>
-                    <b>Overview Video</b>
-                  </a>
-                </p>
-              </div> -->
-              <!-- <div class="column">
-                <p class="mb-5">
-                  <a class="btn btn-large btn-light" href="https://github.com/zju3dv/EasyVolcap" role="button" target="_blank">
-                    <i class="fa fa-github"></i>
-                    <b>EasyVolcap Framework</b>
-                  </a>
-                </p>
-              </div> -->
-            </div>
-          </div>
-        </div>
+  <section class="hero-gallery" aria-label="Featured DanceHMR videos" aria-roledescription="carousel" data-hero-gallery>
+    <div class="hero-viewport" tabindex="0" aria-label="Featured videos. Use the left and right arrow keys to browse.">
+      <figure class="hero-card is-active" style="--offset: 0" data-hero-index="0" aria-label="1 of 4: Expressive gestures" aria-roledescription="slide">
+        <img src="img/posters/featured-01.jpg" alt="Expressive gestures: DanceHMR video reconstruction" width="1200" height="1000" fetchpriority="high">
+        <video src="our_video/teaser/zhangyouwei_1_3_crompressed.mp4" poster="img/posters/featured-01.jpg" muted playsinline preload="none" controls aria-label="Expressive gestures demonstration" ></video>
+        <button class="hero-select" type="button" data-hero-select="0" aria-label="Play expressive gestures" hidden></button>
+      </figure>
+      <figure class="hero-card" style="--offset: 1" data-hero-index="1" aria-label="2 of 4: Whole-body movement" aria-roledescription="slide">
+        <img src="img/posters/featured-02.jpg" alt="Whole-body movement: DanceHMR video reconstruction" width="1200" height="1000" loading="eager">
+        <video data-src="our_video/teaser/azaoa_crompressed.mp4" poster="img/posters/featured-02.jpg" muted playsinline preload="none"  aria-label="Whole-body movement demonstration" tabindex="-1"></video>
+        <button class="hero-select" type="button" data-hero-select="1" aria-label="Play whole-body movement" hidden></button>
+      </figure>
+      <figure class="hero-card" style="--offset: 2" data-hero-index="2" aria-label="3 of 4: Dance in the wild" aria-roledescription="slide">
+        <img src="img/posters/featured-03.jpg" alt="Dance in the wild: DanceHMR video reconstruction" width="1200" height="1000" loading="eager">
+        <video data-src="our_video/teaser/zhenren_danren_guaguawu_kuaisu_nv_quansheng_02_3_incam_global_horiz.mp4" poster="img/posters/featured-03.jpg" muted playsinline preload="none"  aria-label="Dance in the wild demonstration" tabindex="-1"></video>
+        <button class="hero-select" type="button" data-hero-select="2" aria-label="Play dance in the wild" hidden></button>
+      </figure>
+      <figure class="hero-card" style="--offset: -1" data-hero-index="3" aria-label="4 of 4: Motion in detail" aria-roledescription="slide">
+        <img src="img/posters/featured-04.jpg" alt="Motion in detail: DanceHMR video reconstruction" width="1200" height="1000" loading="eager">
+        <video data-src="our_video/teaser/v0d00fg10000cdbm453c77u7s7m42bmg_3_incam_global_horiz.mp4" poster="img/posters/featured-04.jpg" muted playsinline preload="none"  aria-label="Motion in detail demonstration" tabindex="-1"></video>
+        <button class="hero-select" type="button" data-hero-select="3" aria-label="Play motion in detail" hidden></button>
+      </figure>
+          <button class="carousel-arrow carousel-arrow-prev" type="button" data-hero-prev aria-label="Previous featured video" hidden>←</button>
+      <button class="carousel-arrow carousel-arrow-next" type="button" data-hero-next aria-label="Next featured video" hidden>→</button>
+    </div>
+    <div class="hero-controls" hidden>
+      <div class="hero-dots" role="group" aria-label="Choose a featured video">
+        <button type="button" data-hero-dot="0" aria-label="Featured video 1" aria-pressed="true"><span></span></button>
+        <button type="button" data-hero-dot="1" aria-label="Featured video 2" aria-pressed="false"><span></span></button>
+        <button type="button" data-hero-dot="2" aria-label="Featured video 3" aria-pressed="false"><span></span></button>
+        <button type="button" data-hero-dot="3" aria-label="Featured video 4" aria-pressed="false"><span></span></button>
       </div>
+      <span class="hero-control-divider" aria-hidden="true"></span>
+      <button class="round-button hero-play" type="button" data-hero-play aria-label="Pause featured video"><svg viewBox="0 0 20 20" aria-hidden="true"><path class="pause-icon" d="M6 4v12M14 4v12"/><path class="play-icon" d="m7 4 9 6-9 6z"/></svg></button>
+    </div>
+    <p class="visually-hidden" data-hero-status role="status" aria-live="polite"></p>
+    <p class="hero-error" role="status" hidden>Unable to play this clip. Choose another video to continue.</p>
+  </section>
+  <section id="overview" class="research-section" data-reveal aria-labelledby="overview-heading">
+    <div class="research-section-heading"><h2 id="overview-heading"><span class="section-number">01</span>Overview</h2></div>
+    <p class="research-lead">DanceHMR recovers <strong class="text-accent">temporally coherent body and hand motion</strong> from a single video, bringing <strong>detailed finger articulation</strong> into whole-body human mesh recovery.</p>
+    <div class="research-highlights">
+      <div><span class="highlight-number">01</span><h3>Whole-body motion</h3><p>A <strong>single temporal architecture</strong> reconstructs coherent SMPL-X body and hand motion.</p></div>
+      <div><span class="highlight-number">02</span><h3>Hand-aware recovery</h3><p>Residual body-hand fusion connects body context with local hand observations for <strong>consistent wrists and articulated fingers</strong>.</p></div>
+      <div><span class="highlight-number">03</span><h3>Close-up robustness</h3><p>Close-up-aware augmentation improves robustness to upper-body crops, motion blur, and <strong>hands moving out of view</strong>.</p></div>
+    </div>
+    <figure class="research-figure">
+      <a href="img/teaser_v2.jpg" target="_blank" rel="noopener" aria-label="Open the full-resolution qualitative comparison"><img src="img/teaser_v2.jpg" alt="Input frames and whole-body reconstructions from DanceHMR, GVHMR with HaMeR, and SMPLer-X, with hand details highlighted." width="3780" height="1476" loading="lazy"></a>
+      <figcaption>Whole-body reconstruction with a closer look at hand articulation. <a href="img/teaser_v2.jpg" target="_blank" rel="noopener">View full size <span aria-hidden="true">↗</span></a></figcaption>
+    </figure>
+    <details class="research-abstract"><summary>Read the abstract <span aria-hidden="true">+</span></summary>
+    <div class="research-prose">
+      <p>Monocular video human mesh recovery is essential for digital humans, avatar animation, and embodied simulation, where both temporal stability and expressive whole-body motion are required. Existing video HMR methods produce coherent body motion but often <strong>overlook detailed hand articulation</strong>, while image-based whole-body methods recover SMPL-X meshes independently per frame, often leading to <strong>jittery and inaccurate hand motion</strong>.</p>
+      <p>We present DanceHMR, a temporally coherent whole-body HMR framework for challenging in-the-wild monocular videos. DanceHMR unifies body context and part-specific hand observations through <strong class="text-accent">residual body-hand fusion</strong>, enabling stable body motion and detailed hand recovery within a single temporal architecture. We further introduce <strong>close-up-aware augmentation</strong> to improve robustness under upper-body framing. Experiments on whole-body and body-only benchmarks demonstrate <strong>improved hand reconstruction</strong>, competitive body accuracy, and temporally stable, 2D-consistent SMPL-X motion in real-world videos.</p>
+    </div>
+    </details>
+  </section>
+
+  <section id="BkgdVideos" class="research-section research-demo" aria-labelledby="results-heading" data-results-gallery>
+    <div class="research-section-heading"><h2 id="results-heading"><span class="section-number">02</span>Video Results</h2><p class="section-intro">Whole-body and hand reconstruction across different motions and camera framings.</p></div>
+    <div class="result-categories" role="group" aria-label="Video category" hidden>
+      <button type="button" data-category="featured" aria-pressed="true" aria-controls="result-video">Featured</button>
+      <button type="button" data-category="full_body" aria-pressed="false" aria-controls="result-video">Full body</button>
+      <button type="button" data-category="half_body" aria-pressed="false" aria-controls="result-video">Upper body</button>
+      <button type="button" data-category="fast_motion" aria-pressed="false" aria-controls="result-video">Fast motion</button>
+      <button type="button" data-category="ubody_test_sub" aria-pressed="false" aria-controls="result-video">UBody</button>
+      <button type="button" data-category="half_body_hands_out_of_frame" aria-pressed="false" aria-controls="result-video">Truncated hands</button>
+    </div>
+    <div class="result-carousel" data-result-carousel aria-label="Video results" aria-roledescription="carousel">
+      <div class="hero-viewport" tabindex="0" aria-label="Video results. Use the left and right arrow keys to browse.">
+      <figure class="hero-card is-active" style="--offset: 0" data-hero-index="0" aria-label="1 of 4: Expressive gestures" aria-roledescription="slide">
+        <img src="img/posters/featured-01.jpg" alt="Expressive gestures: DanceHMR video reconstruction" width="1200" height="1000" loading="lazy">
+        <video id="result-video" src="our_video/teaser/zhangyouwei_1_3_crompressed.mp4" poster="img/posters/featured-01.jpg" muted playsinline preload="none" controls aria-label="Expressive gestures demonstration" ></video>
+        <button class="hero-select" type="button" data-hero-select="0" aria-label="Play expressive gestures" hidden></button>
+      </figure>
+      <figure class="hero-card" style="--offset: 1" data-hero-index="1" aria-label="2 of 4: Whole-body movement" aria-roledescription="slide">
+        <img src="img/posters/featured-02.jpg" alt="Whole-body movement: DanceHMR video reconstruction" width="1200" height="1000" loading="lazy">
+        <video data-src="our_video/teaser/azaoa_crompressed.mp4" poster="img/posters/featured-02.jpg" muted playsinline preload="none"  aria-label="Whole-body movement demonstration" tabindex="-1"></video>
+        <button class="hero-select" type="button" data-hero-select="1" aria-label="Play whole-body movement" hidden></button>
+      </figure>
+      <figure class="hero-card" style="--offset: 2" data-hero-index="2" aria-label="3 of 4: Dance in the wild" aria-roledescription="slide">
+        <img src="img/posters/featured-03.jpg" alt="Dance in the wild: DanceHMR video reconstruction" width="1200" height="1000" loading="lazy">
+        <video data-src="our_video/teaser/zhenren_danren_guaguawu_kuaisu_nv_quansheng_02_3_incam_global_horiz.mp4" poster="img/posters/featured-03.jpg" muted playsinline preload="none"  aria-label="Dance in the wild demonstration" tabindex="-1"></video>
+        <button class="hero-select" type="button" data-hero-select="2" aria-label="Play dance in the wild" hidden></button>
+      </figure>
+      <figure class="hero-card" style="--offset: -1" data-hero-index="3" aria-label="4 of 4: Motion in detail" aria-roledescription="slide">
+        <img src="img/posters/featured-04.jpg" alt="Motion in detail: DanceHMR video reconstruction" width="1200" height="1000" loading="lazy">
+        <video data-src="our_video/teaser/v0d00fg10000cdbm453c77u7s7m42bmg_3_incam_global_horiz.mp4" poster="img/posters/featured-04.jpg" muted playsinline preload="none"  aria-label="Motion in detail demonstration" tabindex="-1"></video>
+        <button class="hero-select" type="button" data-hero-select="3" aria-label="Play motion in detail" hidden></button>
+      </figure>
+            <button class="carousel-arrow carousel-arrow-prev" type="button" data-hero-prev aria-label="Previous result video" hidden>←</button>
+        <button class="carousel-arrow carousel-arrow-next" type="button" data-hero-next aria-label="Next result video" hidden>→</button>
+      </div>
+    </div>
+    <div class="result-toolbar">
+      <p id="result-description">Temporally coherent body motion, with detailed hand articulation.</p>
+      <span data-video-count role="status" aria-live="polite" aria-atomic="true">01 / 04</span>
+    </div>
+    <div class="result-clips" role="group" aria-label="Choose a video" hidden></div>
+    <p class="result-error" role="status" hidden></p>
+    <noscript><p class="research-caption">Play the featured result above. Enable JavaScript to browse all video categories.</p></noscript>
+  </section>
+
+  <section id="method" class="research-section" data-reveal aria-labelledby="method-heading">
+    <div class="research-section-heading"><h2 id="method-heading"><span class="section-number">03</span>Method</h2></div>
+    <figure class="research-figure">
+      <a href="img/method.jpg" target="_blank" rel="noopener" aria-label="Open the full-resolution DanceHMR architecture"><img src="img/method.jpg" alt="DanceHMR architecture: body and hand observation encoders, residual body-hand fusion, a temporal motion encoder, and an SMPL-X decoder." width="3921" height="1683" loading="lazy"></a>
+      <figcaption>Local hand evidence is fused into a body-anchored representation before temporal modeling. <a href="img/method.jpg" target="_blank" rel="noopener">View full size <span aria-hidden="true">↗</span></a></figcaption>
+    </figure>
+    <div class="research-prose">
+      <p><strong>Residual body-hand fusion:</strong> Local hand cues refine a body-anchored representation, with body and temporal context supporting recovery under occlusion or blur.</p>
+      <p><strong>Temporal reconstruction:</strong> Joint temporal modeling produces coherent SMPL-X body and hand motion.</p>
+      <p><strong>Close-up-aware augmentation:</strong> Simulated upper-body crops and hand truncation improve robustness to close-up videos.</p>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h3>TL;DR</h3>
-          <hr style="margin-top: 0px" />
-          <p class="text-left">
-            (1) DanceHMR recovers temporally coherent SMPL-X body and hand motion from monocular videos.<br>
-            (2) A hand-aware temporal architecture fuses body context with left- and right-hand observations through
-            residual body-hand fusion, improving wrist consistency and detailed finger articulation.<br>
-            (3) Close-up-aware augmentation makes the model robust to upper-body framing, hand truncation, motion blur,
-            and hands moving in or out of the image.
-          </p>
-        </div>
+  <section id="evaluation" class="research-section" data-reveal aria-labelledby="evaluation-heading">
+    <div class="research-section-heading"><h2 id="evaluation-heading"><span class="section-number">04</span>Training &amp; Evaluation</h2></div>
+    <div class="research-prose">
+      <p>DanceHMR is trained with a <strong>two-stage curriculum</strong> on motion capture, synthetic, and in-the-wild video data, including BEDLAM, MOYO, ARCTIC, EgoBody, AMASS, WHAC-A-Mole, 3DPW, and Human3.6M. The second stage places greater emphasis on <strong>high-quality SMPL-X and hand-centric data</strong> to refine fine-grained hand articulation.</p>
+    </div>
+    <!-- Benchmark values: camera-ready Tables 1–3, pages 7–8. -->
+    <div class="result-highlights" aria-label="Key benchmark improvements">
+<a class="result-highlight" href="#whole-body-results">
+  <span class="result-highlight-dataset">ARCTIC · Hand PA-PVE</span>
+  <span class="result-highlight-value">28.6<span>%</span><span class="result-highlight-arrow" aria-hidden="true">↓</span></span>
+  <h3>Lower hand reconstruction error</h3>
+  <div class="result-comparison"><div><span>SMPLest-X</span><b>11.9 <small>mm</small></b></div><span aria-hidden="true">→</span><div><span>DanceHMR</span><b>8.5 <small>mm</small></b></div></div>
+  <span class="result-highlight-link">See comparison <span aria-hidden="true">↗</span></span>
+</a>
+<a class="result-highlight" href="#temporal-results">
+  <span class="result-highlight-dataset">ARCTIC · Hand Jitter</span>
+  <span class="result-highlight-value">43.2<span>%</span><span class="result-highlight-arrow" aria-hidden="true">↓</span></span>
+  <h3>Less hand jitter</h3>
+  <div class="result-comparison"><div><span>GVHMR + HaMeR</span><b>7.4 <small>m/s³</small></b></div><span aria-hidden="true">→</span><div><span>DanceHMR</span><b>4.2 <small>m/s³</small></b></div></div>
+  <span class="result-highlight-link">See comparison <span aria-hidden="true">↗</span></span>
+</a>
+<a class="result-highlight" href="#body-results">
+  <span class="result-highlight-dataset">EMDB · MPJPE</span>
+  <span class="result-highlight-value">4.2<span>%</span><span class="result-highlight-arrow" aria-hidden="true">↓</span></span>
+  <h3>Lower body reconstruction error</h3>
+  <div class="result-comparison"><div><span>DUOMO</span><b>67.1 <small>mm</small></b></div><span aria-hidden="true">→</span><div><span>DanceHMR</span><b>64.3 <small>mm</small></b></div></div>
+  <span class="result-highlight-link">See comparison <span aria-hidden="true">↗</span></span>
+</a>
+    </div>
+    <p class="result-highlights-note">Relative error reductions against the named baselines under the same benchmark protocol.</p>
+    <div class="benchmark-block" id="whole-body-results">
+      <h3>Whole-body reconstruction</h3>
+      <p class="benchmark-description"><strong>More accurate hands on ARCTIC</strong>, with competitive whole-body reconstruction on both benchmarks.</p>
+<div class="benchmark-group" data-benchmark-group><div class="benchmark-tabs" role="tablist" aria-label="Whole-body datasets" hidden>
+<button type="button" role="tab" id="tab-arctic" aria-controls="panel-arctic" aria-selected="true" tabindex="0">ARCTIC</button>
+<button type="button" role="tab" id="tab-ubody" aria-controls="panel-ubody" aria-selected="false" tabindex="-1">UBody</button>
+</div>
+<div id="panel-arctic" class="benchmark-panel" aria-labelledby="tab-arctic"><h4>ARCTIC</h4><p class="benchmark-context">Protocol 1 · All errors in millimeters (mm).</p><div class="benchmark-scroll" tabindex="0" role="region" aria-label="ARCTIC whole-body reconstruction; scroll horizontally for all metrics"><table class="benchmark-table">
+<caption class="visually-hidden">ARCTIC whole-body reconstruction</caption><thead>
+<tr><th scope="col" rowspan="2">Method</th><th scope="colgroup" colspan="2">PA-PVE</th><th scope="colgroup" colspan="2">PVE</th><th scope="colgroup" colspan="2">PA-MPJPE</th></tr>
+<tr><th scope="col">All ↓</th><th scope="col">Hands ↓</th><th scope="col">All ↓</th><th scope="col">Hands ↓</th><th scope="col">All ↓</th><th scope="col">Hands ↓</th></tr>
+</thead><tbody>
+<tr><th scope="row">PIXIE</th>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">Hand4Whole</th>
+<td>63.4</td>
+<td>18.1</td>
+<td>136.8</td>
+<td>54.8</td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">OSX</th>
+<td>33.0</td>
+<td>18.8</td>
+<td>58.4</td>
+<td>39.4</td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">PyMAF-X</th>
+<td>49.4</td>
+<td>14.3</td>
+<td>70.5</td>
+<td>45.1</td>
+<td>56.7</td>
+<td>15.6</td>
+</tr>
+<tr><th scope="row">SMPLer-X-B</th>
+<td>54.0</td>
+<td>17.9</td>
+<td>85.2</td>
+<td>53.4</td>
+<td>55.1</td>
+<td>18.4</td>
+</tr>
+<tr><th scope="row">SMPLer-X-L</th>
+<td>46.9</td>
+<td>18.1</td>
+<td>76.9</td>
+<td>50.8</td>
+<td><span class="benchmark-second">47.3</span></td>
+<td>17.8</td>
+</tr>
+<tr><th scope="row">AiOS</th>
+<td>30.2</td>
+<td>19.2</td>
+<td>47.1</td>
+<td>38.3</td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">SMPLest-X</th>
+<td><strong>26.3</strong></td>
+<td><span class="benchmark-second">11.9</span></td>
+<td><strong>43.5</strong></td>
+<td><span class="benchmark-second">28.8</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">GVHMR + HaMeR</th>
+<td>41.0</td>
+<td>13.9</td>
+<td>71.0</td>
+<td>54.6</td>
+<td>55.1</td>
+<td><span class="benchmark-second">11.7</span></td>
+</tr>
+<tr class="benchmark-ours"><th scope="row">DanceHMR</th>
+<td><span class="benchmark-second">28.1</span></td>
+<td><strong>8.5</strong></td>
+<td><span class="benchmark-second">44.7</span></td>
+<td><strong>24.8</strong></td>
+<td><strong>29.8</strong></td>
+<td><strong>8.1</strong></td>
+</tr>
+</tbody></table></div></div>
+<div id="panel-ubody" class="benchmark-panel" aria-labelledby="tab-ubody"><h4>UBody</h4><p class="benchmark-context">Intra-scene split · All errors in millimeters (mm).</p><div class="benchmark-scroll" tabindex="0" role="region" aria-label="UBody whole-body reconstruction; scroll horizontally for all metrics"><table class="benchmark-table">
+<caption class="visually-hidden">UBody whole-body reconstruction</caption><thead>
+<tr><th scope="col" rowspan="2">Method</th><th scope="colgroup" colspan="2">PA-PVE</th><th scope="colgroup" colspan="2">PVE</th><th scope="colgroup" colspan="2">PA-MPJPE</th></tr>
+<tr><th scope="col">All ↓</th><th scope="col">Hands ↓</th><th scope="col">All ↓</th><th scope="col">Hands ↓</th><th scope="col">All ↓</th><th scope="col">Hands ↓</th></tr>
+</thead><tbody>
+<tr><th scope="row">PIXIE</th>
+<td>61.7</td>
+<td>12.2</td>
+<td>168.4</td>
+<td>55.6</td>
+<td>66.8</td>
+<td>12.3</td>
+</tr>
+<tr><th scope="row">Hand4Whole</th>
+<td>44.8</td>
+<td>8.9</td>
+<td>104.1</td>
+<td>45.7</td>
+<td>45.5</td>
+<td><span class="benchmark-second">9.0</span></td>
+</tr>
+<tr><th scope="row">OSX</th>
+<td>42.4</td>
+<td>10.8</td>
+<td>92.4</td>
+<td>47.7</td>
+<td>42.9</td>
+<td>11.0</td>
+</tr>
+<tr><th scope="row">PyMAF-X</th>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">SMPLer-X-B</th>
+<td>35.5</td>
+<td>11.0</td>
+<td>65.3</td>
+<td>46.9</td>
+<td>37.2</td>
+<td>10.9</td>
+</tr>
+<tr><th scope="row">SMPLer-X-L</th>
+<td>33.2</td>
+<td>10.6</td>
+<td>61.5</td>
+<td>43.3</td>
+<td><span class="benchmark-second">36.6</span></td>
+<td>10.5</td>
+</tr>
+<tr><th scope="row">AiOS</th>
+<td>32.5</td>
+<td><strong>7.3</strong></td>
+<td><strong>58.6</strong></td>
+<td>39.0</td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">SMPLest-X</th>
+<td><span class="benchmark-second">31.6</span></td>
+<td>9.5</td>
+<td><span class="benchmark-second">59.8</span></td>
+<td><span class="benchmark-second">37.7</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">GVHMR + HaMeR</th>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr class="benchmark-ours"><th scope="row">DanceHMR</th>
+<td><strong>31.3</strong></td>
+<td><span class="benchmark-second">7.4</span></td>
+<td>61.0</td>
+<td><strong>22.2</strong></td>
+<td><strong>34.6</strong></td>
+<td><strong>4.8</strong></td>
+</tr>
+</tbody></table></div></div>
+<p class="benchmark-note"><strong>Bold</strong>: best. <span class="benchmark-second">Underlined</span>: second best. ↓ Lower is better. — Not reported.</p></div>
+    </div>
+    <div class="benchmark-block" id="temporal-results">
+      <h3>Temporal motion quality</h3>
+      <p class="benchmark-description">Joint temporal modeling reduces <strong class="text-accent">hand jitter by 43.2%</strong> and <strong class="text-accent">hand velocity error by 32.8%</strong> relative to GVHMR + HaMeR on ARCTIC.</p>
+      <div class="benchmark-group">
+      <p class="benchmark-context">ARCTIC · Jitter in m/s³; Accel in m/s²; MPJVE in mm/s.</p>
+<div class="benchmark-scroll" tabindex="0" role="region" aria-label="Temporal motion quality on ARCTIC; scroll horizontally for all metrics"><table class="benchmark-table">
+<caption class="visually-hidden">Temporal motion quality on ARCTIC</caption><thead>
+<tr><th scope="col" rowspan="2">Method</th><th scope="colgroup" colspan="3">All</th><th scope="colgroup" colspan="3">Hands</th></tr>
+<tr><th scope="col">Jitter ↓</th><th scope="col">Accel ↓</th><th scope="col">MPJVE ↓</th><th scope="col">Jitter ↓</th><th scope="col">Accel ↓</th><th scope="col">MPJVE ↓</th></tr>
+</thead><tbody>
+<tr><th scope="row">SMPLer-X-B</th>
+<td>127.5</td>
+<td>23.8</td>
+<td>482.6</td>
+<td>52.1</td>
+<td>9.9</td>
+<td>219.9</td>
+</tr>
+<tr><th scope="row">SMPLest-X</th>
+<td>95.1</td>
+<td>17.8</td>
+<td>364.6</td>
+<td>55.4</td>
+<td>10.4</td>
+<td>228.5</td>
+</tr>
+<tr><th scope="row">GVHMR + HaMeR</th>
+<td><span class="benchmark-second">6.0</span></td>
+<td><span class="benchmark-second">1.8</span></td>
+<td><span class="benchmark-second">109.0</span></td>
+<td><span class="benchmark-second">7.4</span></td>
+<td><span class="benchmark-second">1.6</span></td>
+<td><span class="benchmark-second">100.7</span></td>
+</tr>
+<tr class="benchmark-ours"><th scope="row">DanceHMR</th>
+<td><strong>5.4</strong></td>
+<td><strong>1.5</strong></td>
+<td><strong>81.3</strong></td>
+<td><strong>4.2</strong></td>
+<td><strong>1.5</strong></td>
+<td><strong>67.7</strong></td>
+</tr>
+</tbody></table></div><p class="benchmark-note"><strong>Bold</strong>: best. <span class="benchmark-second">Underlined</span>: second best. ↓ Lower is better. — Not reported.</p>
       </div>
     </div>
+    <div class="benchmark-block" id="body-results">
+      <h3>Body-only reconstruction</h3>
+      <p class="benchmark-description">DanceHMR retains <strong>strong body accuracy while recovering articulated hands</strong>. On EMDB, MPJPE improves from <strong class="text-accent">67.1 to 64.3 mm</strong> compared with DUOMO.</p>
+<div class="benchmark-group" data-benchmark-group><div class="benchmark-tabs" role="tablist" aria-label="Body-only datasets" hidden>
+<button type="button" role="tab" id="tab-3dpw" aria-controls="panel-3dpw" aria-selected="true" tabindex="0">3DPW</button>
+<button type="button" role="tab" id="tab-emdb" aria-controls="panel-emdb" aria-selected="false" tabindex="-1">EMDB</button>
+</div>
+<div id="panel-3dpw" class="benchmark-panel" aria-labelledby="tab-3dpw"><h4>3DPW</h4><p class="benchmark-context">Position errors in mm; acceleration error in m/s².</p><div class="benchmark-scroll" tabindex="0" role="region" aria-label="3DPW body-only reconstruction; scroll horizontally for all metrics"><table class="benchmark-table">
+<caption class="visually-hidden">3DPW body-only reconstruction</caption><thead>
+<tr><th scope="col">Method</th><th scope="col">PA-MPJPE ↓</th><th scope="col">MPJPE ↓</th><th scope="col">PVE ↓</th><th scope="col">Accel ↓</th></tr>
+</thead><tbody>
+<tr><th scope="row">GVHMR</th>
+<td>37.0</td>
+<td>56.6</td>
+<td>68.7</td>
+<td><span class="benchmark-second">5.2</span></td>
+</tr>
+<tr><th scope="row">GENMO</th>
+<td><strong>34.6</strong></td>
+<td><span class="benchmark-second">53.9</span></td>
+<td><span class="benchmark-second">65.8</span></td>
+<td><span class="benchmark-second">5.2</span></td>
+</tr>
+<tr><th scope="row">PromptHMR-Vid</th>
+<td>35.5</td>
+<td>56.9</td>
+<td>67.3</td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">OSX</th>
+<td>60.6</td>
+<td>86.2</td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">SMPLer-X-B</th>
+<td>53.4</td>
+<td>80.3</td>
+<td>90.3</td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">Multi-HMR</th>
+<td>41.7</td>
+<td>61.4</td>
+<td>75.9</td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">SMPLest-X</th>
+<td>43.2</td>
+<td>70.5</td>
+<td><span aria-label="Not reported">—</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr class="benchmark-ours"><th scope="row">DanceHMR</th>
+<td><span class="benchmark-second">35.2</span></td>
+<td><strong>53.6</strong></td>
+<td><strong>65.1</strong></td>
+<td><strong>4.9</strong></td>
+</tr>
+</tbody></table></div></div>
+<div id="panel-emdb" class="benchmark-panel" aria-labelledby="tab-emdb"><h4>EMDB</h4><p class="benchmark-context">Position errors in mm; acceleration error in m/s².</p><div class="benchmark-scroll" tabindex="0" role="region" aria-label="EMDB body-only reconstruction; scroll horizontally for all metrics"><table class="benchmark-table">
+<caption class="visually-hidden">EMDB body-only reconstruction</caption><thead>
+<tr><th scope="col">Method</th><th scope="col">PA-MPJPE ↓</th><th scope="col">MPJPE ↓</th><th scope="col">PVE ↓</th><th scope="col">Accel ↓</th></tr>
+</thead><tbody>
+<tr><th scope="row">GVHMR</th>
+<td>44.5</td>
+<td>74.2</td>
+<td>85.9</td>
+<td>3.9</td>
+</tr>
+<tr><th scope="row">GENMO</th>
+<td>42.5</td>
+<td>73.0</td>
+<td>84.8</td>
+<td><span class="benchmark-second">3.8</span></td>
+</tr>
+<tr><th scope="row">PromptHMR-Vid</th>
+<td><strong>40.1</strong></td>
+<td>68.1</td>
+<td>79.2</td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">DUOMO</th>
+<td><span class="benchmark-second">41.8</span></td>
+<td><span class="benchmark-second">67.1</span></td>
+<td><span class="benchmark-second">78.2</span></td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr><th scope="row">Multi-HMR</th>
+<td>50.1</td>
+<td>81.6</td>
+<td>95.7</td>
+<td><span aria-label="Not reported">—</span></td>
+</tr>
+<tr class="benchmark-ours"><th scope="row">DanceHMR</th>
+<td><strong>40.1</strong></td>
+<td><strong>64.3</strong></td>
+<td><strong>75.4</strong></td>
+<td><strong>3.5</strong></td>
+</tr>
+</tbody></table></div></div>
+<p class="benchmark-note"><strong>Bold</strong>: best. <span class="benchmark-second">Underlined</span>: second best. ↓ Lower is better. — Not reported.</p></div>
+    </div>
+    <p class="benchmark-source">Results from Tables 1–3 of the camera-ready paper. Reported metrics exclude trajectory refinement. <a href="dancehmr-paper.pdf#page=7" target="_blank" rel="noopener">Read the evaluation ↗</a></p>
+
   </section>
 
-  <section id="BkgdVideos"></section>
-
-  <!-- <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Overview Video</h3>
-          <hr style="margin-top: 0px" />
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe width="100%" height=640 style="border-radius: 10px;" src="https://www.youtube.com/embed/s8bzdZ63kx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h3>Abstract</h3>
-          <hr style="margin-top: 0px" />
-          <img src="img/teaser_v2.jpg" width="100%" />
-          <p class="text-left">
-            Monocular video human mesh recovery is essential for digital humans, avatar animation, and embodied
-            simulation, where both temporal stability and expressive whole-body motion are required. Existing video HMR
-            methods produce coherent body motion but often overlook detailed hand articulation, while image-based
-            whole-body methods recover SMPL-X meshes independently per frame, often leading to jittery and inaccurate
-            hand motion. We present DanceHMR, a temporally coherent whole-body HMR framework for challenging
-            in-the-wild monocular videos. DanceHMR unifies body context and part-specific hand observations through
-            residual body-hand fusion, enabling stable body motion and detailed hand recovery within a single temporal
-            architecture. We further introduce close-up-aware augmentation to improve robustness under upper-body
-            framing. Experiments on whole-body and body-only benchmarks demonstrate improved hand reconstruction,
-            competitive body accuracy, and temporally stable, 2D-consistent SMPL-X motion in real-world videos.<br>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h3>Method</h3>
-          <hr style="margin-top: 0px" />
-          <div style="display: flex; justify-content: center;">
-            <img src="img/method.jpg" width="95%" />
-          </div>
-          <p>
-            <strong>Framework overview.</strong>
-            Given an input video, DanceHMR separately encodes body and hand observations, including vision features,
-            2D keypoints, bounding boxes, and camera cues. Left- and right-hand evidence is fused into a body-anchored
-            representation as residual cues before temporal modeling, allowing the model to use local hand details when
-            they are reliable while falling back to body context and temporal priors under occlusion, truncation, or
-            blur. A temporal motion encoder and SMPL-X decoder then reconstruct coherent whole-body motion, including
-            articulated hands. During training, close-up-aware augmentation simulates upper-body crops and hand
-            truncation so the model handles livestream, vlog, speech, and dance-style compositions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h3>Training & Evaluation</h3>
-          <hr style="margin-top: 0px" />
-          <p><strong>Training</strong>:
-            DanceHMR is trained with a two-stage curriculum on motion capture, synthetic, and in-the-wild video data,
-            including BEDLAM, MOYO, ARCTIC, EgoBody, AMASS, WHAC-A-Mole, 3DPW, and Human3.6M. The second stage places
-            greater emphasis on high-quality SMPL-X and hand-centric data to refine fine-grained hand articulation.
-          </p>
-          <p><strong>Whole-body results</strong>
-          <div style="display: flex; justify-content: center;">
-            <img src="img/whole_body_metrics.png" width="95%" />
-          </div>
-          </p>
-          <p><strong>Body-only results</strong>
-          <div style="display: flex; justify-content: center;">
-            <img src="img/body_only_metrics.png" width="50%" />
-          </div>
-          </p>
-          <p>
-            On ARCTIC and UBody, DanceHMR improves hand reconstruction while remaining competitive on whole-body
-            accuracy. On 3DPW and EMDB, it also maintains strong body-only video HMR performance, showing that the
-            hand-aware design does not sacrifice body motion quality.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h3>More Results</h3>
-          <hr style="margin-top: 0px" />
-        </div>
-      </div>
-    </div>
-    <!-- Auto Added in the script -->
-    <div id="video-modules-container"></div>
-  </section>
-
-  <!-- citing -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        </br>
-        </br>
-        <h3>Citation</h3>
-        <hr style="margin-top: 0px" />
-        <pre style="background-color: #e9eeef; padding: 1.5em 1.5em; border-radius: 20px">
-<code>@article{shen2026dancehmr,
-  title={DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos},
-  author={Shen, Wenhao and Zhou, Ming and Zhang, Hengyuan and Bian, Siyuan and Xu, Youjiang and Zhang, Yuan},
-  journal={arXiv preprint},
-  year={2026}
+  <section id="citation" class="research-section" data-reveal aria-labelledby="citation-heading">
+    <div class="research-section-heading"><h2 id="citation-heading"><span class="section-number">05</span>Citation</h2><button class="copy-citation" type="button" data-copy-citation hidden><svg class="research-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M15 5V3H3v13h2"/></svg> <span role="status" aria-live="polite">Copy BibTeX</span></button></div>
+    <pre class="research-bibtex" tabindex="0" aria-label="BibTeX citation"><code id="citation-code">@inproceedings{shen2026dancehmr,
+  title     = {DanceHMR: Hand-Aware Whole-Body Human Mesh Recovery from Monocular Videos},
+  author    = {Shen, Wenhao and Zhou, Ming and Zhang, Hengyuan and Bian, Siyuan and Xu, Youjiang and Zhang, Yuan},
+  booktitle = {Proceedings of the SIGGRAPH Asia 2026 Conference Papers},
+  series    = {SA Conference Papers '26},
+  year      = {2026},
+  month     = nov,
+  pages     = {1--11},
+  publisher = {ACM},
+  doi       = {10.1145/3829340.3842190},
+  url       = {https://doi.org/10.1145/3829340.3842190}
 }</code></pre>
-        <hr />
-      </div>
-    </div>
-  </div>
-
-  <footer class="text-center" style="margin-bottom: 10px">
-    Thanks to
-    <a href="https://zju3dv.github.io/gvhmr/" target="_blank">GVHMR project page</a>
-    for the website template.
-  </footer>
-
-  <!-- Default Statcounter code for 4K4D: Real-Time 4D View Synthesi http://zju3dv.github.io/4k4d -->
-  <!-- <script type="text/javascript">
-    var sc_project = 12931644;
-    var sc_invisible = 1;
-    var sc_security = '012c8c76';
-  </script>
-  <script async src="https://www.statcounter.com/counter/counter.js" type="text/javascript"></script>
-  <noscript>
-    <div class="statcounter">
-      <a href="https://statcounter.com/" target="_blank" title="Web Analytics
-  Made Easy - Statcounter"><img alt="Web Analytics Made Easy - Statcounter" class="statcounter"
-          referrerpolicy="no-referrer-when-downgrade" src="https://c.statcounter.com/12931644/0/012c8c76/1/" /></a>
-    </div>
-  </noscript> -->
-  <!-- End of Statcounter Code -->
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Math
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$", right: "$", display: false },
-          { left: "$$", right: "$$", display: true }
-        ]
-      });
-
-    });
-
-    // Add a carousel to the page
-    function createVideoCarousel(videos, targetId, options = {}) {
-      const section = document.getElementById(targetId);
-      if (!section) {
-        console.error(`Element with id '${targetId}' not found.`);
-        return;
-      }
-
-      const { controls = true, interval = 10000, ratioTemplate = "a16x9demo" } = options;
-
-      const container = document.createElement('div');
-      container.className = 'container';
-
-      const row = document.createElement('div');
-      row.className = 'row justify-content-center';
-
-      const col = document.createElement('div');
-      col.className = 'col-md-12 text-center';
-
-      const carousel = document.createElement('div');
-      carousel.className = 'carousel slide';
-      carousel.id = targetId + 'Carousel';
-      carousel.setAttribute('data-ride', 'carousel');
-      carousel.setAttribute('data-interval', interval);
-
-      const indicators = document.createElement('ol');
-      indicators.className = 'carousel-indicators';
-
-      const carouselInner = document.createElement('div');
-      carouselInner.className = 'carousel-inner';
-
-      videos.forEach((video, index) => {
-        const indicator = document.createElement('li');
-        indicator.setAttribute('data-target', `#${targetId}Carousel`);
-        indicator.setAttribute('data-slide-to', index.toString());
-        if (index === 0) indicator.className = 'active';
-        indicator.innerHTML = `<span class="indicator-dot"></span>`;
-        indicators.appendChild(indicator);
-
-        const carouselItem = document.createElement('div');
-        carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-
-        const innerRow = document.createElement('div');
-        innerRow.className = 'row sm-gutters';
-
-        const innerCol = document.createElement('div');
-        innerCol.className = 'col-md-12';
-
-        const videoElement = document.createElement('video');
-        videoElement.className = ratioTemplate;
-        videoElement.setAttribute('width', '100%');
-        videoElement.setAttribute('autoplay', '');
-        // related issue: https://6a00999f-abaa-379e-ae7a-6c126b9833cb.kunlun-6swnhz2o-dotu.xyz/link/rfFXnT7NvfEtXoRp?list=shadowrocket
-        // videoElement.setAttribute('muted', '');
-        videoElement.muted = true;
-        videoElement.setAttribute('playsinline', '');
-        videoElement.setAttribute('loop', '');
-        if (controls) videoElement.setAttribute('controls', '');
-        videoElement.setAttribute('poster', video.poster || 'img/spinner.svg');
-
-        const source = document.createElement('source');
-        source.src = video.src;
-        source.type = 'video/mp4';
-        videoElement.appendChild(source);
-
-        innerCol.appendChild(videoElement);
-        innerRow.appendChild(innerCol);
-        carouselItem.appendChild(innerRow);
-        carouselInner.appendChild(carouselItem);
-      });
-
-      const prevControl = document.createElement('a');
-      prevControl.className = 'carousel-control-prev';
-      prevControl.setAttribute('href', `#${targetId}Carousel`);
-      prevControl.setAttribute('role', 'button');
-      prevControl.setAttribute('data-slide', 'prev');
-      const prevIcon = document.createElement('span');
-      prevIcon.className = 'carousel-control-prev-icon';
-      prevIcon.setAttribute('aria-hidden', 'true');
-      const prevText = document.createElement('span');
-      prevText.className = 'sr-only';
-      prevText.textContent = 'Previous';
-      prevControl.appendChild(prevIcon);
-      prevControl.appendChild(prevText);
-
-      const nextControl = document.createElement('a');
-      nextControl.className = 'carousel-control-next';
-      nextControl.setAttribute('href', `#${targetId}Carousel`);
-      nextControl.setAttribute('role', 'button');
-      nextControl.setAttribute('data-slide', 'next');
-      const nextIcon = document.createElement('span');
-      nextIcon.className = 'carousel-control-next-icon';
-      nextIcon.setAttribute('aria-hidden', 'true');
-      const nextText = document.createElement('span');
-      nextText.className = 'sr-only';
-      nextText.textContent = 'Next';
-      nextControl.appendChild(nextIcon);
-      nextControl.appendChild(nextText);
-
-      carousel.appendChild(indicators);
-      carousel.appendChild(carouselInner);
-      col.appendChild(carousel);
-      col.appendChild(prevControl);
-      col.appendChild(nextControl);
-      row.appendChild(col);
-      container.appendChild(row);
-      section.appendChild(container);
-
-    }
-
-    //
-    const bkgd_videos = [
-      { src: "our_video/teaser/zhangyouwei_1_3_crompressed.mp4" },
-      { src: "our_video/teaser/azaoa_crompressed.mp4" },
-      { src: "our_video/teaser/zhenren_danren_guaguawu_kuaisu_nv_quansheng_02_3_incam_global_horiz.mp4" },
-      { src: "our_video/teaser/v0d00fg10000cdbm453c77u7s7m42bmg_3_incam_global_horiz.mp4" }
-    ];
-
-    createVideoCarousel(bkgd_videos, 'BkgdVideos', { controls: false, interval: 10000, ratioTemplate: "teaser-demo" });
-
-
-    ///////////////////////// More results /////////////////////
-    function createVideoModule(targetId, text, videos, options = {}) {
-      const container = document.createElement('div');
-      container.className = 'container';
-
-      const header = document.createElement('h5');
-      const button = document.createElement('button');
-      button.id = `${targetId}-button`;
-      button.className = 'btn btn-primary';
-      button.type = 'button';
-      button.textContent = text;
-
-      header.appendChild(button);
-      container.appendChild(header);
-
-      const section = document.createElement('section');
-      section.id = targetId;
-      container.appendChild(section);
-
-      button.addEventListener('click', function () {
-        createVideoCarousel(videos, targetId, options);
-        this.disabled = true;
-      });
-
-      return container;
-    }
-
-    // Fetch the video lists JSON file, add to the page
-    const videoContainer = document.getElementById('video-modules-container');
-    fetch('video_lists.json')
-      .then(response => response.json())
-      .then(video_lists => {
-        // Manually create button (id+text); Assign each folder to a button
-        videoContainer.appendChild(createVideoModule('v_full_body', 'Full-body Internet Videos', video_lists["full_body"]));
-        videoContainer.appendChild(createVideoModule('v_half_body', 'Half-body Internet Videos', video_lists["half_body"]));
-        videoContainer.appendChild(createVideoModule('v_fast_motion', 'Fast Motion', video_lists["fast_motion"]));
-        videoContainer.appendChild(createVideoModule('v_ubody', 'UBody Dataset', video_lists["ubody_test_sub"]));
-        // videoContainer.appendChild(createVideoModule('v_unusual', 'Unusual Poses', video_lists["unusual_poses"]));
-        videoContainer.appendChild(createVideoModule('v_truncated', 'Hands Truncation', video_lists["half_body_hands_out_of_frame"]));
-      })
-      .catch(error => console.error('Error fetching video list:', error));
-
-
-  </script>
-</body>
-
-</html>
+  </section>
+  <footer class="research-footer"><span class="project-brand">Dance<span>HMR</span></span><a href="{{ '/projects/' | relative_url }}"><span aria-hidden="true">←</span> All projects</a><a href="#main">Back to top <span aria-hidden="true">↑</span></a></footer>
+</article>

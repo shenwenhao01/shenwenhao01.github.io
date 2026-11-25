@@ -11,6 +11,9 @@ An academic homepage built with Jekyll for GitHub Pages.
 - `_includes/research-preview.html`: shared image/video previews for publications and projects.
 - `images/publications/`: locally hosted research figures. `image_source` records where each figure came from. Entries without an image use a document placeholder.
 - `_sass/_academic.scss`: responsive layout and styling.
+- `dancehmr/index.html`: DanceHMR project page with a light standalone layout in `_layouts/dancehmr.html`, blue accents, floating navigation, and subtle scroll reveals. Styles are in `_sass/_dancehmr.scss`, compiled through `dancehmr/css/project.scss`. `dancehmr/js/project.js` handles the centered featured-video carousel, result gallery, and citation copying. The four featured clips and five result categories are listed in `dancehmr/video_lists.json`; thumbnails in `dancehmr/img/posters/` are frames from those videos.
+- DanceHMR benchmark tables reproduce camera-ready Tables 1–3 (pages 7–8), with dataset tabs and relative improvements against explicitly named baselines. The local paper is `dancehmr/dancehmr-paper.pdf`; the SIGGRAPH Asia 2026 BibTeX uses the publisher metadata for DOI `10.1145/3829340.3842190`. Update the table cells and highlight calculations together when results change.
+- Downloaded manuscript sources in `dancehmr/dancehmr_paper/` and the separate `mirror/` preview are kept locally and excluded from both Git and the site build.
 - `assets/fonts/academic/`: self-hosted Newsreader (headings and prose), Inter (metadata), and a three-character Zhuque Fangsong subset for the Chinese name, with their OFL licenses. The Chinese name does not depend on installed system fonts; see `assets/fonts/academic/SOURCES.md` for its source and subset command.
 - `images/organizations/`: locally stored company logos and university crests. ByteDance uses its symbol without the wordmark. Source URLs are recorded in `SOURCES.md`.
 

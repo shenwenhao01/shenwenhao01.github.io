@@ -1,48 +1,174 @@
 {
+  "featured": [
+    {
+      "src": "our_video/teaser/zhangyouwei_1_3_crompressed.mp4",
+      "poster": "img/posters/featured-01.jpg"
+    },
+    {
+      "src": "our_video/teaser/azaoa_crompressed.mp4",
+      "poster": "img/posters/featured-02.jpg"
+    },
+    {
+      "src": "our_video/teaser/zhenren_danren_guaguawu_kuaisu_nv_quansheng_02_3_incam_global_horiz.mp4",
+      "poster": "img/posters/featured-03.jpg"
+    },
+    {
+      "src": "our_video/teaser/v0d00fg10000cdbm453c77u7s7m42bmg_3_incam_global_horiz.mp4",
+      "poster": "img/posters/featured-04.jpg"
+    }
+  ],
   "full_body": [
-    { "src": "our_video/full_body/coffee_sweet.mp4" },
-    { "src": "our_video/Unusual_poses/show_final_merge (20).mp4" },
-    { "src": "our_video/full_body/v0d00fg10000cdb1g6bc77uc9su2k8fg_3_incam_global_horiz.mp4" },
-    { "src": "our_video/full_body/zhenren_danren_bboombboom_zhongsu_nv_quanshen_232_3_incam_global_horiz.mp4" },
-    { "src": "our_video/full_body/zhenren_danren_flower_zhongsu_nv_quanshen_13_3_incam_global_horiz.mp4" },
-    { "src": "our_video/full_body/xr_danren_daizuwu_kuaisu_nv_quanshen_57_3_incam_global_horiz.mp4" },
-    { "src": "our_video/full_body/65bb28f0aa00c_2f9d0f5c49c18dbb296381c54b465f55_0_3_incam_global_horiz.mp4" },
-    { "src": "our_video/full_body/现代舞女6_3_incam_global_horiz.mp4" },
-    { "src": "our_video/Unusual_poses/basketball_crop.mp4" },
-    { "src": "our_video/full_body/dance-fullbody-fixcamera-circle_3_incam_global_horiz.mp4" },
-    { "src": "our_video/full_body/drama-mabaoguo_3_incam_global_horiz.mp4" },
-    { "src": "our_video/full_body/dance-hiphop_3_incam_global_horiz.mp4" }
+    {
+      "src": "our_video/full_body/coffee_sweet.mp4",
+      "poster": "img/posters/full_body-01.jpg"
+    },
+    {
+      "src": "our_video/Unusual_poses/show_final_merge (20).mp4",
+      "poster": "img/posters/full_body-02.jpg"
+    },
+    {
+      "src": "our_video/full_body/v0d00fg10000cdb1g6bc77uc9su2k8fg_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-03.jpg"
+    },
+    {
+      "src": "our_video/full_body/zhenren_danren_bboombboom_zhongsu_nv_quanshen_232_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-04.jpg"
+    },
+    {
+      "src": "our_video/full_body/zhenren_danren_flower_zhongsu_nv_quanshen_13_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-05.jpg"
+    },
+    {
+      "src": "our_video/full_body/xr_danren_daizuwu_kuaisu_nv_quanshen_57_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-06.jpg"
+    },
+    {
+      "src": "our_video/full_body/65bb28f0aa00c_2f9d0f5c49c18dbb296381c54b465f55_0_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-07.jpg"
+    },
+    {
+      "src": "our_video/full_body/现代舞女6_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-08.jpg"
+    },
+    {
+      "src": "our_video/Unusual_poses/basketball_crop.mp4",
+      "poster": "img/posters/full_body-09.jpg"
+    },
+    {
+      "src": "our_video/full_body/dance-fullbody-fixcamera-circle_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-10.jpg"
+    },
+    {
+      "src": "our_video/full_body/drama-mabaoguo_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-11.jpg"
+    },
+    {
+      "src": "our_video/full_body/dance-hiphop_3_incam_global_horiz.mp4",
+      "poster": "img/posters/full_body-12.jpg"
+    }
   ],
   "half_body": [
-    { "src": "our_video/half_body/v0d00fg10000cdb65b3c77u2k7dghee0_3_incam_global_horiz.mp4" },
-    { "src": "our_video/half_body/speech-trump_3_incam_global_horiz.mp4" },
-    { "src": "our_video/half_body/tongzhuo_crop.mp4" },
-    { "src": "our_video/half_body/飞书20250228-134056_3_incam_global_horiz200.mp4" },
-    { "src": "our_video/half_body/shoushiwu2_3_compressed.mp4" },
-    { "src": "our_video/half_body/sing.mp4" },
-    { "src": "our_video/half_body/zhenren_danren_baobeizaiganma_zhongsu_nv_quanshen_32_3_incam_global_horiz.mp4" }
+    {
+      "src": "our_video/half_body/v0d00fg10000cdb65b3c77u2k7dghee0_3_incam_global_horiz.mp4",
+      "poster": "img/posters/half_body-01.jpg"
+    },
+    {
+      "src": "our_video/half_body/speech-trump_3_incam_global_horiz.mp4",
+      "poster": "img/posters/half_body-02.jpg"
+    },
+    {
+      "src": "our_video/half_body/tongzhuo_crop.mp4",
+      "poster": "img/posters/half_body-03.jpg"
+    },
+    {
+      "src": "our_video/half_body/飞书20250228-134056_3_incam_global_horiz200.mp4",
+      "poster": "img/posters/half_body-04.jpg"
+    },
+    {
+      "src": "our_video/half_body/shoushiwu2_3_compressed.mp4",
+      "poster": "img/posters/half_body-05.jpg"
+    },
+    {
+      "src": "our_video/half_body/sing.mp4",
+      "poster": "img/posters/half_body-06.jpg"
+    },
+    {
+      "src": "our_video/half_body/zhenren_danren_baobeizaiganma_zhongsu_nv_quanshen_32_3_incam_global_horiz.mp4",
+      "poster": "img/posters/half_body-07.jpg"
+    }
   ],
   "fast_motion": [
-    { "src": "our_video/fast_motion/kpop_crompressed.mp4" },
-    { "src": "our_video/fast_motion/1_incam (5).mp4" },
-    { "src": "our_video/fast_motion/1_incam (7).mp4" },
-    { "src": "our_video/fast_motion/k_freestyle.mp4" },
-    { "src": "our_video/fast_motion/blackdragon_compressed.mp4" },
-    { "src": "our_video/fast_motion/1_incam (4).mp4" }
+    {
+      "src": "our_video/fast_motion/kpop_crompressed.mp4",
+      "poster": "img/posters/fast_motion-01.jpg"
+    },
+    {
+      "src": "our_video/fast_motion/1_incam (5).mp4",
+      "poster": "img/posters/fast_motion-02.jpg"
+    },
+    {
+      "src": "our_video/fast_motion/1_incam (7).mp4",
+      "poster": "img/posters/fast_motion-03.jpg"
+    },
+    {
+      "src": "our_video/fast_motion/k_freestyle.mp4",
+      "poster": "img/posters/fast_motion-04.jpg"
+    },
+    {
+      "src": "our_video/fast_motion/blackdragon_compressed.mp4",
+      "poster": "img/posters/fast_motion-05.jpg"
+    },
+    {
+      "src": "our_video/fast_motion/1_incam (4).mp4",
+      "poster": "img/posters/fast_motion-06.jpg"
+    }
   ],
   "ubody_test_sub": [
-    { "src": "our_video/ubody_test_sub/SignLanguage_S69_3_incam_global_horiz.mp4" },
-    { "src": "our_video/ubody_test_sub/Online_class_S9_Trim2_3_incam_global_horiz.mp4" },
-    { "src": "our_video/ubody_test_sub/ConductMusic_S21_Trim9_3_incam_global_horiz.mp4" },
-    { "src": "our_video/ubody_test_sub/TalkShow_S2_Trim1_3_incam_global_horiz.mp4" },
-    { "src": "our_video/ubody_test_sub/SignLanguage_S18_3_incam_global_horiz.mp4" },
-    { "src": "our_video/ubody_test_sub/Singing_S11_Trim17_scene003_3_incam_global_horiz.mp4" },
-    { "src": "our_video/ubody_test_sub/LiveVlog_S7_Trim51_3_incam_global_horiz.mp4" },
-    { "src": "our_video/ubody_test_sub/Magic_show_S6_Trim14_3_incam_global_horiz.mp4" }
+    {
+      "src": "our_video/ubody_test_sub/SignLanguage_S69_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-01.jpg"
+    },
+    {
+      "src": "our_video/ubody_test_sub/Online_class_S9_Trim2_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-02.jpg"
+    },
+    {
+      "src": "our_video/ubody_test_sub/ConductMusic_S21_Trim9_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-03.jpg"
+    },
+    {
+      "src": "our_video/ubody_test_sub/TalkShow_S2_Trim1_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-04.jpg"
+    },
+    {
+      "src": "our_video/ubody_test_sub/SignLanguage_S18_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-05.jpg"
+    },
+    {
+      "src": "our_video/ubody_test_sub/Singing_S11_Trim17_scene003_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-06.jpg"
+    },
+    {
+      "src": "our_video/ubody_test_sub/LiveVlog_S7_Trim51_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-07.jpg"
+    },
+    {
+      "src": "our_video/ubody_test_sub/Magic_show_S6_Trim14_3_incam_global_horiz.mp4",
+      "poster": "img/posters/ubody_test_sub-08.jpg"
+    }
   ],
   "half_body_hands_out_of_frame": [
-    { "src": "our_video/half_body_hands_out_of_frame/drama-stallone_3_incam_global_horiz.mp4" },
-    { "src": "our_video/half_body_hands_out_of_frame/新自拍-女8_3_incam_global_horiz.mp4" },
-    { "src": "our_video/Unusual_poses/climb_crop.mp4" }
+    {
+      "src": "our_video/half_body_hands_out_of_frame/drama-stallone_3_incam_global_horiz.mp4",
+      "poster": "img/posters/half_body_hands_out_of_frame-01.jpg"
+    },
+    {
+      "src": "our_video/half_body_hands_out_of_frame/新自拍-女8_3_incam_global_horiz.mp4",
+      "poster": "img/posters/half_body_hands_out_of_frame-02.jpg"
+    },
+    {
+      "src": "our_video/Unusual_poses/climb_crop.mp4",
+      "poster": "img/posters/half_body_hands_out_of_frame-03.jpg"
+    }
   ]
 }

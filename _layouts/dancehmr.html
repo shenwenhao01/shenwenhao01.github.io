@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    {% include seo.html title=page.title %}
+    <link rel="icon" type="image/svg+xml" href="{{ '/dancehmr/img/favicon.svg' | relative_url }}">
+    <link rel="preload" href="{{ '/assets/fonts/academic/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ '/dancehmr/css/project.css' | relative_url }}">
+    <script src="{{ '/dancehmr/js/project.js' | relative_url }}" defer></script>
+  </head>
+  <body class="dancehmr-site">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="project-topbar">
+      <a class="project-brand" href="#main" aria-label="DanceHMR, back to top">Dance<span>HMR</span></a>
+      <nav aria-label="Project navigation">
+        <a href="#overview">Overview</a>
+        <a href="#BkgdVideos">Gallery</a>
+        <a href="#method">Method</a>
+        <a href="{{ '/' | relative_url }}" class="home-link" aria-label="Homepage — Wenhao Shen">Homepage <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">{{ content }}</main>
+    {% include analytics.html %}
+  </body>
+</html>

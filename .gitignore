@@ -5,3 +5,7 @@
 .bundle/
 vendor/
 _site/
+
+# Local research sources and the separate MIRROR preview.
+/dancehmr/dancehmr_paper/
+/mirror/

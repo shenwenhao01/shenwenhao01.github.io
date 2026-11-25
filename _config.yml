@@ -127,6 +127,10 @@ include:
   - _pages
   - files
 exclude:
+  # MIRROR is an anonymous local preview until its authors authorize publication.
+  - mirror
+  # Keep the downloaded manuscript sources local; publish only the final PDF.
+  - dancehmr/dancehmr_paper
   - _posts
   - _drafts
   - _pages/year-archive.html
