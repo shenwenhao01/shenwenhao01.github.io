@@ -18,7 +18,7 @@ redirect_from:
     <h1 id="profile-name"><span>Wenhao Shen</span><span class="profile-name-cn" lang="zh-Hans">沈文豪</span></h1>
   </div>
   <div class="profile-bio" markdown="1">
-I am a final-year Ph.D. student at the College of Computing and Data Science, [Nanyang Technological University](https://www.ntu.edu.sg/), advised by [Prof. Guosheng Lin](https://guosheng.github.io/). I am currently a research intern with the [Tencent Hunyuan 3D Generation Team](https://3d.hunyuan.tencent.com/).
+I am a final-year Ph.D. student at the College of Computing and Data Science, [Nanyang Technological University](https://www.ntu.edu.sg/), advised by [Prof. Guosheng Lin](https://guosheng.github.io/). I work closely with [AP Hao Wang](https://wanghao.tech/). I am currently a research intern with the [Tencent Hunyuan 3D Generation Team](https://3d.hunyuan.tencent.com/).
 
 Previously, I received my bachelor's degree in Artificial Intelligence from [Zhejiang University](https://www.zju.edu.cn/english/) in 2023, with an honors degree from [Chu Kochen Honors College](http://ckc.zju.edu.cn/ckcen/main.htm). I was fortunate to work with [Prof. Xiaowei Zhou](http://xzhou.me/) and [Prof. Chunhua Shen](https://cshen.github.io/).
 

@@ -3,7 +3,7 @@
     {% unless page.url == '/' %}<a class="site-home" href="{{ '/' | relative_url }}" aria-label="Wenhao Shen, home">Wenhao Shen</a>{% endunless %}
     <ul class="site-links">
       {% for link in site.data.navigation.main %}
-        <li><a href="{{ link.url | relative_url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+        <li><a href="{{ link.url | relative_url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.title }}<span class="site-link-arrow" aria-hidden="true">↗</span></a></li>
       {% endfor %}
     </ul>
   </nav>
