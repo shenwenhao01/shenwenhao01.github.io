@@ -39,7 +39,7 @@ sitemap: false
     <p>Jun 2026 &ndash; Present</p>
     <div>
       <h3>Tencent</h3>
-      <p>Research Intern &middot; Hunyuan 3D Generation Team</p>
+      <p>Research Intern (Qingyun Program) &middot; Hunyuan 3D Generation Team</p>
       <p class="experience-detail">3D generation post-training.</p>
     </div>
   </article>
